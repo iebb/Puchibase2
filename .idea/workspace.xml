@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d974bf8-9b18-4e8e-b165-d6a26ebfea93" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/puchies/$id.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/puchies/$id.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/xet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/xet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,6 +27,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ejs" value="3" />
+          <entry key="gitignore" value="1" />
           <entry key="js" value="97" />
           <entry key="json" value="2" />
           <entry key="less" value="5" />
@@ -40,7 +41,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="97" />
           <entry key="Less" value="5" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -52,6 +53,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ejs" value="17" />
+          <entry key="gitignore" value="9" />
           <entry key="js" value="5198" />
           <entry key="less" value="16" />
           <entry key="md" value="42" />
@@ -63,7 +65,7 @@
           <entry key="EJS" value="17" />
           <entry key="JavaScript" value="5198" />
           <entry key="Less" value="16" />
-          <entry key="PLAIN_TEXT" value="42" />
+          <entry key="PLAIN_TEXT" value="51" />
         </counts>
       </usages-collector>
     </session>
@@ -71,18 +73,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/stages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/puchies/$id.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="438">
@@ -90,6 +80,15 @@
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -241,6 +240,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/services/xet.js" />
         <option value="$PROJECT_DIR$/src/pages/puchies/$id.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -260,11 +260,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="273" />
-    <option name="y" value="63" />
-    <option name="width" value="1657" />
-    <option name="height" value="972" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="513" />
+    <option name="y" value="489" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -280,74 +280,6 @@
             <path>
               <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
               <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name=".umi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="cards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="puchies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="stages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Puchiguru" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Puchiguru" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -393,15 +325,15 @@
       <option name="presentableId" value="Default" />
       <updated>1538492685120</updated>
       <workItem from="1538492687408" duration="17182000" />
-      <workItem from="1538563623052" duration="13665000" />
+      <workItem from="1538563623052" duration="14188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30847000" />
+    <option name="totallyTimeSpent" value="31370000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="285" y="466" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20735383" />
@@ -694,6 +626,13 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
         </state>
       </provider>
     </entry>
