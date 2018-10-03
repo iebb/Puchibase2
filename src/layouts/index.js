@@ -11,7 +11,7 @@ const Layout = (props) => {
           <Menu.Item as='a' header>
             <Image
               size='mini'
-              src={require('../../static/snowhala-honk.png')}
+              src='https://puchi-xet.loveliv.es/sprawlpict/sprawlpict10003101.png'
               style={{ marginRight: '1.5em' }}
 
             />

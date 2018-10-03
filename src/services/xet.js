@@ -11,3 +11,6 @@ export function getSkillCutinAImage(aId) {
 export function getSkillCutinBImage(aId) {
   return sprintf("https://puchi-xet.loveliv.es/skillcutinimageb/skillcutinimageb%08d.png", aId);
 }
+export function getCardSmallImage(aId) {
+  return sprintf("https://puchi-xet.loveliv.es/cardsmall/cardsmall%09d.png", aId);
+}

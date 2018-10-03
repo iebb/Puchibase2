@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
-import {Card, Divider, Header, Image, Pagination, Progress} from "semantic-ui-react";
+import {Card, Divider, Header, Image, Pagination, Progress, Tab} from "semantic-ui-react";
 import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
-import {getSPRImage} from "../../services/xet";
+import {getCardSmallImage, getSPRImage} from "../../services/xet";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -24,23 +24,11 @@ export default class Cards extends React.PureComponent {
 
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
 
-
-  process(prop) {
-    const { getMemberMaster, getPersonalMaster, getCostumeMaster } = prop;
-    const personalMap = arrayToMap(getPersonalMaster, "personalMstId");
-    const costumeMap = arrayToMap(getCostumeMaster, "costumeMstId");
-    for (let row of getMemberMaster) {
-      row.personal = personalMap[row.personalMstId];
-      row.costume = costumeMap[row.costumeMstId];
-    }
-    return getMemberMaster;
-  }
-
-
   render() {
     const { activePage, rowPerPage } = this.state;
 
-    const data = this.process(this.props.cards);
+    console.log(this.props.cards);
+    const { data } = this.props.cards;
 
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
@@ -56,20 +44,32 @@ export default class Cards extends React.PureComponent {
         <Divider />
         <Card.Group itemsPerRow={4}>
           {
-            pageData.map(row => (
-              <Card key={row.memberMstId}>
+            pageData.map(cards => (
+              <Card key={cards.cardBaseId}>
                 <Card.Content>
-                  <Image floated='left' size='tiny' src={getSPRImage(row.memberMstId)} />
-                  <Card.Header>{row.personal && row.personal.personalName}</Card.Header>
-                  <Card.Meta>#{row.memberMstId}</Card.Meta>
-                  <Card.Description>{row.costume && row.costume.costumeName}</Card.Description>
-                  <Card.Description>
-                    <Progress percent={(100.0 * (row.scoreInitial + 49 * row.scoreRise) / 1500)} color='green' size="tiny">
-                      SCORE: {row.scoreInitial} / {row.scoreInitial + 24 * row.scoreRise} / {row.scoreInitial + 49 * row.scoreRise}
-                    </Progress>
-                  </Card.Description>
+                  <Card.Header>{cards.data[0].cardName}</Card.Header>
+                  <Image src={getCardSmallImage(cards.data[0].cardMstId)} />
+                </Card.Content>
+                <Card.Content>
+                <Tab menu={{ secondary: true, pointing: true }} panes={
+                  cards.data.map(row => (
+                    {
+                      menuItem: `${row.rarity}★`,
+                      render: () => <Tab.Pane attached={false}>
+                          <Card.Meta>#{row.cardMstId}</Card.Meta>
+                          <Card.Description>{row.cardName}</Card.Description>
+                          <Card.Description>
+                            <Progress percent={(100.0 * (row.score) / 300)} color='green' size="tiny">
+                              SCORE: {row.score}
+                            </Progress>
+                          </Card.Description>
+                      </Tab.Pane>
+                    }
+                  ))
+                } />
                 </Card.Content>
               </Card>
+
             ))
           }
         </Card.Group>
