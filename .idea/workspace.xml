@@ -261,10 +261,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="513" />
-    <option name="y" value="489" />
+    <option name="x" value="309" />
+    <option name="y" value="196" />
     <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="height" value="893" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
