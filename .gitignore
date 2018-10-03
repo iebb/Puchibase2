@@ -4,10 +4,11 @@ node_modules
 tmp
 npm-debug.log
 
-.idea/*
-
 # umi
 .umi
 .umi-production
 package-lock.json
-.idea/workspace.xml
+
+
+# tmp
+.tmp
