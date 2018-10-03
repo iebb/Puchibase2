@@ -8,3 +8,4 @@ npm-debug.log
 .umi
 .umi-production
 package-lock.json
+.idea/workspace.xml

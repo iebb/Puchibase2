@@ -81,8 +81,12 @@ export default class PuchiDetail extends React.PureComponent {
     const data = arrayToMap(this.props.puchies.data, "memberMstId");
     const puchiId = this.state.currentPuchi;
     const puchi = data[puchiId];
-    console.log(puchi);
-    return puchi && puchi.personal && puchi.costume ? (
+
+    if (!(puchi && puchi.personal && puchi.costume )) {
+      return null;
+    }
+    const binMap = puchi.skillActive[0].binaryMap;
+    return (
       <div>
         <Header as="h2">#{puchiId} - {puchi.personal.personalName} - {puchi.costume.costumeName}</Header>
 
@@ -111,7 +115,7 @@ export default class PuchiDetail extends React.PureComponent {
                       <Table.HeaderCell>Effects</Table.HeaderCell>
                       <Table.HeaderCell>Req't</Table.HeaderCell>
                       {
-                        puchi.skillActive[0].binaryMap &&
+                        binMap &&
                         <Table.HeaderCell>BinMap</Table.HeaderCell>
                       }
                     </Table.Row>
@@ -125,7 +129,7 @@ export default class PuchiDetail extends React.PureComponent {
                           <Table.Cell>{row.explanation}</Table.Cell>
                           <Table.Cell>{row.num}</Table.Cell>
                           {
-                            puchi.skillActive[0].binaryMap &&
+                            binMap &&
                             <Table.Cell>
                               <Button size="tiny" style={{
                                 paddingTop: 4, paddingBottom: 4
@@ -148,7 +152,7 @@ export default class PuchiDetail extends React.PureComponent {
           </Grid.Column>
         </Grid>
       </div>
-    ) : null;
+    );
   }
 }
 
