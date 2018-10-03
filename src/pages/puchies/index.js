@@ -42,7 +42,7 @@ export default class Puchies extends React.PureComponent {
           totalPages={totalPages}
         />
         <Divider />
-        <Card.Group itemsPerRow={4} doubling>
+        <Card.Group itemsPerRow={4} doubling stackable>
           {
             pageData.map(row => (
               <Card key={row.memberMstId}>

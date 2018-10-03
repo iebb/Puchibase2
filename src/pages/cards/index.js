@@ -42,7 +42,7 @@ export default class Cards extends React.PureComponent {
           totalPages={totalPages}
         />
         <Divider />
-        <Card.Group itemsPerRow={4}>
+        <Card.Group itemsPerRow={4} doubling stackable>
           {
             pageData.map(cards => (
               <Card key={cards.cardBaseId}>

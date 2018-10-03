@@ -16,7 +16,7 @@ export default class Titles extends React.PureComponent {
     super(props);
     this.state = {
       activePage: 1,
-      rowPerPage: 16,
+      rowPerPage: 15,
     };
     props.dispatch({
       type: 'titles/fetch',
@@ -41,7 +41,7 @@ export default class Titles extends React.PureComponent {
           totalPages={totalPages}
         />
         <Divider />
-        <Card.Group itemsPerRow={4}>
+        <Card.Group itemsPerRow={3} doubling stackable>
           {
             data.map(row => (
               <Card key={row.titleMstId}>
