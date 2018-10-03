@@ -9,6 +9,8 @@ npm-debug.log
 .umi-production
 package-lock.json
 
+# idea
+.idea
 
 # tmp
 .tmp
