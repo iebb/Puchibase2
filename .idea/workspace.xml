@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d974bf8-9b18-4e8e-b165-d6a26ebfea93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/models/stages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/stages/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translations/en-US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cards/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/cards/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/puchies/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/puchies/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/xet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/xet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,6 +30,7 @@
           <entry key="json" value="2" />
           <entry key="less" value="5" />
           <entry key="lock" value="1" />
+          <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -47,6 +39,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="95" />
           <entry key="Less" value="5" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
@@ -60,6 +53,7 @@
           <entry key="ejs" value="17" />
           <entry key="js" value="5141" />
           <entry key="less" value="16" />
+          <entry key="md" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -68,24 +62,13 @@
           <entry key="EJS" value="17" />
           <entry key="JavaScript" value="5141" />
           <entry key="Less" value="16" />
+          <entry key="PLAIN_TEXT" value="42" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/puchies/$id.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="993">
-              <caret line="100" column="29" lean-forward="true" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/stages.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,14 +102,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/cards/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+            <state relative-caret-position="780">
+              <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -243,6 +235,7 @@
         <option value="$PROJECT_DIR$/src/services/xet.js" />
         <option value="$PROJECT_DIR$/src/models/cards.js" />
         <option value="$PROJECT_DIR$/src/pages/cards/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -262,11 +255,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="750" />
-    <option name="y" value="135" />
-    <option name="width" value="1616" />
-    <option name="height" value="874" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="273" />
+    <option name="y" value="63" />
+    <option name="width" value="1657" />
+    <option name="height" value="972" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -395,15 +388,16 @@
       <option name="presentableId" value="Default" />
       <updated>1538492685120</updated>
       <workItem from="1538492687408" duration="17182000" />
-      <workItem from="1538563623052" duration="12730000" />
+      <workItem from="1538563623052" duration="13384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29912000" />
+    <option name="totallyTimeSpent" value="30566000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="107" y="145" width="1680" height="1027" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20735383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -683,11 +677,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/cards/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        <state relative-caret-position="780">
+          <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
