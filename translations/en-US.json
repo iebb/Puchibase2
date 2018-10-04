@@ -1,0 +1,26 @@
+{
+  "passiveSkill": {
+    "type": {
+      "1": "Combo lasts {value1} longer",
+      "2": "Clear {value1} ~ {value2} Puchies",
+      "3": "Convert {value1} ~ {value2} Puchies to Center (HS)",
+      "4": "Showtime Gauge {value1} Boost",
+      "5": "Center Skill Gauge {value1} Boost",
+      "6": "Increase combo obtained by {value1}",
+      "7": "Increase score obtained by {value1}",
+      "8": "Center puchi drops {value1} more often",
+      "9": "Increase gold obtained by  {value1}",
+      "10": "Increase bomb range by {value1}",
+      "11": "Increase chain range by {value1}",
+      "12": "Create {value1} ~ {value2} bombs"
+    },
+    "trigger": {
+      "4": "On Center Skill Activation",
+      "7": "During First 10 Seconds",
+      "8": "During Last 10 Seconds",
+      "9": "During Showtime",
+      "10": "On Last Bonus",
+      "11": "(Combo Counting)"
+    }
+  }
+}

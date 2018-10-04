@@ -25,3 +25,20 @@ const popCount = [
 export function popBinaryMap(binMap) {
   return binMap.split("").map(x => popCount[parseInt(x, 16)]).reduce((x, y) => x + y);
 }
+
+export function resolveObj(obj, path){
+  let current = obj;
+  while(path.length) {
+    if(typeof current !== 'object') return undefined;
+    current = current[path.shift()];
+  }
+  return current;
+}
+
+export function f(orig, args) { // format template strings
+  let str = orig;
+  for (const key in args) {
+    str = str.replace(new RegExp("\\{" + key + "\\}", "gi"), args[key]);
+  }
+  return str;
+}

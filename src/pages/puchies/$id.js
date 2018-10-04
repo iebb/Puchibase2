@@ -15,6 +15,7 @@ import {
 } from "semantic-ui-react";
 import {arrayToMap, DataPagination, popBinaryMap, TotalPages} from "../../utils/utils";
 import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage, getTitleImage} from "../../services/xet";
+import {parsePassiveSkill} from "../../utils/skills";
 
 @connect(({ puchies, loading }) => ({
   puchies,
@@ -154,6 +155,34 @@ export default class PuchiDetail extends React.PureComponent {
             <Segment>
               <Header as="h2">Support Skill</Header>
               <Divider/>
+              <div>
+                <Table celled compact='very'>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Level</Table.HeaderCell>
+                      <Table.HeaderCell>Trigger</Table.HeaderCell>
+                      <Table.HeaderCell>Effects</Table.HeaderCell>
+                      <Table.HeaderCell>Rate</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+
+                  <Table.Body>
+                    {
+                      puchi.skillPassive.map(row => {
+                        const parsed = parsePassiveSkill(row);
+                        return (
+                          <Table.Row>
+                            <Table.Cell>{row.level}</Table.Cell>
+                            <Table.Cell>{parsed.trigger}</Table.Cell>
+                            <Table.Cell>{parsed.type}</Table.Cell>
+                            <Table.Cell>{parsed.rate}</Table.Cell>
+                          </Table.Row>
+                        )
+                      })
+                    }
+                  </Table.Body>
+                </Table>
+              </div>
               <Divider/>
             </Segment>
           </Grid.Column>
