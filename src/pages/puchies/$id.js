@@ -41,16 +41,14 @@ export default class PuchiDetail extends React.PureComponent {
   renderModal() {
     const { binaryMap } = this.state;
     const bitMap = [];
-    let count = 0;
     for(const ele of binaryMap.split("")) {
       const val = parseInt(ele, 16);
-      bitMap.push(<Label circular color={(val & 8) ? "red" : null} />);
-      bitMap.push(<Label circular color={(val & 4) ? "red" : null} />);
-      bitMap.push(<Label circular color={(val & 2) ? "red" : null} />);
-      bitMap.push(<Label circular color={(val & 1) ? "red" : null} />);
-      count += 1;
-      if (count % 4 === 0) {
-        bitMap.push(<br/>);
+      for(const bit of [8, 4, 2, 1]) {
+        bitMap.push(
+          <Grid.Column width={1} style={{padding: 0, lineHeight: 1}}>
+            <Label circular size="tiny" color={(val & bit) ? "red" : null} />
+          </Grid.Column>
+        );
       }
     }
     return (
@@ -61,11 +59,13 @@ export default class PuchiDetail extends React.PureComponent {
       >
         <Header icon='browser'>Binary Map</Header>
         <Modal.Content>
-          <div>
+          <div style={{padding: "1em", overflowX: "scroll"}}>
+            <Grid style={{width: 20*16}}>
+              {
+                bitMap
+              }
+            </Grid>
           </div>
-          {
-            bitMap.map(x => x)
-          }
         </Modal.Content>
         <Modal.Actions>
           <Button color='green' onClick={this.handleClose} inverted>
@@ -92,9 +92,9 @@ export default class PuchiDetail extends React.PureComponent {
 
         {this.renderModal()}
 
-        <Grid>
+        <Grid stackable>
           <Grid.Column width={4}>
-            <Card>
+            <Card fluid>
               <Card.Content>
                 <Image width="50%" src={getSkillCutinAImage(puchi.memberMstId)} />
                 <Image width="50%" src={getSkillCutinBImage(puchi.memberMstId)} />
@@ -107,6 +107,8 @@ export default class PuchiDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
+              <Header as="h2">Main Skill</Header>
+              <Divider/>
               <div>
                 <Table celled compact='very'>
                   <Table.Header>
@@ -147,6 +149,11 @@ export default class PuchiDetail extends React.PureComponent {
                   </Table.Body>
                 </Table>
               </div>
+              <Divider/>
+            </Segment>
+            <Segment>
+              <Header as="h2">Support Skill</Header>
+              <Divider/>
               <Divider/>
             </Segment>
           </Grid.Column>
