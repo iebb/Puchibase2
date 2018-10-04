@@ -1,5 +1,5 @@
 import NavLink from 'umi/navlink';
-import {Container, Divider, Dropdown, Grid, Header, Image, List, Menu, Segment} from "semantic-ui-react";
+import {Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Menu, Segment} from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 import styles from "./index.less";
 
@@ -44,6 +44,9 @@ const Layout = (props) => {
           <List horizontal inverted divided link>
             <List.Item as='a' href='https://ur.mk/'>
               Another ieb Project
+            </List.Item>
+            <List.Item as='a' href='https://github.com/iebb/Puchibase2'>
+              <Icon name='github' /> Github
             </List.Item>
             <List.Item as='a' href='mailto:ieb@outlook.my'>
               Contact Me
