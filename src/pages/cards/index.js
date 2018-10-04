@@ -48,8 +48,15 @@ export default class Cards extends React.PureComponent {
               <Card key={cards.cardBaseId}>
                 <Card.Content>
                   <Card.Header>{cards.data[0].cardName}</Card.Header>
-                  <Image src={getCardSmallImage(cards.data[0].cardMstId)} />
-                </Card.Content>
+                  <div style={{width: "100%", overflow: "hidden"}}>
+                    <Image src={getCardSmallImage(cards.data[0].cardMstId)} style={{
+                      objectFit: "cover",
+                      marginTop: "-21.8%",
+                      marginBottom: "-21.8%",
+                      width: "100%"
+                    }}/>
+                  </div>
+                  </Card.Content>
                 <Card.Content>
                 <Tab menu={{ secondary: true, pointing: true }} panes={
                   cards.data.map(row => (
