@@ -27,10 +27,11 @@ export function popBinaryMap(binMap) {
 }
 
 export function resolveObj(obj, path){
+  const tmpPath = path.slice(0);
   let current = obj;
-  while(path.length) {
+  while(tmpPath.length) {
     if(typeof current !== 'object') return undefined;
-    current = current[path.shift()];
+    current = current[tmpPath.shift()];
   }
   return current;
 }

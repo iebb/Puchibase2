@@ -18,12 +18,32 @@
       "15": "产生 {value1} ~ {value2} 个加分炸弹"
     },
     "trigger": {
-      "4": "On Center Skill Activation",
-      "7": "First 10 Seconds",
-      "8": "Last 10 Seconds",
+      "4": "主技能发动时",
+      "7": "前 10 秒",
+      "8": "最后 10 秒",
       "9": "Showtime",
       "10": "Last Bonus",
-      "11": "(Combo Counting)"
+      "11": "Combo 持续时"
+    }
+  },
+
+  "wording": {
+    "menu": {
+      "titles": "称号",
+      "puchies": "趴趴",
+      "cards": "卡牌"
+    },
+    "puchies": {
+      "activeSkill": {
+        "levels": "Lv",
+        "effects": "效果",
+        "requirements": "发动所需",
+        "parameters": "参数",
+        "binmap": "范围",
+        "view": "查看",
+        "key": "属性",
+        "value": "值"
+      }
     }
   }
 }

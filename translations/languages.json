@@ -1,0 +1,12 @@
+{
+  "zh-CN": {
+    "language": "中文（简化字）",
+    "flag": "cn",
+    "translator": "ieb"
+  },
+  "en-US": {
+    "language": "English",
+    "flag": "gb",
+    "translator": "ieb"
+  }
+}

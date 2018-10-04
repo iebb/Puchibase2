@@ -27,7 +27,6 @@ export default class Cards extends React.PureComponent {
   render() {
     const { activePage, rowPerPage } = this.state;
 
-    console.log(this.props.cards);
     const { data } = this.props.cards;
 
     const pageData = DataPagination(data, activePage, rowPerPage);
