@@ -1,6 +1,5 @@
 import React from 'react';
-import { routerRedux } from 'dva/router';
-import { connect } from 'dva';
+import {connect} from 'dva';
 import {Card, Divider, Header, Image, Pagination} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
 import {getTitleImage} from "../../services/xet";

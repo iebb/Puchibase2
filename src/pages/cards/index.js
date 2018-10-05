@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'dva';
+import {connect} from 'dva';
 import {Card, Divider, Header, Image, Pagination, Progress, Tab} from "semantic-ui-react";
-import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
-import {getCardSmallImage, getSPRImage} from "../../services/xet";
+import {DataPagination, TotalPages} from "../../utils/utils";
+import {getCardSmallImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 
 @connect(({ cards, loading }) => ({
