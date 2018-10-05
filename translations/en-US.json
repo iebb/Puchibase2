@@ -32,6 +32,7 @@
     },
     "puchies": {
       "activeSkill": {
+        "__title": "Center Skill",
         "levels": "Lv",
         "effects": "Effects",
         "requirements": "Req't",
@@ -40,7 +41,15 @@
         "binmap": "Range",
         "key": "Key",
         "value": "Value"
+      },
+      "passiveSkill": {
+        "__title": "Support Skill",
+        "levels": "Lv",
+        "effects": "Effects",
+        "trigger": "Trigger",
+        "rate": "Rate"
       }
     }
   }
 }
+

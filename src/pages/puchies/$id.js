@@ -39,7 +39,7 @@ export default class PuchiDetail extends React.PureComponent {
       const val = parseInt(ele, 16);
       for(const bit of [8, 4, 2, 1]) {
         bitMap.push(
-          <Grid.Column key={totalbits} width={1} style={{padding: 0, lineHeight: 1}}>
+          <Grid.Column key={totalbits} width={1} style={{padding: 0, lineHeight: 0}}>
             <Label circular size="tiny" color={(val & bit) ? "red" : null} />
           </Grid.Column>
         );
@@ -54,8 +54,8 @@ export default class PuchiDetail extends React.PureComponent {
       >
         <Header>{t(["wording", "puchies", "activeSkill", "binmap"])}</Header>
         <Modal.Content>
-          <div style={{padding: "1em", overflowX: "scroll"}}>
-            <Grid style={{width: 20*16}}>
+          <div style={{padding: "1em", overflowX: "auto", overflowY: "auto"}}>
+            <Grid style={{width: "22.857143em", margin: "0.2em"}}>
               {
                 bitMap
               }
@@ -64,7 +64,7 @@ export default class PuchiDetail extends React.PureComponent {
         </Modal.Content>
         <Modal.Actions>
           <Button color='green' onClick={this.handleBinMap} inverted>
-            <Icon name='checkmark' /> Got it
+            <Icon name='checkmark' /> OK
           </Button>
         </Modal.Actions>
       </Modal>
@@ -72,7 +72,6 @@ export default class PuchiDetail extends React.PureComponent {
   }
 
   renderParamsModal() {
-    console.log(this.state);
     const { params } = this.state;
     return (
       <Modal
@@ -95,7 +94,7 @@ export default class PuchiDetail extends React.PureComponent {
                     x =>
                       <Table.Row key={x}>
                         <Table.Cell><b>{x}</b></Table.Cell>
-                        <Table.Cell>{params[x]}</Table.Cell>
+                        <Table.Cell>{params[x] + ""}</Table.Cell>
                       </Table.Row>
                   )
                 }
@@ -104,7 +103,7 @@ export default class PuchiDetail extends React.PureComponent {
         </Modal.Content>
         <Modal.Actions>
           <Button color='green' onClick={this.handleParams} inverted>
-            <Icon name='checkmark' /> Got it
+            <Icon name='checkmark' /> OK
           </Button>
         </Modal.Actions>
       </Modal>
@@ -143,7 +142,7 @@ export default class PuchiDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
-              <Header as="h2">Main Skill</Header>
+              <Header as="h2">{t(["wording", "puchies", "activeSkill", "__title"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
@@ -177,7 +176,7 @@ export default class PuchiDetail extends React.PureComponent {
                             <Table.Cell>
                               <Button size="tiny" style={{
                                 paddingTop: 4, paddingBottom: 4
-                              }} onClick={() => {this.setState({binaryMap: row.binaryMap, binMapModal: true});}}>
+                              }} onClick={() => {this.setState({binaryMap: row.binaryMap, binmapModal: true});}}>
 
                                 <span>
                                   {popBinaryMap(row.binaryMap)} / {row.effect.text}
@@ -195,16 +194,16 @@ export default class PuchiDetail extends React.PureComponent {
               <Divider/>
             </Segment>
             <Segment>
-              <Header as="h2">Support Skill</Header>
+              <Header as="h2">{t(["wording", "puchies", "passiveSkill", "__title"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>Level</Table.HeaderCell>
-                      <Table.HeaderCell>Trigger</Table.HeaderCell>
-                      <Table.HeaderCell>Effects</Table.HeaderCell>
-                      <Table.HeaderCell>Rate</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "levels"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "trigger"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "effects"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "rate"])}</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 

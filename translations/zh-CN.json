@@ -35,14 +35,22 @@
     },
     "puchies": {
       "activeSkill": {
+        "__title": "主技能",
         "levels": "Lv",
         "effects": "效果",
-        "requirements": "发动所需",
+        "requirements": "需求数",
         "parameters": "参数",
         "binmap": "范围",
         "view": "查看",
         "key": "属性",
         "value": "值"
+      },
+      "passiveSkill": {
+        "__title": "支援技能",
+        "levels": "Lv",
+        "effects": "效果",
+        "trigger": "触发",
+        "rate": "发动率"
       }
     }
   }

@@ -4,6 +4,7 @@ import {Card, Divider, Header, Image, Pagination, Progress} from "semantic-ui-re
 import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
 import {getSPRImage} from "../../services/xet";
 import NavLink from "umi/navlink";
+import {t} from "../../utils/languages";
 
 @connect(({ puchies, loading }) => ({
   puchies,
@@ -35,11 +36,13 @@ export default class Puchies extends React.PureComponent {
 
     return (
       <div>
-        <Header as="h2">Puchies</Header>
+        <Header as="h2">{t(["wording", "menu", "puchies"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
         <Divider />
         <Card.Group itemsPerRow={4} doubling stackable>
@@ -70,6 +73,8 @@ export default class Puchies extends React.PureComponent {
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
       </div>
     );

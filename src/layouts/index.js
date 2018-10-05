@@ -8,6 +8,12 @@ import {t} from "../utils/languages";
 const languages = require("../../translations/languages.json");
 
 export default class Layout extends React.PureComponent {
+  constructor(props){
+    super(props);
+    this.state = {
+      language: localStorage.getItem("language") || "en-US",
+    }
+  }
   render() {
     return (
       <div>
@@ -41,7 +47,7 @@ export default class Layout extends React.PureComponent {
         </Menu>
 
         <Container style={{marginTop: '3em'}}>
-          {this.props.children}
+          {React.cloneElement(this.props.children, { language: this.state.language })}
         </Container>
 
         <Segment inverted vertical style={{margin: '5em 0em 0em', padding: '5em 0em'}}>
@@ -63,7 +69,7 @@ export default class Layout extends React.PureComponent {
                 Object.keys(languages).map(x => (
                   <List.Item as='a' key={x} onClick={() => {
                     localStorage.setItem("language", x);
-                    this.forceUpdate();
+                    this.setState({language: x})
                   }}><Flag name={languages[x].flag}/></List.Item>
                 ))
               }

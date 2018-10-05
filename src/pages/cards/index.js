@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import {Card, Divider, Header, Image, Pagination, Progress, Tab} from "semantic-ui-react";
 import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
 import {getCardSmallImage, getSPRImage} from "../../services/xet";
+import {t} from "../../utils/languages";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -34,11 +35,13 @@ export default class Cards extends React.PureComponent {
 
     return (
       <div>
-        <Header as="h2">Cards</Header>
+        <Header as="h2">{t(["wording", "menu", "cards"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
         <Divider />
         <Card.Group itemsPerRow={4} doubling stackable>
@@ -84,6 +87,8 @@ export default class Cards extends React.PureComponent {
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
       </div>
     );

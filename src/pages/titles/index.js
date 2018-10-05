@@ -4,6 +4,7 @@ import { connect } from 'dva';
 import {Card, Divider, Header, Image, Pagination} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
 import {getTitleImage} from "../../services/xet";
+import {t} from "../../utils/languages";
 
 @connect(({ titles, loading }) => ({
   titles,
@@ -34,11 +35,13 @@ export default class Titles extends React.PureComponent {
 
     return (
       <div>
-        <Header as="h2">Titles</Header>
+        <Header as="h2">{t(["wording", "menu", "titles"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
         <Divider />
         <Card.Group itemsPerRow={3} doubling stackable>
@@ -60,6 +63,8 @@ export default class Titles extends React.PureComponent {
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
           totalPages={totalPages}
+          firstItem={null}
+          lastItem={null}
         />
       </div>
     );
