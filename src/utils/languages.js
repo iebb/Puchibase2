@@ -2,7 +2,7 @@ import {objectMap, resolveObj} from "./utils";
 const langConf = require("../../translations/languages.json");
 
 
-const languages = objectMap(langConf, (lang, val) => {
+export const languages = objectMap(langConf, (lang, val) => {
   let dict;
   try {
     dict = require(`../../translations/ui/${lang}.json`);
@@ -15,9 +15,12 @@ const languages = objectMap(langConf, (lang, val) => {
   }
 });
 
+export function lang() {
+  return localStorage.language || "en-US";
+}
 
 export function t(key, empty=false) {
-  let language = localStorage.language || "en-US";
+  let language = lang();
   const ret = resolveObj(languages[language].dict, key) || resolveObj(languages["en-US"].dict, key);
   if (ret) {
     return ret;

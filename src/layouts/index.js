@@ -3,9 +3,7 @@ import {Container, Divider, Flag, Icon, Image, List, Menu, Segment} from "semant
 import 'semantic-ui-css/semantic.min.css';
 import styles from "./index.less";
 import React from "react";
-import {t} from "../utils/languages";
-
-const languages = require("../../translations/languages.json");
+import {lang, t, languages} from "../utils/languages";
 
 export default class Layout extends React.PureComponent {
   constructor(props){
@@ -15,6 +13,7 @@ export default class Layout extends React.PureComponent {
     }
   }
   render() {
+    const currentLang = languages[lang()];
     return (
       <div>
         <Menu fixed='top' inverted>
@@ -70,10 +69,12 @@ export default class Layout extends React.PureComponent {
                   <List.Item as='a' key={x} onClick={() => {
                     localStorage.setItem("language", x);
                     this.setState({language: x})
-                  }}><Flag name={languages[x].flag}/></List.Item>
+                  }}><Flag name={languages[x].meta.flag}/></List.Item>
                 ))
               }
             </List>
+            <Divider/>
+            <p>{currentLang.meta.language} by {currentLang.meta.translator}</p>
           </Container>
         </Segment>
       </div>
