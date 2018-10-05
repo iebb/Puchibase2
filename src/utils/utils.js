@@ -36,6 +36,13 @@ export function resolveObj(obj, path){
   return current;
 }
 
+export function objectMap(object, mapFn) {
+  return Object.keys(object).reduce((result, key) => {
+    result[key] = mapFn(key, object[key]);
+    return result
+  }, {})
+}
+
 export function f(orig, args) { // format template strings
   let str = orig;
   for (const key in args) {

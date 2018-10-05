@@ -2,11 +2,19 @@
   "zh-CN": {
     "language": "中文（简化字）",
     "flag": "cn",
-    "translator": "ieb"
+    "translator": "ieb",
+    "code": "zh-CN"
   },
   "en-US": {
     "language": "English",
-    "flag": "gb",
-    "translator": "ieb"
+    "flag": "us",
+    "translator": "ieb",
+    "code": "en-US"
+  },
+  "es-ES": {
+    "language": "Español",
+    "flag": "es",
+    "translator": "Daniel F.",
+    "code": "es-ES"
   }
 }

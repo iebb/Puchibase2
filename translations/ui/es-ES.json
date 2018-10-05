@@ -1,0 +1,55 @@
+{
+  "passiveSkill": {
+    "type": {
+      "1": "Combo dura un {value1} más",
+      "2": "Limpia de {value1} a {value2} nesos",
+      "3": "Convierte de {value1} a {value2} nesos en la neso líder",
+      "4": "Boost de {value1} para el medidor de showtime",
+      "5": "Boost de {value1} para el medidor de habilidad",
+      "6": "Incrementa el combo obtenido en {value1}",
+      "7": "Incrementa la puntuación obtenida en {value1}",
+      "8": "Neso líder cae con {value1} más frecuencia",
+      "9": "Incrementa el oro obtenido en {value1}",
+      "10": "Incrementa el rango de las bombas en {value1}",
+      "11": "Incrementa el rango de las cadenas en {value1}",
+      "12": "Crea de {value1} a {value2} bombas"
+    },
+    "trigger": {
+      "4": "Al activar la habilidad de la neso líder",
+      "7": "Primeros 10 segundos",
+      "8": "Últimos 10 segundos",
+      "9": "Showtime",
+      "10": "Bonus final",
+      "11": "(Conteo de combos)"
+    }
+  },
+
+  "wording": {
+    "menu": {
+      "titles": "Título",
+      "puchies": "Neso",
+      "cards": "Card"
+    },
+    "puchies": {
+      "activeSkill": {
+        "__title": "Habilidad Activa",
+        "levels": "Lv",
+        "effects": "Effects",
+        "requirements": "Req't",
+        "parameters": "Params",
+        "view": "View",
+        "binmap": "Range",
+        "key": "Key",
+        "value": "Value"
+      },
+      "passiveSkill": {
+        "__title": "Habilidad Pasiva",
+        "levels": "Lv",
+        "effects": "Effects",
+        "trigger": "Trigger",
+        "rate": "Rate"
+      }
+    }
+  }
+}
+

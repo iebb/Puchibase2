@@ -1,14 +1,24 @@
-import {resolveObj} from "./utils";
+import {objectMap, resolveObj} from "./utils";
+const langConf = require("../../translations/languages.json");
 
-const languages = {
-  "en-US": require('../../translations/en-US.json'),
-  "zh-CN": require('../../translations/zh-CN.json'),
-};
+
+const languages = objectMap(langConf, (lang, val) => {
+  let dict;
+  try {
+    dict = require(`../../translations/ui/${lang}.json`);
+  } catch (e) {
+    dict = {};
+  }
+  return {
+    dict: dict,
+    meta: val
+  }
+});
 
 
 export function t(key, empty=false) {
   let language = localStorage.language || "en-US";
-  const ret = resolveObj(languages[language], key) || resolveObj(languages["en-US"], key);
+  const ret = resolveObj(languages[language].dict, key) || resolveObj(languages["en-US"].dict, key);
   if (ret) {
     return ret;
   } else if (empty) {
