@@ -27,11 +27,18 @@ export function normalRequest(key, options) {
 export function getMasterData() {
   if (!sessionStorage.getItem("Masterdata")) {
     sessionStorage.setItem("Masterdata", "loading");
-    request(`${endPoint}masterdata.json`).then(function({ data }) {
-      for(const item of data.checkMasterTableVersion) {
+    request(`${endPoint}masterdata.json`).then(function({ data, err }) {
+      let tables;
+      if (err) {
+        tables = localStorage.getItem("Masterdata");
+      } else if (data && data.checkMasterTableVersion) {
+        localStorage.setItem("Masterdata", JSON.stringify(data.checkMasterTableVersion));
+        sessionStorage.setItem("Masterdata", "loaded");
+        tables = data.checkMasterTableVersion;
+      }
+      for(const item of tables) {
         sessionStorage.setItem(item.tableName.replace("Mst", ""), item.checksum);
       }
-      sessionStorage.setItem("Masterdata", "loaded");
     });
   }
 }
@@ -43,7 +50,10 @@ export function API(key) {
     if (localStorage.getItem(`${key}!!Hash`) === item) {
       return () => JSON.parse(localStorage.getItem(`${key}`))
     } else {
-      return () => cachedRequest(key, item);
+      return () => {
+        cachedRequest(key, item);
+        return JSON.parse(localStorage.getItem(`${key}`));
+      }
     }
   } else {
     return () => normalRequest(key);
