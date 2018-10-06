@@ -35,7 +35,10 @@ export default {
         row.schedules = Schedule.getScheduleMaster.filter(x => (x.stageMstId === row.stageMstId) && (x.seasonStartTime > 1524409199));
         row.missions = MissionStage.getMissionStageMaster.filter(x => x.stageId === row.stageMstId);
         row.secrets = MissionSecret.getMissionSecretMaster.filter(x => x.stageId === row.stageMstId);
-        row.members = Member.getMemberMaster.filter(x => parseInt(x.memberMstId / 1000) === parseInt(row.stageMstId / 1000));
+        row.members = Member.getMemberMaster.filter(x => row.stageMstId % 1000 === 1 ? (
+            parseInt(x.memberMstId / 1000) === parseInt(row.stageMstId / 1000)
+          ) : false
+        );
       }
 
       yield put({ type: 'save', payload: { data: data.sort((x, y) => x.sortingId - y.sortingId) } });

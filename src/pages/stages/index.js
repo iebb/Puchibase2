@@ -66,7 +66,7 @@ export default class Stages extends React.PureComponent {
                     <Card.Description>
                       {
                         row.members.map(x => (
-                          <Image src={getSPRImage(x.memberMstId)} size="mini"/>
+                          <Image as={Link} src={getSPRImage(x.memberMstId)} to={`/nesos/${x.memberMstId}`} size="mini"/>
                         ))
                       }
                     </Card.Description>
