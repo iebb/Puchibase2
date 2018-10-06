@@ -1,4 +1,3 @@
-import Redirect from 'umi/redirect';
 import {Card, Image} from "semantic-ui-react";
 import {t} from "../utils/languages";
 import {getGeneral} from "../services/xet";

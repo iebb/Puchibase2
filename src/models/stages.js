@@ -49,7 +49,7 @@ export default {
         row.missions = MissionStage.getMissionStageMaster.filter(x => x.stageId === row.stageMstId);
         row.secrets = MissionSecret.getMissionSecretMaster.filter(x => x.stageId === row.stageMstId);
         row.members = Member.getMemberMaster.filter(x => row.stageMstId % 1000 === 1 ? (
-            parseInt(x.memberMstId / 1000) === parseInt(row.stageMstId / 1000)
+            Math.floor(x.memberMstId / 1000) === Math.floor(row.stageMstId / 1000)
           ) : false
         );
       }

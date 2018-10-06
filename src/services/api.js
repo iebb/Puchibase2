@@ -1,6 +1,28 @@
-import request from "../utils/request";
+import request, {checkStatus, parseJSON} from "../utils/request";
+import fetch from "dva/fetch";
 const endPoint = "https://puchi-api.loveliv.es/";
 const suffix = "Mst.min.json";
+
+export function cachedRequest(key, hash, options) {
+  return fetch(`${endPoint}${key}${suffix}?hash=${hash}`, options)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => {
+      localStorage.setItem(`${key}!!Hash`, hash);
+      localStorage.setItem(`${key}`, JSON.stringify({data}));
+      return { data };
+    })
+    .catch(err => ({ err }));
+}
+
+export function normalRequest(key, options) {
+  return fetch(`${endPoint}${key}${suffix}`, options)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(err => ({ err }));
+}
+
 
 export function getMasterData() {
   if (!sessionStorage.getItem("Masterdata")) {
@@ -14,16 +36,18 @@ export function getMasterData() {
   }
 }
 
-export function getJSONURL(key) {
+export function API(key) {
+
   let item = sessionStorage.getItem(key);
   if (item) {
-    return `${endPoint}${key}${suffix}?crc=${item}`;
+    if (localStorage.getItem(`${key}_CRC`) === item) {
+      return () => JSON.parse(localStorage.getItem(`${key}`))
+    } else {
+      return () => cachedRequest(key, item);
+    }
+  } else {
+    return () => normalRequest(key);
   }
-  return `${endPoint}${key}${suffix}`;
-}
-
-export function API(key) {
-  return () => request(getJSONURL(key));
 }
 
 

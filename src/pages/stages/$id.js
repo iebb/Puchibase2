@@ -75,7 +75,7 @@ export default class StageDetail extends React.PureComponent {
                 <Table.Body>
                   {
                     stage.schedules.map((x, idx) => (
-                      <Table.Row>
+                      <Table.Row key={x.seasonStartTime}>
                         <Table.Cell>
                           {idx + 1}
                         </Table.Cell>

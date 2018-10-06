@@ -29,9 +29,7 @@ export default class Stages extends React.PureComponent {
 
   render() {
     const { activePage, rowPerPage } = this.state;
-
     const { data } = this.props.stages;
-    console.log(this.props);
 
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
@@ -65,7 +63,7 @@ export default class Stages extends React.PureComponent {
                     <Card.Description>
                       {
                         row.members.map(x => (
-                          <Image as={Link} src={getSPRImage(x.memberMstId)} to={`/nesos/${x.memberMstId}`} size="mini"/>
+                          <Image key={x.memberMstId} src={getSPRImage(x.memberMstId)} size="mini"/>
                         ))
                       }
                     </Card.Description>

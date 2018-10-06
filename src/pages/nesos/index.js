@@ -3,7 +3,6 @@ import {connect} from 'dva';
 import {Card, Divider, Header, Image, Pagination, Progress} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
 import {getSPRImage} from "../../services/xet";
-import NavLink from "umi/navlink";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Link from "umi/link";
