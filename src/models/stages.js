@@ -1,4 +1,5 @@
 import {API} from '../services/api';
+import {getStageImage} from "../services/xet";
 
 export default {
 
@@ -31,6 +32,7 @@ export default {
       const data = Stage.getStageMaster.slice(0);
 
       for (let row of data) {
+        row.stageIcon = row.stageMstId % 1000 === 1 ? getStageImage(row.stageMstId): "https://via.placeholder.com/80x80";
         row.sortingId = (row.stageMstId % 1000 !== 1) * 100000000 + row.stageMstId;
         row.schedules = Schedule.getScheduleMaster.filter(x => (x.stageMstId === row.stageMstId) && (x.seasonStartTime > 1524409199));
         row.missions = MissionStage.getMissionStageMaster.filter(x => x.stageId === row.stageMstId);

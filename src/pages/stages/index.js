@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'dva';
 import {Card, Divider, Header, Image, Pagination, Progress} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
-import {getSPRImage, getStageImage} from "../../services/xet";
+import {getSPRImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Link from "umi/link";
@@ -52,13 +52,12 @@ export default class Stages extends React.PureComponent {
           {
             pageData.map(row => {
 
-              const stageImage = row.stageMstId % 1000 === 1 ? getStageImage(row.stageMstId): "https://via.placeholder.com/80x80";
               const missionsCnt = row.missions.length;
               const secretsCnt = row.secrets.length;
               return (
                 <Card key={row.stageMstId} as={Link} to={`/stages/${row.stageMstId}`}>
                   <Card.Content>
-                    <Image floated='left' size='tiny' rounded src={stageImage} />
+                    <Image floated='left' size='tiny' rounded src={row.stageIcon} />
                     <Card.Header>
                       {row.stageName}
                     </Card.Header>

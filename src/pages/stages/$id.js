@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'dva';
 import {Card, Checkbox, Divider, Grid, Header, Image, Segment, Table} from "semantic-ui-react";
 import {arrayToMap} from "../../utils/utils";
-import {getStageImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Moment from "react-moment";
@@ -43,7 +42,7 @@ export default class StageDetail extends React.PureComponent {
         <Grid stackable>
           <Grid.Column width={4}>
             <Card fluid>
-              <Image fluid rounded src={getStageImage(stage.stageMstId)} />
+              <Image fluid rounded src={stage.stageIcon} />
               <Card.Content>
                 <Card.Header>{stage.stageName}</Card.Header>
                 <Card.Meta>#{stageId}</Card.Meta>
