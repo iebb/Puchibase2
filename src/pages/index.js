@@ -42,8 +42,6 @@ export default () => {
               <Card.Header>{x.name}</Card.Header>
               <Card.Description>{x.description}</Card.Description>
             </Card.Content>
-            <Card.Content extra>
-            </Card.Content>
           </Card>
         ))
       }
