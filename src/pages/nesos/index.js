@@ -6,6 +6,7 @@ import {getSPRImage} from "../../services/xet";
 import NavLink from "umi/navlink";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
+import Link from "umi/link";
 
 @connect(({ nesos, loading }) => ({
   nesos,
@@ -50,13 +51,11 @@ export default class Nesos extends React.PureComponent {
         <Card.Group itemsPerRow={4} doubling stackable>
           {
             pageData.map(row => (
-              <Card key={row.memberMstId}>
+              <Card key={row.memberMstId} to={`/nesos/${row.memberMstId}`} as={Link}>
                 <Card.Content>
                   <Image floated='left' size='tiny' src={getSPRImage(row.memberMstId)} />
                   <Card.Header>
-                    <NavLink to={`/nesos/${row.memberMstId}`}>
-                      {row.personal && row.personal.personalName}
-                    </NavLink>
+                    {row.personal && row.personal.personalName}
                   </Card.Header>
                   <Card.Meta>#{row.memberMstId}</Card.Meta>
                   <Card.Description>{row.costume && row.costume.costumeName}</Card.Description>
