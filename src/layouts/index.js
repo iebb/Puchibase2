@@ -23,8 +23,7 @@ export default class Layout extends React.PureComponent {
       <div>
         <Menu fixed='top' inverted>
           <Container>
-            <Menu.Item header>
-              <NavLink to="/" activeClassName={styles.activeLink}>
+            <Menu.Item header as={NavLink} to="/" activeClassName={styles.activeLink}>
                 <Image
                   size='mini'
                   src={getGeneral("sprawlpict", "10003101")}
@@ -33,27 +32,18 @@ export default class Layout extends React.PureComponent {
                 <span>
                   Puchibase v2
                 </span>
-              </NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to="/achievements" activeClassName={styles.activeLink}>
+            <Menu.Item as={NavLink} to="/achievements" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "achievements"])}
-              </NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to="/nesos" activeClassName={styles.activeLink}>
+            <Menu.Item as={NavLink} to="/nesos" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "nesos"])}
-              </NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to="/cards" activeClassName={styles.activeLink}>
+            <Menu.Item as={NavLink} to="/cards" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "cards"])}
-              </NavLink>
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to="/stages" activeClassName={styles.activeLink}>
+            <Menu.Item as={NavLink} to="/stages" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "stages"])}
-              </NavLink>
             </Menu.Item>
           </Container>
         </Menu>
