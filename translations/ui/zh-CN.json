@@ -3,7 +3,7 @@
     "type": {
       "1": "Combo 持续时间增长 {value1}",
       "2": "消除 {value1} ~ {value2} 个趴趴",
-      "3": "将 {value1} ~ {value2} 个趴趴转换成 Center 趴趴",
+      "3": "将 {value1} ~ {value2} 个趴趴转换成 Center 高分趴趴",
       "4": "加速 Showtime 槽 {value1}",
       "5": "加速主技能槽 {value1}",
       "6": "Combo 数增加 {value1}",
@@ -29,11 +29,12 @@
 
   "wording": {
     "menu": {
-      "titles": "称号",
-      "puchies": "趴趴",
-      "cards": "卡牌"
+      "achievements": "称号",
+      "nesos": "趴趴",
+      "cards": "卡牌",
+      "stages": "关卡"
     },
-    "puchies": {
+    "nesos": {
       "activeSkill": {
         "__title": "主技能",
         "levels": "Lv",
@@ -52,6 +53,10 @@
         "trigger": "触发",
         "rate": "发动率"
       }
+    },
+    "stages": {
+      "normalMission": "普通关",
+      "secretMission": "隐藏关"
     }
   }
 }

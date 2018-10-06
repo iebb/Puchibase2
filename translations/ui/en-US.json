@@ -2,8 +2,8 @@
   "passiveSkill": {
     "type": {
       "1": "Combo lasts {value1} longer",
-      "2": "Clear {value1} ~ {value2} Puchies",
-      "3": "Convert {value1} ~ {value2} Puchies to Center (HS)",
+      "2": "Clear {value1} ~ {value2} Nesos",
+      "3": "Convert {value1} ~ {value2} Nesos to Center (HS)",
       "4": "{value1} Boost on Showtime Gauge",
       "5": "{value1} Boost on Center Skill Gauge",
       "6": "Increase combo obtained by {value1}",
@@ -26,11 +26,12 @@
 
   "wording": {
     "menu": {
-      "titles": "Titles",
-      "puchies": "Puchies",
-      "cards": "Cards"
+      "achievements": "Achievements",
+      "nesos": "Nesos",
+      "cards": "Cards",
+      "stages": "Stages"
     },
-    "puchies": {
+    "nesos": {
       "activeSkill": {
         "__title": "Center Skill",
         "levels": "Lv",
@@ -49,6 +50,10 @@
         "trigger": "Trigger",
         "rate": "Rate"
       }
+    },
+    "stages": {
+      "normalMission": "Missions",
+      "secretMission": "Secrets"
     }
   }
 }

@@ -26,11 +26,11 @@
 
   "wording": {
     "menu": {
-      "titles": "Título",
-      "puchies": "Neso",
+      "achievements": "Título",
+      "nesos": "Neso",
       "cards": "Card"
     },
-    "puchies": {
+    "nesos": {
       "activeSkill": {
         "__title": "Habilidad Activa",
         "levels": "Lv",
