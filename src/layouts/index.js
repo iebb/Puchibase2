@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import styles from "./index.less";
 import {lang, t, languages} from "../utils/languages";
 import {getGeneral} from "../services/xet";
-import {getInfo} from "../services/api";
+import {getMasterData} from "../services/api";
 
 ReactGA.initialize('UA-20909424-23');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -19,7 +19,7 @@ export default class Layout extends React.PureComponent {
     }
   }
   render() {
-    getInfo();
+    getMasterData();
     const currentLang = languages[lang()];
     return (
       <div>

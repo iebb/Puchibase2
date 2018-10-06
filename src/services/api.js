@@ -2,13 +2,16 @@ import request from "../utils/request";
 const endPoint = "https://puchi-api.loveliv.es/";
 const suffix = "Mst.min.json";
 
-export function getInfo() {
-  request(`${endPoint}masterdata.json`).then(function({ data }) {
-    for(const item of data.checkMasterTableVersion) {
-      sessionStorage.setItem(item.tableName.replace("Mst", ""), item.checksum);
+export function getMasterData() {
+  if (!sessionStorage.getItem("Masterdata")) {
+    sessionStorage.setItem("Masterdata", "loading");
+    request(`${endPoint}masterdata.json`).then(function({ data }) {
+      for(const item of data.checkMasterTableVersion) {
+        sessionStorage.setItem(item.tableName.replace("Mst", ""), item.checksum);
+      }
       sessionStorage.setItem("Masterdata", "loaded");
-    }
-  });
+    });
+  }
 }
 
 export function getJSONURL(key) {

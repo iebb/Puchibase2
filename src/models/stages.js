@@ -16,17 +16,28 @@ export default {
 
   effects: {
     * fetch({ payload }, { put, call }) {
-      const Stage = (yield call(API("Stage"))).data;
-      const Schedule = (yield call(API("Schedule"))).data;
-      const MissionStage = (yield call(API("MissionStage"))).data;
-      const MissionSecret = (yield call(API("MissionSecret"))).data;
-      const Member = (yield call(API("Member"))).data;
 
-      yield put({ type: 'save', payload: Stage });
-      yield put({ type: 'save', payload: Member });
-      yield put({ type: 'save', payload: Schedule });
-      yield put({ type: 'save', payload: MissionStage });
-      yield put({ type: 'save', payload: MissionSecret });
+      const [
+        Stage,
+        Schedule,
+        MissionStage,
+        MissionSecret,
+        Member
+      ] = (yield [
+        "Stage",
+        "Schedule",
+        "MissionStage",
+        "MissionSecret",
+        "Member"
+      ].map(x => call(API(x)))).map(x => x.data);
+
+      yield put({ type: 'save', payload: {
+        ...Stage,
+        ...Schedule,
+        ...MissionStage,
+        ...MissionSecret,
+        ...Member
+      }});
 
 
       const data = Stage.getStageMaster.slice(0);

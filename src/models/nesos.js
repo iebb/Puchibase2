@@ -15,16 +15,28 @@ export default {
 
   effects: {
     * fetch({ payload }, { put, call }) {
-      const Member = (yield call(API("Member"))).data;
-      const Personal = (yield call(API("Personal"))).data;
-      const Costume = (yield call(API("Costume"))).data;
-      const SkillActive = (yield call(API("SkillActive"))).data;
-      const SkillPassive = (yield call(API("SkillPassive"))).data;
-      yield put({ type: 'save', payload: Member });
-      yield put({ type: 'save', payload: Personal });
-      yield put({ type: 'save', payload: Costume });
-      yield put({ type: 'save', payload: SkillActive });
-      yield put({ type: 'save', payload: SkillPassive });
+
+      const [
+        Member,
+        Personal,
+        Costume,
+        SkillActive,
+        SkillPassive,
+      ] = (yield [
+        "Member",
+        "Personal",
+        "Costume",
+        "SkillActive",
+        "SkillPassive",
+      ].map(x => call(API(x)))).map(x => x.data);
+
+      yield put({ type: 'save', payload: {
+        ...Member,
+        ...Personal,
+        ...Costume,
+        ...SkillActive,
+        ...SkillPassive
+      }});
 
       const personalMap = arrayToMap(Personal.getPersonalMaster, "personalMstId");
       const costumeMap = arrayToMap(Costume.getCostumeMaster, "costumeMstId");

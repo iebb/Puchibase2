@@ -17,19 +17,31 @@ export default {
 
   effects: {
     * fetch({ payload }, { put, call }) {
-      const Card = (yield call(API("Card"))).data;
-      const Personal = (yield call(API("Personal"))).data;
-      const CardPersonal = (yield call(API("CardPersonal"))).data;
-      const CardPassiveSkill = (yield call(API("CardPassiveSkill"))).data;
-      const CardSpecialSkill = (yield call(API("CardSpecialSkill"))).data;
-      const CardCategory = (yield call(API("CardCategory"))).data;
 
-      yield put({ type: 'save', payload: Card });
-      yield put({ type: 'save', payload: Personal });
-      yield put({ type: 'save', payload: CardPersonal });
-      yield put({ type: 'save', payload: CardPassiveSkill });
-      yield put({ type: 'save', payload: CardSpecialSkill });
-      yield put({ type: 'save', payload: CardCategory });
+      const [
+        Card,
+        Personal,
+        CardPersonal,
+        CardPassiveSkill,
+        CardSpecialSkill,
+        CardCategory
+      ] = (yield [
+        "Card",
+        "Personal",
+        "CardPersonal",
+        "CardPassiveSkill",
+        "CardSpecialSkill",
+        "CardCategory"
+      ].map(x => call(API(x)))).map(x => x.data);
+
+      yield put({ type: 'save', payload: {
+        ...Card,
+        ...Personal,
+        ...CardPersonal,
+        ...CardPassiveSkill,
+        ...CardSpecialSkill,
+        ...CardCategory
+      }});
 
       const personalMap = arrayToMap(Personal.getPersonalMaster, "personalMstId");
 
