@@ -11,12 +11,12 @@ import {t} from "../../utils/languages";
   loading: loading.models.nesos,
 }))
 
-export default class PuchiDetail extends React.PureComponent {
+export default class NesoDetail extends React.PureComponent {
   constructor(props) {
     super(props);
-    const puchiId = props.id || props.match.params.id;
+    const nesoId = props.id || props.match.params.id;
     this.state = {
-      currentPuchi: puchiId,
+      currentNeso: nesoId,
       binmapModal: false,
       binaryMap: "",
       paramsModal: false,
@@ -55,7 +55,7 @@ export default class PuchiDetail extends React.PureComponent {
         <Header>{t(["wording", "nesos", "activeSkill", "binmap"])}</Header>
         <Modal.Content>
           <div style={{padding: "1em", overflowX: "auto", overflowY: "auto"}}>
-            <Grid style={{width: "22.857143em", margin: "0.2em"}}>
+            <Grid style={{width: "22.857143em", margin: 5}}>
               {
                 bitMap
               }
@@ -112,16 +112,16 @@ export default class PuchiDetail extends React.PureComponent {
 
   render() {
     const data = arrayToMap(this.props.nesos.data, "memberMstId");
-    const puchiId = this.state.currentPuchi;
-    const puchi = data[puchiId];
+    const nesoId = this.state.currentNeso;
+    const neso = data[nesoId];
 
-    if (!(puchi && puchi.personal && puchi.costume )) {
+    if (!(neso && neso.personal && neso.costume )) {
       return null;
     }
-    const binMap = puchi.skillActive[0].binaryMap;
+    const binMap = neso.skillActive[0].binaryMap;
     return (
       <div>
-        <Header as="h2">#{puchiId} - {puchi.personal.personalName} - {puchi.costume.costumeName}</Header>
+        <Header as="h2">#{nesoId} - {neso.personal.personalName} - {neso.costume.costumeName}</Header>
 
         {this.renderModal()}
         {this.renderParamsModal()}
@@ -130,12 +130,12 @@ export default class PuchiDetail extends React.PureComponent {
           <Grid.Column width={4}>
             <Card fluid>
               <Card.Content>
-                <Image width="50%" src={getSkillCutinAImage(puchi.memberMstId)} />
-                <Image width="50%" src={getSkillCutinBImage(puchi.memberMstId)} />
-                <Image width="100%" src={getSPRImage(puchi.memberMstId)} />
-                <Card.Header>{puchi.personal.personalName}</Card.Header>
-                <Card.Meta>#{puchiId}</Card.Meta>
-                <Card.Description>{puchi.costume.costumeName}</Card.Description>
+                <Image width="50%" src={getSkillCutinAImage(neso.memberMstId)} />
+                <Image width="50%" src={getSkillCutinBImage(neso.memberMstId)} />
+                <Image width="100%" src={getSPRImage(neso.memberMstId)} />
+                <Card.Header>{neso.personal.personalName}</Card.Header>
+                <Card.Meta>#{nesoId}</Card.Meta>
+                <Card.Description>{neso.costume.costumeName}</Card.Description>
               </Card.Content>
             </Card>
           </Grid.Column>
@@ -160,7 +160,7 @@ export default class PuchiDetail extends React.PureComponent {
                   </Table.Header>
                   <Table.Body>
                     {
-                      puchi.skillActive.map(row => (
+                      neso.skillActive.map(row => (
                         <Table.Row key={row.skillActiveMstId}>
                           <Table.Cell>{row.skillLevel}</Table.Cell>
                           <Table.Cell>{row.num}</Table.Cell>
@@ -190,7 +190,6 @@ export default class PuchiDetail extends React.PureComponent {
                   </Table.Body>
                 </Table>
               </div>
-              <Divider/>
             </Segment>
             <Segment>
               <Header as="h2">{t(["wording", "nesos", "passiveSkill", "__title"])}</Header>
@@ -208,7 +207,7 @@ export default class PuchiDetail extends React.PureComponent {
 
                   <Table.Body>
                     {
-                      puchi.skillPassive.map(row => {
+                      neso.skillPassive.map(row => {
                         const parsed = parsePassiveSkill(row);
                         return (
                           <Table.Row key={row.skillPassiveMstId}>
@@ -223,7 +222,6 @@ export default class PuchiDetail extends React.PureComponent {
                   </Table.Body>
                 </Table>
               </div>
-              <Divider/>
             </Segment>
           </Grid.Column>
         </Grid>

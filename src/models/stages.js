@@ -32,7 +32,7 @@ export default {
 
       for (let row of data) {
         row.sortingId = (row.stageMstId % 1000 !== 1) * 100000000 + row.stageMstId;
-        row.schedules = Schedule.getScheduleMaster.filter(x => x.stageMstId === row.stageMstId);
+        row.schedules = Schedule.getScheduleMaster.filter(x => (x.stageMstId === row.stageMstId) && (x.seasonStartTime > 1524409199));
         row.missions = MissionStage.getMissionStageMaster.filter(x => x.stageId === row.stageMstId);
         row.secrets = MissionSecret.getMissionSecretMaster.filter(x => x.stageId === row.stageMstId);
         row.members = Member.getMemberMaster.filter(x => parseInt(x.memberMstId / 1000) === parseInt(row.stageMstId / 1000));

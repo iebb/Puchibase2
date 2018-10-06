@@ -53,7 +53,20 @@
     },
     "stages": {
       "normalMission": "Missions",
-      "secretMission": "Secrets"
+      "secretMission": "Secrets",
+      "missions": {
+        "__title": "Missions"
+      },
+      "secrets": {
+        "__title": "Secret Missions"
+      },
+      "schedule": {
+        "__title": "Rotation Schedule",
+        "useJST": "Show in JST",
+        "num": "#",
+        "start": "Start",
+        "end": "End"
+      }
     }
   }
 }
