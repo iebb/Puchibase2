@@ -30,6 +30,7 @@ export function getMasterData() {
     request(`${endPoint}masterdata.json`).then(function({ data, err }) {
       let tables;
       if (err) {
+        console.error("Masterdata Failed, loading from cache");
         tables = localStorage.getItem("Masterdata");
       } else if (data && data.checkMasterTableVersion) {
         localStorage.setItem("Masterdata", JSON.stringify(data.checkMasterTableVersion));
