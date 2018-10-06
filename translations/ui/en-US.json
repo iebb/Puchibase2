@@ -32,6 +32,10 @@
       "stages": "Stages"
     },
     "nesos": {
+      "list": {
+        "activeSkill": "C",
+        "passiveSkill": "S"
+      },
       "activeSkill": {
         "__title": "Center Skill",
         "levels": "Lv",

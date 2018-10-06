@@ -21,8 +21,8 @@
       "4": "主技能发动时",
       "7": "前 10 秒",
       "8": "最后 10 秒",
-      "9": "Showtime",
-      "10": "Last Bonus",
+      "9": "Showtime 时",
+      "10": "Last Bonus 时",
       "11": "Combo 持续时"
     }
   },
@@ -35,6 +35,10 @@
       "stages": "关卡"
     },
     "nesos": {
+      "list": {
+        "activeSkill": "技能",
+        "passiveSkill": "支援"
+      },
       "activeSkill": {
         "__title": "主技能",
         "levels": "Lv",
@@ -56,7 +60,20 @@
     },
     "stages": {
       "normalMission": "普通关",
-      "secretMission": "隐藏关"
+      "secretMission": "隐藏关",
+      "missions": {
+        "__title": "普通关"
+      },
+      "secrets": {
+        "__title": "隐藏关"
+      },
+      "schedule": {
+        "__title": "关卡轮换表",
+        "useJST": "显示日本时间",
+        "num": "次数",
+        "start": "开始",
+        "end": "结束"
+      }
     }
   }
 }
