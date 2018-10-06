@@ -1,10 +1,13 @@
 import React from 'react';
-import {Loader} from "semantic-ui-react";
+import {Header, Loader} from "semantic-ui-react";
 
 export default class Loading extends React.PureComponent {
   render() {
     return (
-      <Loader content='Loading' />
+      <div style={{textAlign: "center"}}>
+        <Header as="h1">Loading...</Header>
+        <Loader content='Loading' />
+      </div>
     );
   }
 }

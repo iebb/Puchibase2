@@ -60,6 +60,13 @@ export default class Nesos extends React.PureComponent {
                   <Card.Meta>#{row.memberMstId}</Card.Meta>
                   <Card.Description>{row.costume && row.costume.costumeName}</Card.Description>
                   <Card.Description>
+                    <span style={{fontSize: "80%"}}>
+                      {t(["wording", "nesos", "list", "activeSkill"])}: {row.skillActive[0].name}
+                      <br/>
+                      {t(["wording", "nesos", "list", "passiveSkill"])}: {row.skillPassive[0].name}
+                    </span>
+                  </Card.Description>
+                  <Card.Description>
                     <Progress percent={(100.0 * (row.scoreInitial + 49 * row.scoreRise) / 1500)} color='green' size="tiny">
                       SCORE: {row.scoreInitial} / {row.scoreInitial + 49 * row.scoreRise} (+{row.scoreRise})
                     </Progress>
