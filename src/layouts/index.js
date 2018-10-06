@@ -1,10 +1,14 @@
 import NavLink from 'umi/navlink';
+import React from "react";
+import ReactGA from 'react-ga';
 import {Container, Divider, Flag, Icon, Image, List, Menu, Segment} from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 import styles from "./index.less";
-import React from "react";
 import {lang, t, languages} from "../utils/languages";
 import {getGeneral} from "../services/xet";
+
+ReactGA.initialize('UA-20909424-23');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default class Layout extends React.PureComponent {
   constructor(props){

@@ -3,6 +3,7 @@ import {Card, Image} from "semantic-ui-react";
 import {t} from "../utils/languages";
 import {getGeneral} from "../services/xet";
 import Link from "umi/link";
+import React from "react";
 
 export default () => {
   const links = [
@@ -32,7 +33,7 @@ export default () => {
     },
   ];
   return (
-    <Card.Group>
+    <Card.Group itemsPerRow={3} doubling stackable>
       {
         links.map(x => (
           <Card to={x.link} as={Link} key={x.link}>

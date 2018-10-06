@@ -8,6 +8,7 @@
     "path-to-regexp": "^1.5.3",
     "react": "latest",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-ga": "^2.5.3",
     "react-i18next": "^8.0.6",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^0.82.5",
