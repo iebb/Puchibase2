@@ -1,5 +1,5 @@
 import request from "../utils/request";
-const endPoint = "https://puchiguru.loveliv.es/master/";
+const endPoint = "https://puchi-api.loveliv.es/";
 const suffix = "Mst.min.json";
 
 export function getInfo() {

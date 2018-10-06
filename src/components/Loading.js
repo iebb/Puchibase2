@@ -6,7 +6,7 @@ export default class Loading extends React.PureComponent {
     return (
       <div style={{textAlign: "center"}}>
         <Header as="h1">Loading...</Header>
-        <Loader content='Loading' />
+        <Loader active content='Loading' />
       </div>
     );
   }

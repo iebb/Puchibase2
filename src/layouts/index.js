@@ -7,7 +7,6 @@ import styles from "./index.less";
 import {lang, t, languages} from "../utils/languages";
 import {getGeneral} from "../services/xet";
 import {getInfo} from "../services/api";
-import Loading from "../components/Loading";
 
 ReactGA.initialize('UA-20909424-23');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -52,13 +51,7 @@ export default class Layout extends React.PureComponent {
         </Menu>
 
         <Container style={{marginTop: '3em'}}>
-          {
-            React.cloneElement(this.props.children, { language: this.state.language })
-            ||
-            (
-              <Loading />
-            )
-          }
+          {React.cloneElement(this.props.children, { language: this.state.language })}
         </Container>
 
         <Segment inverted vertical style={{margin: '5em 0em 0em', padding: '5em 0em'}}>
