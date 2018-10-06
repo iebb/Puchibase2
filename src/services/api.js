@@ -40,7 +40,7 @@ export function API(key) {
 
   let item = sessionStorage.getItem(key);
   if (item) {
-    if (localStorage.getItem(`${key}_CRC`) === item) {
+    if (localStorage.getItem(`${key}!!Hash`) === item) {
       return () => JSON.parse(localStorage.getItem(`${key}`))
     } else {
       return () => cachedRequest(key, item);
