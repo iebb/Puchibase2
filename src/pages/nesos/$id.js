@@ -6,9 +6,9 @@ import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage} from "../../servi
 import {parsePassiveSkill} from "../../utils/skills";
 import {t} from "../../utils/languages";
 
-@connect(({ puchies, loading }) => ({
-  puchies,
-  loading: loading.models.puchies,
+@connect(({ nesos, loading }) => ({
+  nesos,
+  loading: loading.models.nesos,
 }))
 
 export default class PuchiDetail extends React.PureComponent {
@@ -23,7 +23,7 @@ export default class PuchiDetail extends React.PureComponent {
       params: {},
     };
     props.dispatch({
-      type: 'puchies/fetch',
+      type: 'nesos/fetch',
     });
   }
 
@@ -52,7 +52,7 @@ export default class PuchiDetail extends React.PureComponent {
         onClose={this.handleBinMap}
         size='small'
       >
-        <Header>{t(["wording", "puchies", "activeSkill", "binmap"])}</Header>
+        <Header>{t(["wording", "nesos", "activeSkill", "binmap"])}</Header>
         <Modal.Content>
           <div style={{padding: "1em", overflowX: "auto", overflowY: "auto"}}>
             <Grid style={{width: "22.857143em", margin: "0.2em"}}>
@@ -79,13 +79,13 @@ export default class PuchiDetail extends React.PureComponent {
         onClose={this.handleParams}
         size='small'
       >
-        <Header>{t(["wording", "puchies", "activeSkill", "parameters"])}</Header>
+        <Header>{t(["wording", "nesos", "activeSkill", "parameters"])}</Header>
         <Modal.Content>
           <Table celled compact='very'>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "key"])}</Table.HeaderCell>
-                <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "value"])}</Table.HeaderCell>
+                <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "key"])}</Table.HeaderCell>
+                <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "value"])}</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -111,8 +111,7 @@ export default class PuchiDetail extends React.PureComponent {
   }
 
   render() {
-    const { activePage, rowPerPage } = this.state;
-    const data = arrayToMap(this.props.puchies.data, "memberMstId");
+    const data = arrayToMap(this.props.nesos.data, "memberMstId");
     const puchiId = this.state.currentPuchi;
     const puchi = data[puchiId];
 
@@ -142,19 +141,19 @@ export default class PuchiDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
-              <Header as="h2">{t(["wording", "puchies", "activeSkill", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "activeSkill", "__title"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "levels"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "requirements"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "effects"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "parameters"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "levels"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "requirements"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "effects"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "parameters"])}</Table.HeaderCell>
                       {
                         binMap ?
-                        <Table.HeaderCell>{t(["wording", "puchies", "activeSkill", "binmap"])}</Table.HeaderCell>
+                        <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "binmap"])}</Table.HeaderCell>
                           : null
                       }
                     </Table.Row>
@@ -168,7 +167,7 @@ export default class PuchiDetail extends React.PureComponent {
                           <Table.Cell>{row.explanation}</Table.Cell>
                           <Table.Cell>
                             <a onClick={() => {this.setState({params: row.effect, paramsModal: true});}}>
-                              {t(["wording", "puchies", "activeSkill", "view"])}
+                              {t(["wording", "nesos", "activeSkill", "view"])}
                             </a>
                           </Table.Cell>
                           {
@@ -194,16 +193,16 @@ export default class PuchiDetail extends React.PureComponent {
               <Divider/>
             </Segment>
             <Segment>
-              <Header as="h2">{t(["wording", "puchies", "passiveSkill", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "passiveSkill", "__title"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "levels"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "trigger"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "effects"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "puchies", "passiveSkill", "rate"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "levels"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "trigger"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "effects"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "rate"])}</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 

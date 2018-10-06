@@ -5,14 +5,15 @@ import {DataPagination, TotalPages} from "../../utils/utils";
 import {getSPRImage} from "../../services/xet";
 import NavLink from "umi/navlink";
 import {t} from "../../utils/languages";
+import Loading from "../../components/Loading";
 
-@connect(({ puchies, loading }) => ({
-  puchies,
-  loading: loading.models.puchies,
+@connect(({ nesos, loading }) => ({
+  nesos,
+  loading: loading.models.nesos,
 
 }))
 
-export default class Puchies extends React.PureComponent {
+export default class Nesos extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +21,7 @@ export default class Puchies extends React.PureComponent {
       rowPerPage: 16,
     };
     props.dispatch({
-      type: 'puchies/fetch',
+      type: 'nesos/fetch',
     });
   }
 
@@ -29,14 +30,15 @@ export default class Puchies extends React.PureComponent {
   render() {
     const { activePage, rowPerPage } = this.state;
 
-    const { data } = this.props.puchies;
+    const { data } = this.props.nesos;
 
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
 
+    if (pageData.length === 0) return (<Loading />);
     return (
       <div>
-        <Header as="h2">{t(["wording", "menu", "puchies"])}</Header>
+        <Header as="h2">{t(["wording", "menu", "nesos"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
@@ -52,7 +54,7 @@ export default class Puchies extends React.PureComponent {
                 <Card.Content>
                   <Image floated='left' size='tiny' src={getSPRImage(row.memberMstId)} />
                   <Card.Header>
-                    <NavLink to={`/puchies/${row.memberMstId}`}>
+                    <NavLink to={`/nesos/${row.memberMstId}`}>
                       {row.personal && row.personal.personalName}
                     </NavLink>
                   </Card.Header>

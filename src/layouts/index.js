@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import styles from "./index.less";
 import React from "react";
 import {lang, t, languages} from "../utils/languages";
+import {getGeneral} from "../services/xet";
 
 export default class Layout extends React.PureComponent {
   constructor(props){
@@ -18,28 +19,36 @@ export default class Layout extends React.PureComponent {
       <div>
         <Menu fixed='top' inverted>
           <Container>
-            <Menu.Item as='a' header>
-              <Image
-                size='mini'
-                src='https://puchi-xet.loveliv.es/sprawlpict/sprawlpict10003101.png'
-                style={{marginRight: '1.5em'}}
-
-              />
-              Puchibase v2
-            </Menu.Item>
-            <Menu.Item>
-              <NavLink to="/titles" activeClassName={styles.activeLink}>
-                {t(["wording", "menu", "titles"])}
+            <Menu.Item header>
+              <NavLink to="/" activeClassName={styles.activeLink}>
+                <Image
+                  size='mini'
+                  src={getGeneral("sprawlpict", "10003101")}
+                  style={{marginRight: '1.5em', display: "inline"}}
+                />
+                <span>
+                  Puchibase v2
+                </span>
               </NavLink>
             </Menu.Item>
             <Menu.Item>
-              <NavLink to="/puchies" activeClassName={styles.activeLink}>
-                {t(["wording", "menu", "puchies"])}
+              <NavLink to="/achievements" activeClassName={styles.activeLink}>
+                {t(["wording", "menu", "achievements"])}
+              </NavLink>
+            </Menu.Item>
+            <Menu.Item>
+              <NavLink to="/nesos" activeClassName={styles.activeLink}>
+                {t(["wording", "menu", "nesos"])}
               </NavLink>
             </Menu.Item>
             <Menu.Item>
               <NavLink to="/cards" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "cards"])}
+              </NavLink>
+            </Menu.Item>
+            <Menu.Item>
+              <NavLink to="/stages" activeClassName={styles.activeLink}>
+                {t(["wording", "menu", "stages"])}
               </NavLink>
             </Menu.Item>
           </Container>

@@ -1,10 +1,9 @@
-import pathToRegexp from 'path-to-regexp';
-import { API } from '../services/api';
+import {API} from '../services/api';
 import {arrayToMap} from "../utils/utils";
 
 export default {
 
-  namespace: 'puchies',
+  namespace: 'nesos',
   state: {
     getMemberMaster: [],
     getPersonalMaster: [],

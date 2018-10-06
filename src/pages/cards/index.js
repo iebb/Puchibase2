@@ -4,6 +4,7 @@ import {Card, Divider, Header, Image, Pagination, Progress, Tab} from "semantic-
 import {DataPagination, TotalPages} from "../../utils/utils";
 import {getCardSmallImage} from "../../services/xet";
 import {t} from "../../utils/languages";
+import Loading from "../../components/Loading";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -33,6 +34,7 @@ export default class Cards extends React.PureComponent {
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
 
+    if (pageData.length === 0) return (<Loading />);
     return (
       <div>
         <Header as="h2">{t(["wording", "menu", "cards"])}</Header>

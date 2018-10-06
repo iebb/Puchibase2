@@ -4,14 +4,15 @@ import {Card, Divider, Header, Image, Pagination} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
 import {getTitleImage} from "../../services/xet";
 import {t} from "../../utils/languages";
+import Loading from "../../components/Loading";
 
-@connect(({ titles, loading }) => ({
-  titles,
-  loading: loading.models.titles,
+@connect(({ achievements, loading }) => ({
+  achievements,
+  loading: loading.models.achievements,
 
 }))
 
-export default class Titles extends React.PureComponent {
+export default class Achievements extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,22 +20,23 @@ export default class Titles extends React.PureComponent {
       rowPerPage: 15,
     };
     props.dispatch({
-      type: 'titles/fetch',
+      type: 'achievements/fetch',
     });
   }
 
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
 
   render() {
-    const { getTitleMaster } = this.props.titles;
+    const { getTitleMaster } = this.props.achievements;
     const { activePage, rowPerPage } = this.state;
 
-    const data = DataPagination(getTitleMaster, activePage, rowPerPage);
+    const pageData = DataPagination(getTitleMaster, activePage, rowPerPage);
     const totalPages = TotalPages(getTitleMaster, rowPerPage);
 
+    if (pageData.length === 0) return (<Loading />);
     return (
       <div>
-        <Header as="h2">{t(["wording", "menu", "titles"])}</Header>
+        <Header as="h2">{t(["wording", "menu", "achievements"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
@@ -45,7 +47,7 @@ export default class Titles extends React.PureComponent {
         <Divider />
         <Card.Group itemsPerRow={3} doubling stackable>
           {
-            data.map(row => (
+            pageData.map(row => (
               <Card key={row.titleMstId}>
                 <Card.Content>
                   <Image floated='left' size='tiny' src={getTitleImage(row.titleMstId)} />

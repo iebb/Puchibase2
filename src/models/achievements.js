@@ -2,7 +2,7 @@ import {API} from '../services/api';
 
 export default {
 
-  namespace: 'titles',
+  namespace: 'achievements',
   state: {
     getTitleMaster: [],
   },
