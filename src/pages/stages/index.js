@@ -46,7 +46,7 @@ export default class Stages extends React.PureComponent {
           lastItem={null}
         />
         <Divider />
-        <Card.Group itemsPerRow={2} doubling stackable>
+        <Card.Group itemsPerRow={2} stackable>
           {
             pageData.map(row => {
 

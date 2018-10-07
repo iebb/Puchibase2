@@ -1,11 +1,14 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Card, Checkbox, Divider, Grid, Header, Image, Segment, Table} from "semantic-ui-react";
+import {Card, Checkbox, Divider, Grid, Header, Image, Label, Segment, Table} from "semantic-ui-react";
 import {arrayToMap} from "../../utils/utils";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Moment from "react-moment";
 import 'moment-timezone';
+import ReactTable from "react-table";
+import 'react-table/react-table.css'
+import Reward from "../../components/Reward";
 
 @connect(({ stages, loading }) => ({
   stages,
@@ -25,7 +28,10 @@ export default class StageDetail extends React.PureComponent {
       type: 'stages/fetch',
     });
   }
-  toggle = () => this.setState({ useJST: !this.state.useJST })
+
+  toggle = () => this.setState({ useJST: !this.state.useJST });
+
+
 
   render() {
     const data = arrayToMap(this.props.stages.data, "stageMstId");
@@ -34,6 +40,35 @@ export default class StageDetail extends React.PureComponent {
 
     if (!stage) return <Loading />;
     const tz = this.state.useJST ? "Asia/Tokyo" : this.state.localZone;
+    const missionColumns = [
+      {
+        Header: '#',
+        accessor: 'missionId',
+        width: 35,
+      },
+      {
+        Header: 'Type',
+        accessor: 'periodCount',
+        Cell: val => (
+          (val.value === 1) ?
+            <Label size="mini" color="green">1PL</Label> :
+            <Label size="mini" color="blue">TTL</Label>
+        ),
+        width: 50,
+      },
+      {
+        Header: 'Contents',
+        accessor: 'contents'
+      },
+      {
+        Header: 'Reward',
+        accessor: 'itemMstId',
+        Cell: val => (
+          <Reward item={val.value} count={val.original.itemNum}/>
+        ),
+        width: 100,
+      },
+    ];
 
     return (
       <div>
@@ -53,12 +88,20 @@ export default class StageDetail extends React.PureComponent {
             <Segment>
               <Header as="h2">{t(["wording", "stages", "missions", "__title"])}</Header>
               <Divider/>
-
+              <ReactTable
+                data={stage.missions}
+                columns={missionColumns}
+                defaultPageSize={5}
+              />
             </Segment>
             <Segment>
               <Header as="h2">{t(["wording", "stages", "secrets", "__title"])}</Header>
               <Divider/>
-
+              <ReactTable
+                data={stage.secrets}
+                columns={missionColumns}
+                defaultPageSize={5}
+              />
             </Segment>
             <Segment>
               <Header as="h2">{t(["wording", "stages", "schedule", "__title"])}</Header>

@@ -13,6 +13,7 @@
     "react-ga": "^2.5.3",
     "react-i18next": "^8.0.6",
     "react-moment": "^0.8.1",
+    "react-table": "^6.8.6",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^0.82.5",
     "sprintf-js": "^1.1.1",

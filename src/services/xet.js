@@ -1,5 +1,6 @@
-const sprintf = require("sprintf-js").sprintf;
+import {sprintf} from "sprintf-js";
 const endPoint = "https://puchi-xet.loveliv.es/";
+
 export function getGeneral(type, aId) {
   return sprintf(endPoint + "%s/%s%s.png", type, type, aId);
 }
