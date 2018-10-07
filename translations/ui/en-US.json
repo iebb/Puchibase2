@@ -23,7 +23,45 @@
       "11": "During Combo"
     }
   },
-
+  "mission": {
+    "targets": {
+      "eraseLeader": "Clear {data} center puchis",
+      "eraseAll": "Clear {data} puchis",
+      "gold": "Get {data} Gold",
+      "combo": "Get {data} Combos",
+      "macaron": "Get {data} Tokens",
+      "skill": "Activate skill {data} times",
+      "score": "Get {data} score",
+      "showTime": "Trigger {data} Showtimes",
+      "bombAll": "Clear {data} bombs",
+      "bombScore": "Clear {data} Score bombs",
+      "bombTime": "Clear {data} Time bombs",
+      "bombGold": "Clear {data} Gold bombs",
+      "chainCount": "Clear {chain}-chain puchis {count} times"
+    }
+  },
+  "members": {
+    "shortName": {
+      "101": "Honoka",
+      "102": "Kotori",
+      "103": "Umi",
+      "104": "Maki",
+      "105": "Rin",
+      "106": "Hanayo",
+      "107": "Nico",
+      "108": "Nozomi",
+      "109": "Eli",
+      "201": "Chika",
+      "202": "You",
+      "203": "Riko",
+      "204": "Hanamaru",
+      "205": "Ruby",
+      "206": "Yoshiko",
+      "207": "Dia",
+      "208": "Kanan",
+      "209": "Mari"
+    }
+  },
   "wording": {
     "menu": {
       "achievements": "Achievements",
@@ -58,12 +96,11 @@
     "stages": {
       "normalMission": "Missions",
       "secretMission": "Secrets",
-      "missions": {
-        "__title": "Missions"
-      },
-      "secrets": {
-        "__title": "Secret Missions"
-      },
+
+      "missions": "Missions",
+      "secrets": "Secret Missions",
+      "extras": "Extra Missions",
+
       "schedule": {
         "__title": "Rotation Schedule",
         "useJST": "Show in JST",

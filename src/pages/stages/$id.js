@@ -51,8 +51,8 @@ export default class StageDetail extends React.PureComponent {
         accessor: 'periodCount',
         Cell: val => (
           (val.value === 1) ?
-            <Label size="mini" color="green">1PL</Label> :
-            <Label size="mini" color="blue">TTL</Label>
+            <Label size="mini" color="green">1P</Label> :
+            <Label size="mini" color="blue">TT</Label>
         ),
         width: 50,
       },
@@ -86,7 +86,7 @@ export default class StageDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
-              <Header as="h2">{t(["wording", "stages", "missions", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "stages", "missions"])}</Header>
               <Divider/>
               <ReactTable
                 data={stage.missions}
@@ -95,10 +95,19 @@ export default class StageDetail extends React.PureComponent {
               />
             </Segment>
             <Segment>
-              <Header as="h2">{t(["wording", "stages", "secrets", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "stages", "secrets"])}</Header>
               <Divider/>
               <ReactTable
                 data={stage.secrets}
+                columns={missionColumns}
+                defaultPageSize={5}
+              />
+            </Segment>
+            <Segment>
+              <Header as="h2">{t(["wording", "stages", "extras"])}</Header>
+              <Divider/>
+              <ReactTable
+                data={stage.extras}
                 columns={missionColumns}
                 defaultPageSize={5}
               />

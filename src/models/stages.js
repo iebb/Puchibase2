@@ -9,6 +9,7 @@ export default {
     getMemberMaster: [],
     getScheduleMaster: [],
     getMissionStageMaster: [],
+    getMissionExtraMaster: [],
     getMissionSecretMaster: [],
 
     data: [],
@@ -21,23 +22,26 @@ export default {
         Stage,
         Schedule,
         MissionStage,
+        MissionExtra,
         MissionSecret,
         Member
       ] = (yield [
         "Stage",
         "Schedule",
         "MissionStage",
+        "MissionExtra",
         "MissionSecret",
         "Member"
       ].map(x => call(API(x)))).map(x => x.data);
 
       yield put({ type: 'save', payload: {
-        ...Stage,
-        ...Schedule,
-        ...MissionStage,
-        ...MissionSecret,
-        ...Member
-      }});
+          ...Stage,
+          ...Schedule,
+          ...MissionStage,
+          ...MissionExtra,
+          ...MissionSecret,
+          ...Member
+        }});
 
 
       const data = Stage.getStageMaster.slice(0);
@@ -48,6 +52,7 @@ export default {
         row.schedules = Schedule.getScheduleMaster.filter(x => (x.stageMstId === row.stageMstId) && (x.seasonStartTime > 1524409199));
         row.missions = MissionStage.getMissionStageMaster.filter(x => x.stageId === row.stageMstId);
         row.secrets = MissionSecret.getMissionSecretMaster.filter(x => x.stageId === row.stageMstId);
+        row.extras = MissionExtra.getMissionExtraMaster.filter(x => x.stageId === row.stageMstId);
         row.members = Member.getMemberMaster.filter(x => row.stageMstId % 1000 === 1 ? (
             Math.floor(x.memberMstId / 1000) === Math.floor(row.stageMstId / 1000)
           ) : false
