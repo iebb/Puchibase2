@@ -94,8 +94,8 @@ export default class StageDetail extends React.PureComponent {
         accessor: 'periodCount',
         Cell: val => (
           (val.value === 1) ?
-            <Label color="green">1PLAY</Label> :
-            <Label color="blue">TOTAL</Label>
+            <Label color="blue">1PLAY</Label> :
+            <Label color="green">TOTAL</Label>
         ),
         width: 100,
       },
@@ -120,6 +120,9 @@ export default class StageDetail extends React.PureComponent {
         width: 100,
       },
     ];
+
+
+
 
     return (
       <div>

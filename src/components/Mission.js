@@ -17,7 +17,7 @@ export default class Reward extends React.PureComponent {
       <Container>
         <Header as="h3">
           {t(["wording", "stages", "missionModal", "titles", "mission"])} #{data.missionId}
-          <Label color={(period === 1) ? "green" : "blue"}>
+          <Label color={(period === 1) ? "blue" : "green"}>
             {(period === 1) ? "1PLAY" : "TOTAL"}
           </Label>
         </Header>
