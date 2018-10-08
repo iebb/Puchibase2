@@ -51,7 +51,7 @@
     },
 
     "limitation": {
-      "None": "None",
+      "None": "",
       "Leader": {
         "Other": "using a {value} leader",
         "Personal": "using {value} as leader"

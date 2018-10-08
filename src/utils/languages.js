@@ -22,7 +22,7 @@ export function lang() {
 export function t(key, empty=false) {
   let language = lang();
   const ret = resolveObj(languages[language].dict, key) || resolveObj(languages["en-US"].dict, key);
-  if (ret) {
+  if (typeof ret !== "undefined") {
     return ret;
   } else if (empty) {
     return "";
