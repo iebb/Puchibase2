@@ -52,6 +52,7 @@ export default class Stages extends React.PureComponent {
 
               const missionsCnt = row.missions.length;
               const secretsCnt = row.secrets.length;
+              const extrasCnt = row.extras.length;
               return (
                 <Card key={row.stageMstId} as={Link} to={`/stages/${row.stageMstId}`}>
                   <Card.Content>
@@ -68,8 +69,14 @@ export default class Stages extends React.PureComponent {
                       }
                     </Card.Description>
                     <Card.Description>
-                      <Progress percent={(100.0 * (missionsCnt) / (missionsCnt + secretsCnt))} color='blue' size="tiny">
-                        {missionsCnt} {t(["wording", "stages", "normalMission"])} + {secretsCnt} {t(["wording", "stages", "secretMission"])}
+                      <Progress value={missionsCnt} total={missionsCnt + secretsCnt + extrasCnt} color='blue' size="tiny">
+                        {missionsCnt} {
+                          t(["wording", "stages", "normalMission"])
+                        } + {secretsCnt} {
+                          t(["wording", "stages", "secretMission"])
+                        } + {extrasCnt} {
+                          t(["wording", "stages", "extraMission"])
+                        }
                       </Progress>
                     </Card.Description>
                   </Card.Content>

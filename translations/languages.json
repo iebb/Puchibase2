@@ -1,10 +1,4 @@
 {
-  "zh-CN": {
-    "language": "中文（简化字）",
-    "flag": "cn",
-    "translator": "ieb",
-    "code": "zh-CN"
-  },
   "en-US": {
     "language": "English",
     "flag": "us",
@@ -16,5 +10,11 @@
     "flag": "es",
     "translator": "Daniel F.",
     "code": "es-ES"
+  },
+  "zh-CN": {
+    "language": "中文（简化字）",
+    "flag": "cn",
+    "translator": "ieb",
+    "code": "zh-CN"
   }
 }
