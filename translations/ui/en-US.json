@@ -197,7 +197,7 @@
       "missionModal": {
         "titles": {
           "mission": "Mission",
-          "limitations": "Limitations",
+          "limitation": "Limitation",
           "target": "Target",
           "reward": "Reward"
         },
