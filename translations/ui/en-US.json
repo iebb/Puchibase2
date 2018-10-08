@@ -74,12 +74,12 @@
       "combo": "Get {data} Combos",
       "macaron": "Get {data} Tokens",
       "skill": "Activate skill {data} times",
-      "score": "Get {data} score",
+      "score": "Get {data} Score",
 
       "scoreBreak": [9, 6, 3],
-      "score_3": "Get {data}k score",
-      "score_6": "Get {data}m score",
-      "score_9": "Get {data}b score",
+      "score_3": "Get {data}k Score",
+      "score_6": "Get {data}m Score",
+      "score_9": "Get {data}b Score",
 
       "showTime": "Trigger {data} Showtimes",
       "bombAll": "Clear {data} bombs",
@@ -111,9 +111,9 @@
       "chainCount": "{count} {chain}+chain Nesos",
 
       "scoreBreak": [9, 6, 3],
-      "score_3": "{data}k score",
-      "score_6": "{data}m score",
-      "score_9": "{data}b score",
+      "score_3": "{data}k Score",
+      "score_6": "{data}m Score",
+      "score_9": "{data}b Score",
 
       "chainCount_26": "{data} Rainbow chains",
       "chainCount_21": "{data} Red chains",
@@ -159,7 +159,9 @@
       "achievements": "Achievements",
       "nesos": "Nesos",
       "cards": "Cards",
-      "stages": "Stages"
+      "stages": "Stages",
+
+      "legacyWebsite": "Old Site"
     },
     "nesos": {
       "list": {

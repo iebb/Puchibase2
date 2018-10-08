@@ -47,6 +47,9 @@ export default class Layout extends React.PureComponent {
             <Menu.Item as={NavLink} to="/stages" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "stages"])}
             </Menu.Item>
+            <Menu.Item as={"a"} href="https://puchi-legacy.loveliv.es/">
+                {t(["wording", "menu", "legacyWebsite"])}
+            </Menu.Item>
           </Container>
         </Menu>
 

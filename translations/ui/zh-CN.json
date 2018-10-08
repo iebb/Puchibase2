@@ -173,7 +173,9 @@
       "achievements": "称号",
       "nesos": "趴趴",
       "cards": "卡牌",
-      "stages": "关卡"
+      "stages": "关卡",
+
+      "legacyWebsite": "旧网站"
     },
     "nesos": {
       "list": {
