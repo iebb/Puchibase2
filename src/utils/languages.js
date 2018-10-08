@@ -21,13 +21,19 @@ export function lang() {
 
 export function t(key, empty=false) {
   let language = lang();
-  const ret = resolveObj(languages[language].dict, key) || resolveObj(languages["en-US"].dict, key);
+  let ret = resolveObj(languages[language].dict, key);
   if (typeof ret !== "undefined") {
     return ret;
-  } else if (empty) {
-    return "";
   } else {
-    console.error("Missing Translations: " + key.join("."));
-    return key[key.length - 1].toUpperCase();
+    console.error("Missing " + language + " Translations: " + key.join("."));
+    ret = resolveObj(languages["en-US"].dict, key);
+    if (typeof ret !== "undefined") {
+      return ret;
+    } else if (empty) {
+      return "";
+    } else {
+      console.error("Missing en-US Language: " + key.join("."));
+      return key[key.length - 1].toUpperCase();
+    }
   }
 }

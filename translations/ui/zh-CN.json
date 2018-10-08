@@ -26,7 +26,148 @@
       "11": "Combo 持续时"
     }
   },
-
+  "mission": {
+    "targetFormat": "{limit}{period}{target}",
+    "limitationStandalone": {
+      "None": "无",
+      "Leader": {
+        "Other": "Center 来自 {value} ",
+        "Personal": "Center 为 {value} "
+      },
+      "All": {
+        "Other": "全员均来自 {value} ",
+        "Personal": "全员均为 {value} "
+      }
+    },
+    "limitationShort": {
+      "None": "无",
+      "Leader": {
+        "Other": "Center: {value} ",
+        "Personal": "Center: {value} "
+      },
+      "All": {
+        "Other": "全员: {value}",
+        "Personal": "全员: {value}"
+      }
+    },
+    "limitation": {
+      "None": "",
+      "Leader": {
+        "Other": "Center 来自 {value} 时，",
+        "Personal": "Center 为 {value} 时，"
+      },
+      "All": {
+        "Other": "全员均来自 {value} 时，",
+        "Personal": "全员均为 {value} 时，"
+      }
+    },
+    "period": {
+      "1": "单次",
+      "2": "合计"
+    },
+    "target": {
+      "eraseLeader": "消除 {data} 个 Center 趴趴",
+      "eraseAll": "消除 {data} 个趴趴",
+      "gold": "获得 {data} 个金币",
+      "macaron": "获得 {data} 个道具",
+      "combo": "达成 {data} Combo",
+      "skill": "发动技能 {data} 次",
+      "score": "获得 {data} 分",
+      "showTime": "发动 Showtime {data} 次",
+      "bombAll": "消除炸弹 {data} 个",
+      "bombScore": "消除分数炸弹 {data} 个",
+      "bombTime": "消除时间炸弹 {data} 个",
+      "bombGold": "消除金币炸弹 {data} 个",
+      "chainCount": "消除 {chain} 连以上趴趴 {count} 次",
+      "scoreBreak": [
+        8,
+        4
+      ],
+      "score_4": "获得 {data} 万分",
+      "score_8": "获得 {data} 亿分",
+      "chainCount_26": "消除彩链(26+) {data} 次",
+      "chainCount_21": "消除红链(21+) {data} 次",
+      "chainCount_16": "消除黄链(16+) {data} 次",
+      "chainCount_11": "消除蓝链(11+) {data} 次"
+    },
+    "targetShort": {
+      "eraseLeader": "消除 {data} 个 Center 趴趴",
+      "eraseAll": "消除 {data} 个趴趴",
+      "gold": "获得 {data} 个金币",
+      "macaron": "获得 {data} 个道具",
+      "combo": "达成 {data} Combo",
+      "skill": "发动技能 {data} 次",
+      "score": "获得 {data} 分",
+      "showTime": "发动 Showtime {data} 次",
+      "bombAll": "消除炸弹 {data} 个",
+      "bombScore": "消除分数炸弹 {data} 个",
+      "bombTime": "消除时间炸弹 {data} 个",
+      "bombGold": "消除金币炸弹 {data} 个",
+      "chainCount": "消除 {chain} 连以上趴趴 {count} 次",
+      "scoreBreak": [
+        8,
+        4
+      ],
+      "score_4": "获得 {data} 万分",
+      "score_8": "获得 {data} 亿分",
+      "chainCount_26": "消除彩链(26+) {data} 次",
+      "chainCount_21": "消除红链(21+) {data} 次",
+      "chainCount_16": "消除黄链(16+) {data} 次",
+      "chainCount_11": "消除蓝链(11+) {data} 次"
+    }
+  },
+  "names": {
+    "Personal": {
+      "name": {
+        "101": "高坂穂乃果",
+        "102": "南ことり",
+        "103": "園田海未",
+        "104": "西木野真姫",
+        "105": "星空凛",
+        "106": "小泉花陽",
+        "107": "矢澤にこ",
+        "108": "東條希",
+        "109": "絢瀬絵里",
+        "201": "高海千歌",
+        "202": "渡辺曜",
+        "203": "桜内梨子",
+        "204": "国木田花丸",
+        "205": "黒澤ルビィ",
+        "206": "津島善子",
+        "207": "黒澤ダイヤ",
+        "208": "松浦果南",
+        "209": "小原鞠莉"
+      }
+    },
+    "Unit": {
+      "name": [
+        "",
+        "Printemps",
+        "BiBi",
+        "lily white",
+        "CYaRon!",
+        "AZALEA",
+        "Guilty Kiss"
+      ]
+    },
+    "Group": {
+      "name": [
+        "",
+        "μ’s",
+        "Aqours",
+        "A-RISE",
+        "Saint Snow"
+      ]
+    },
+    "Class": {
+      "name": [
+        "",
+        "1年生",
+        "2年生",
+        "3年生"
+      ]
+    }
+  },
   "wording": {
     "menu": {
       "achievements": "称号",
@@ -59,12 +200,24 @@
       }
     },
     "stages": {
+      "showCombined": "一同显示",
       "normalMission": "普通关",
       "secretMission": "隐藏关",
+      "allMissions": "关卡",
       "missions": "普通关",
       "secrets": "隐藏关",
+      "extras": "EX 关",
+      "missionModal": {
+        "titles": {
+          "mission": "关卡",
+          "limitation": "限制",
+          "target": "目标",
+          "reward": "奖励"
+        },
+        "title": "关卡详情"
+      },
       "schedule": {
-        "__title": "关卡轮换表",
+        "__title": "轮换表",
         "useJST": "显示日本时间",
         "num": "次数",
         "start": "开始",

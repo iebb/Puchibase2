@@ -21,6 +21,7 @@ import Moment from "react-moment";
 import 'moment-timezone';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
+import {sprintf} from "sprintf-js";
 import Reward from "../../components/Reward";
 import Mission from "../../components/Mission";
 import {getLimit, getTarget} from "../../utils/missions";
@@ -40,13 +41,12 @@ export default class StageDetail extends React.PureComponent {
       localZone: require('moment-timezone').tz.guess(),
       showModal: false,
       modalRow: null,
+      showCombined: true,
     };
     props.dispatch({
       type: 'stages/fetch',
     });
   }
-
-  toggle = () => this.setState({ useJST: !this.state.useJST });
 
   handleClose = () => this.setState({ showModal: false });
 
@@ -86,33 +86,33 @@ export default class StageDetail extends React.PureComponent {
         Cell: val => (
             <Label onClick={
               () => {this.setState({modalRow: val.original, showModal: true})}
-            }>{val.value}</Label>
+            }>{val.original.mTypeId || val.value}</Label>
         ),
       },
       {
-        Header: 'Type',
+        Header: 'T',
         accessor: 'periodCount',
         Cell: val => (
           (val.value === 1) ?
-            <Label color="blue">1PLAY</Label> :
-            <Label color="green">TOTAL</Label>
+            <Label color="blue">1</Label> :
+            <Label color="green">T</Label>
         ),
-        width: 100,
+        width: 40,
       },
       {
-        Header: 'Limitation',
-        Cell: val => (
-          getLimit(val.original.limitationType, "limitationShort")
-        ),
-      },
-      {
-        Header: 'Target',
+        Header: t(["wording", "stages", "missionModal", "titles", "target"]),
         Cell: val => (
           getTarget(val.original.actionTarget, "targetShort")
         ),
       },
       {
-        Header: 'Reward',
+        Header: t(["wording", "stages", "missionModal", "titles", "limitation"]),
+        Cell: val => (
+          getLimit(val.original.limitationType, "limitationShort")
+        ),
+      },
+      {
+        Header: t(["wording", "stages", "missionModal", "titles", "reward"]),
         accessor: 'itemMstId',
         Cell: val => (
           <Reward item={val.value} count={val.original.itemNum}/>
@@ -121,8 +121,21 @@ export default class StageDetail extends React.PureComponent {
       },
     ];
 
-
-
+    const combined = [];
+    if (this.state.showCombined) {
+      for(const row of JSON.parse(JSON.stringify(stage.missions))) {
+        row.mTypeId = sprintf("%03d", row.missionId);
+        combined.push(row);
+      }
+      for(const row of JSON.parse(JSON.stringify(stage.secrets))) {
+        row.mTypeId = sprintf("S%02d", row.missionId);
+        combined.push(row);
+      }
+      for(const row of JSON.parse(JSON.stringify(stage.extras))) {
+        row.mTypeId = sprintf("E%02d", row.missionId);
+        combined.push(row);
+      }
+    }
 
     return (
       <div>
@@ -139,39 +152,62 @@ export default class StageDetail extends React.PureComponent {
                 <Card.Meta>#{stageId}</Card.Meta>
               </Card.Content>
             </Card>
+
+            <Segment>
+              <Checkbox toggle label={t(["wording", "stages", "showCombined"])}
+                        onChange={() => this.setState({ showCombined: !this.state.showCombined })}
+                        checked={this.state.showCombined} />
+            </Segment>
           </Grid.Column>
           <Grid.Column width={12}>
-            <Segment>
-              <Header as="h2">{t(["wording", "stages", "missions"])}</Header>
-              <Divider/>
-              <ReactTable
-                data={stage.missions}
-                columns={missionColumns}
-                defaultPageSize={5}
-              />
-            </Segment>
-            <Segment>
-              <Header as="h2">{t(["wording", "stages", "secrets"])}</Header>
-              <Divider/>
-              <ReactTable
-                data={stage.secrets}
-                columns={missionColumns}
-                defaultPageSize={5}
-              />
-            </Segment>
-            <Segment>
-              <Header as="h2">{t(["wording", "stages", "extras"])}</Header>
-              <Divider/>
-              <ReactTable
-                data={stage.extras}
-                columns={missionColumns}
-                defaultPageSize={5}
-              />
-            </Segment>
+            {
+              this.state.showCombined ? (
+                <Segment>
+                  <Header as="h2">{t(["wording", "stages", "allMissions"])}</Header>
+                  <Divider/>
+                  <ReactTable
+                    data={combined}
+                    columns={missionColumns}
+                    defaultPageSize={10}
+                  />
+                </Segment>
+              ) : (
+                <div>
+                  <Segment>
+                    <Header as="h2">{t(["wording", "stages", "missions"])}</Header>
+                    <Divider/>
+                    <ReactTable
+                      data={stage.missions}
+                      columns={missionColumns}
+                      defaultPageSize={5}
+                    />
+                  </Segment>
+                  <Segment>
+                    <Header as="h2">{t(["wording", "stages", "secrets"])}</Header>
+                    <Divider/>
+                    <ReactTable
+                      data={stage.secrets}
+                      columns={missionColumns}
+                      defaultPageSize={5}
+                    />
+                  </Segment>
+                  <Segment>
+                    <Header as="h2">{t(["wording", "stages", "extras"])}</Header>
+                    <Divider/>
+                    <ReactTable
+                      data={stage.extras}
+                      columns={missionColumns}
+                      defaultPageSize={5}
+                    />
+                  </Segment>
+                </div>
+              )
+            }
             <Segment>
               <Header as="h2">{t(["wording", "stages", "schedule", "__title"])}</Header>
               <Divider/>
-              <Checkbox toggle label={t(["wording", "stages", "schedule", "useJST"])} onChange={this.toggle} checked={this.state.useJST} />
+              <Checkbox toggle label={t(["wording", "stages", "schedule", "useJST"])}
+                        onChange={() => this.setState({ useJST: !this.state.useJST })} checked={this.state.useJST} />
               <Table compact="very">
                 <Table.Header>
                   <Table.Row>

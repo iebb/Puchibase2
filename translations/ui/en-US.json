@@ -75,6 +75,12 @@
       "macaron": "Get {data} Tokens",
       "skill": "Activate skill {data} times",
       "score": "Get {data} score",
+
+      "scoreBreak": [9, 6, 3],
+      "score_3": "Get {data}k score",
+      "score_6": "Get {data}m score",
+      "score_9": "Get {data}b score",
+
       "showTime": "Trigger {data} Showtimes",
       "bombAll": "Clear {data} bombs",
       "bombScore": "Clear {data} Score bombs",
@@ -93,14 +99,22 @@
       "gold": "{data} Gold",
       "combo": "{data} Combos",
       "macaron": "{data} Tokens",
-      "skill": "{data} Skill Activations",
+      "skill": "{data} Activations",
       "score": "{data} Score",
+
+
       "showTime": "{data} Showtimes",
       "bombAll": "{data} Bombs",
       "bombScore": "{data} Score bombs",
       "bombTime": "{data} Time bombs",
       "bombGold": "{data} Gold bombs",
       "chainCount": "{count} {chain}+chain Nesos",
+
+      "scoreBreak": [9, 6, 3],
+      "score_3": "{data}k score",
+      "score_6": "{data}m score",
+      "score_9": "{data}b score",
+
       "chainCount_26": "{data} Rainbow chains",
       "chainCount_21": "{data} Red chains",
       "chainCount_16": "{data} Yellow chains",
@@ -172,8 +186,10 @@
       }
     },
     "stages": {
+      "showCombined": "Show Combined",
       "normalMission": "Missions",
       "secretMission": "Secrets",
+      "allMissions": "Missions",
       "missions": "Missions",
       "secrets": "Secret Missions",
       "extras": "Extra Missions",
@@ -181,7 +197,8 @@
         "titles": {
           "mission": "Mission",
           "limitations": "Limitations",
-          "targets": "Targets"
+          "target": "Target",
+          "reward": "Reward"
         },
         "title": "Mission Detail"
       },

@@ -46,6 +46,19 @@ export function getTarget(actionTarget, textType = "target") {
   if (targetType === "chainCount") {
     targetType += "_" + targetVal.chainCount.chain;
     data = targetVal.chainCount.count;
+  } else
+  if (targetType === "score") {
+    data = targetVal.score;
+
+    const breaks = t(["mission", textType, "scoreBreak"]);
+    for(const pow of breaks) {
+      if ((10 ** pow) <= targetVal.score) {
+        targetType += "_" + pow;
+        data = targetVal.score / (10 ** pow);
+        break;
+      }
+    }
+
   } else {
     data = targetVal[targetType];
   }

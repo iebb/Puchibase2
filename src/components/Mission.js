@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Divider, Header, Label, Modal} from "semantic-ui-react";
+import {Container, Divider, Header, Label} from "semantic-ui-react";
 import {t} from "../utils/languages";
 import {f} from "../utils/utils";
 import {getLimit, getTarget} from "../utils/missions";
@@ -18,8 +18,8 @@ export default class Reward extends React.PureComponent {
       <Container>
         <Header as="h3">
           {t(["wording", "stages", "missionModal", "titles", "mission"])} #{data.missionId}
-          <Label color={(period === 1) ? "blue" : "green"}>
-            {(period === 1) ? "1PLAY" : "TOTAL"}
+          <Label color={(data.periodCount === 1) ? "blue" : "green"}>
+            {(data.periodCount === 1) ? "1PLAY" : "TOTAL"}
           </Label>
         </Header>
         <p style={{color: "grey"}}>{data.contents}</p>
@@ -27,19 +27,15 @@ export default class Reward extends React.PureComponent {
         <p style={{color: "grey"}}>{comb}</p>
         <Divider/>
         <Header as="h5">
-          {t(["wording", "stages", "missionModal", "titles", "limitations"])}
+          {t(["wording", "stages", "missionModal", "titles", "limitation"])}
         </Header>
-        <p>
-          {limitStd}
-        </p>
+        <p>{limitStd}</p>
         <Divider/>
 
         <Header as="h5">
-          {t(["wording", "stages", "missionModal", "titles", "targets"])}
+          {t(["wording", "stages", "missionModal", "titles", "target"])}
         </Header>
-        <p>
-          {target}
-        </p>
+        <p>{target}</p>
         <Divider/>
 
       </Container>
