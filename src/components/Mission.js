@@ -2,7 +2,7 @@ import React from 'react';
 import {Container, Divider, Header, Label} from "semantic-ui-react";
 import {t} from "../utils/languages";
 import {f} from "../utils/utils";
-import {getLimit, getTarget} from "../utils/missions";
+import {getLimit, getTarget, getUnlockTarget} from "../utils/missions";
 
 export default class Reward extends React.PureComponent {
 
@@ -14,6 +14,20 @@ export default class Reward extends React.PureComponent {
     const period = t(["mission", "period", data.periodCount]);
     const comb = f(t(["mission", "targetFormat"]), {...{limit}, ...{target}, ...{period}});
 
+    let secretRelease = "";
+    if (data.releaseSecretAction) {
+      const unlockActions = getUnlockTarget(data.releaseSecretAction);
+      console.log("act", unlockActions);
+      const unlockLimit = getLimit(unlockActions.limit);
+      const unlockTarget = getTarget(unlockActions.target);
+      const unlockPeriod = t(["mission", "period", unlockActions.period]);
+      secretRelease = f(t(["mission", "targetFormat"]), {
+        ...{limit: unlockLimit},
+        ...{target: unlockTarget},
+        ...{period: unlockPeriod}
+      });
+    }
+
     return (
       <Container>
         <Header as="h3">
@@ -23,9 +37,20 @@ export default class Reward extends React.PureComponent {
           </Label>
         </Header>
         <p style={{color: "grey"}}>{data.contents}</p>
-        <Divider/>
         <p style={{color: "grey"}}>{comb}</p>
         <Divider/>
+        {
+          data.releaseSecretAction && (
+            <div>
+              <Header as="h5">
+                {t(["wording", "stages", "missionModal", "titles", "unlock"])}
+              </Header>
+              <p>{secretRelease}</p>
+              <Divider/>
+            </div>
+          )
+        }
+
         <Header as="h5">
           {t(["wording", "stages", "missionModal", "titles", "limitation"])}
         </Header>

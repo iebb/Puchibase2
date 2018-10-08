@@ -201,6 +201,7 @@
           "mission": "Mission",
           "limitation": "Limitation",
           "target": "Target",
+          "unlock": "Unlock Requirements",
           "reward": "Reward"
         },
         "title": "Mission Detail"

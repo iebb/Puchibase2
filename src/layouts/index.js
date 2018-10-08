@@ -35,9 +35,6 @@ export default class Layout extends React.PureComponent {
                   Puchibase v2
                 </span>
             </Menu.Item>
-            <Menu.Item as={NavLink} to="/achievements" activeClassName={styles.activeLink}>
-                {t(["wording", "menu", "achievements"])}
-            </Menu.Item>
             <Menu.Item as={NavLink} to="/nesos" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "nesos"])}
             </Menu.Item>
@@ -46,6 +43,9 @@ export default class Layout extends React.PureComponent {
             </Menu.Item>
             <Menu.Item as={NavLink} to="/stages" activeClassName={styles.activeLink}>
                 {t(["wording", "menu", "stages"])}
+            </Menu.Item>
+            <Menu.Item as={NavLink} to="/achievements" activeClassName={styles.activeLink}>
+              {t(["wording", "menu", "achievements"])}
             </Menu.Item>
             <Menu.Item as={"a"} href="https://puchi-legacy.loveliv.es/">
                 {t(["wording", "menu", "legacyWebsite"])}
@@ -68,6 +68,9 @@ export default class Layout extends React.PureComponent {
               </List.Item>
               <List.Item as='a' href='mailto:ieb@outlook.my'>
                 Contact Me
+              </List.Item>
+              <List.Item as={"a"} href="https://puchi-legacy.loveliv.es/">
+                {t(["wording", "menu", "legacyWebsite"])}
               </List.Item>
             </List>
             <Divider/>

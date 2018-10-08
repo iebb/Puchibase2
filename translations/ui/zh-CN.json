@@ -215,6 +215,7 @@
           "mission": "关卡",
           "limitation": "限制",
           "target": "目标",
+          "unlock": "解锁要求",
           "reward": "奖励"
         },
         "title": "关卡详情"
