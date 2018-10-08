@@ -52,8 +52,7 @@ export function API(key) {
         return () => JSON.parse(localStorage.getItem(`${key}`))
       } else {
         return () => {
-          cachedRequest(key, item);
-          return JSON.parse(localStorage.getItem(`${key}`));
+          return cachedRequest(key, item);
         }
       }
     } else {
