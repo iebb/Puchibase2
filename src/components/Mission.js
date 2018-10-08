@@ -12,7 +12,6 @@ export default class Reward extends React.PureComponent {
     const limit = getLimit(data.limitationType);
     const target = getTarget(data.actionTarget);
     const period = t(["mission", "period", data.periodCount]);
-    console.log({...{limit}, ...{target}, ...{period}});
     const comb = f(t(["mission", "targetFormat"]), {...{limit}, ...{target}, ...{period}});
 
     return (
