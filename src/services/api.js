@@ -45,18 +45,21 @@ export function getMasterData() {
 }
 
 export function API(key) {
-
-  let item = sessionStorage.getItem(key);
-  if (item) {
-    if (localStorage.getItem(`${key}!!Hash`) === item) {
-      return () => JSON.parse(localStorage.getItem(`${key}`))
-    } else {
-      return () => {
-        cachedRequest(key, item);
-        return JSON.parse(localStorage.getItem(`${key}`));
+  try {
+    let item = sessionStorage.getItem(key);
+    if (item) {
+      if (localStorage.getItem(`${key}!!Hash`) === item) {
+        return () => JSON.parse(localStorage.getItem(`${key}`))
+      } else {
+        return () => {
+          cachedRequest(key, item);
+          return JSON.parse(localStorage.getItem(`${key}`));
+        }
       }
+    } else {
+      return () => normalRequest(key);
     }
-  } else {
+  } catch (e) {
     return () => normalRequest(key);
   }
 }
