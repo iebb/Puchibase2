@@ -24,9 +24,52 @@
     }
   },
   "mission": {
-    "targets": {
-      "eraseLeader": "Clear {data} center puchis",
-      "eraseAll": "Clear {data} puchis",
+    "targetFormat": "{target} {limit} {period}",
+
+    "limitationStandalone": {
+      "None": "None",
+      "Leader": {
+        "Other": "Center member must be from {value}",
+        "Personal": "Center member must be {value}"
+      },
+      "All": {
+        "Other": "All members must be from {value}",
+        "Personal": "All members must be {value}"
+      }
+    },
+
+    "limitationShort": {
+      "None": "-",
+      "Leader": {
+        "Other": "{value} Center",
+        "Personal": "{value} Center"
+      },
+      "All": {
+        "Other": "{value} Team",
+        "Personal": "{value} Team"
+      }
+    },
+
+    "limitation": {
+      "None": "None",
+      "Leader": {
+        "Other": "using a {value} leader",
+        "Personal": "using {value} as leader"
+      },
+      "All": {
+        "Other": "using a {limit}-only team",
+        "Personal": "using a {limit}-only team"
+      }
+    },
+
+    "period": {
+      "1": "in 1 play",
+      "2": "in total"
+    },
+
+    "target": {
+      "eraseLeader": "Clear {data} Center Nesos",
+      "eraseAll": "Clear {data} Nesos",
       "gold": "Get {data} Gold",
       "combo": "Get {data} Combos",
       "macaron": "Get {data} Tokens",
@@ -37,29 +80,64 @@
       "bombScore": "Clear {data} Score bombs",
       "bombTime": "Clear {data} Time bombs",
       "bombGold": "Clear {data} Gold bombs",
-      "chainCount": "Clear {chain}-chain puchis {count} times"
+      "chainCount": "Clear {chain}+chain Nesos {count} times",
+      "chainCount_26": "Clear {data} Rainbow (26+) chains",
+      "chainCount_21": "Clear {data} Red (21+) chains",
+      "chainCount_16": "Clear {data} Yellow (16+) chains",
+      "chainCount_11": "Clear {data} Blue (11+) chains"
+    },
+
+    "targetShort": {
+      "eraseLeader": "{data} Center Nesos",
+      "eraseAll": "{data} Nesos",
+      "gold": "{data} Gold",
+      "combo": "{data} Combos",
+      "macaron": "{data} Tokens",
+      "skill": "{data} Skills",
+      "score": "{data} Score",
+      "showTime": "{data} Showtimes",
+      "bombAll": "{data} Bombs",
+      "bombScore": "{data} Score bombs",
+      "bombTime": "{data} Time bombs",
+      "bombGold": "{data} Gold bombs",
+      "chainCount": "{count} {chain}+chain Nesos",
+      "chainCount_26": "{data} Rainbow chains",
+      "chainCount_21": "{data} Red chains",
+      "chainCount_16": "{data} Yellow chains",
+      "chainCount_11": "{data} Blue chains"
     }
   },
-  "members": {
-    "shortName": {
-      "101": "Honoka",
-      "102": "Kotori",
-      "103": "Umi",
-      "104": "Maki",
-      "105": "Rin",
-      "106": "Hanayo",
-      "107": "Nico",
-      "108": "Nozomi",
-      "109": "Eli",
-      "201": "Chika",
-      "202": "You",
-      "203": "Riko",
-      "204": "Hanamaru",
-      "205": "Ruby",
-      "206": "Yoshiko",
-      "207": "Dia",
-      "208": "Kanan",
-      "209": "Mari"
+  "names": {
+    "Personal": {
+      "name": {
+        "101": "Honoka",
+        "102": "Kotori",
+        "103": "Umi",
+        "104": "Maki",
+        "105": "Rin",
+        "106": "Hanayo",
+        "107": "Nico",
+        "108": "Nozomi",
+        "109": "Eli",
+        "201": "Chika",
+        "202": "You",
+        "203": "Riko",
+        "204": "Hanamaru",
+        "205": "Ruby",
+        "206": "Yoshiko",
+        "207": "Dia",
+        "208": "Kanan",
+        "209": "Mari"
+      }
+    },
+    "Unit": {
+      "name": ["", "Printemps", "BiBi", "lily white", "CYaRon!", "AZALEA", "Guilty Kiss"]
+    },
+    "Group": {
+      "name": ["", "μ’s", "Aqours", "A-RISE", "Saint Snow"]
+    },
+    "Class": {
+      "name": ["", "1st Year", "2nd Year", "3rd Year"]
     }
   },
   "wording": {
@@ -96,11 +174,17 @@
     "stages": {
       "normalMission": "Missions",
       "secretMission": "Secrets",
-
       "missions": "Missions",
       "secrets": "Secret Missions",
       "extras": "Extra Missions",
-
+      "missionModal": {
+        "titles": {
+          "mission": "Mission",
+          "limitations": "Limitations",
+          "targets": "Targets"
+        },
+        "title": "Mission Detail"
+      },
       "schedule": {
         "__title": "Rotation Schedule",
         "useJST": "Show in JST",

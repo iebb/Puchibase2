@@ -1,6 +1,19 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Card, Checkbox, Divider, Grid, Header, Image, Label, Segment, Table} from "semantic-ui-react";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  Label,
+  Modal,
+  Segment,
+  Table
+} from "semantic-ui-react";
 import {arrayToMap} from "../../utils/utils";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
@@ -9,6 +22,8 @@ import 'moment-timezone';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import Reward from "../../components/Reward";
+import Mission from "../../components/Mission";
+import {getLimit, getTarget} from "../../utils/missions";
 
 @connect(({ stages, loading }) => ({
   stages,
@@ -23,6 +38,8 @@ export default class StageDetail extends React.PureComponent {
       currentStage: stageId,
       useJST: false,
       localZone: require('moment-timezone').tz.guess(),
+      showModal: false,
+      modalRow: null,
     };
     props.dispatch({
       type: 'stages/fetch',
@@ -31,6 +48,27 @@ export default class StageDetail extends React.PureComponent {
 
   toggle = () => this.setState({ useJST: !this.state.useJST });
 
+  handleClose = () => this.setState({ showModal: false });
+
+  renderModal() {
+    return (
+      <Modal
+        open={this.state.showModal}
+        onClose={this.handleClose}
+        size='small'
+      >
+        <Header>{t(["wording", "stages", "missionModal", "title"])}</Header>
+        <Modal.Content>
+          <Mission data={this.state.modalRow} />
+        </Modal.Content>
+        <Modal.Actions>
+          <Button color='green' onClick={this.handleClose} inverted>
+            <Icon name='checkmark' /> OK
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    );
+  }
 
 
   render() {
@@ -44,21 +82,34 @@ export default class StageDetail extends React.PureComponent {
       {
         Header: '#',
         accessor: 'missionId',
-        width: 35,
+        width: 60,
+        Cell: val => (
+            <Label onClick={
+              () => {this.setState({modalRow: val.original, showModal: true})}
+            }>{val.value}</Label>
+        ),
       },
       {
         Header: 'Type',
         accessor: 'periodCount',
         Cell: val => (
           (val.value === 1) ?
-            <Label size="mini" color="green">1P</Label> :
-            <Label size="mini" color="blue">TT</Label>
+            <Label color="green">1PLAY</Label> :
+            <Label color="blue">TOTAL</Label>
         ),
-        width: 50,
+        width: 100,
       },
       {
-        Header: 'Contents',
-        accessor: 'contents'
+        Header: 'Limitation',
+        Cell: val => (
+          getLimit(val.original.limitationType, "limitationShort")
+        ),
+      },
+      {
+        Header: 'Target',
+        Cell: val => (
+          getTarget(val.original.actionTarget, "targetShort")
+        ),
       },
       {
         Header: 'Reward',
@@ -73,6 +124,8 @@ export default class StageDetail extends React.PureComponent {
     return (
       <div>
         <Header as="h2">#{stageId} - {stage.stageName}</Header>
+
+        {this.renderModal()}
 
         <Grid stackable>
           <Grid.Column width={4}>
