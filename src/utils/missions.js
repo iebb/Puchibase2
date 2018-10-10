@@ -100,6 +100,20 @@ export function getTarget(actionTarget, textType = "target") {
   return f(t(["mission", textType, targetType]), {data});
 }
 
+export function getMacaronTarget(actionTarget, row, textType = "target") {
+  if (!actionTarget) return null;
+  const target = (typeof actionTarget === "object") ? actionTarget : JSON.parse(actionTarget);
+  const targetVal = target.value;
+
+  if (textType === "target") {
+    return f(t(["mission", textType, "macaron"]), {data : targetVal});
+  }
+  if (textType === "short") {
+    return targetVal;
+  }
+
+}
+
 
 export function getUnlockTarget(releaseSecretAction) {
   if (!releaseSecretAction) return null;

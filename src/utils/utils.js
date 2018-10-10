@@ -50,3 +50,33 @@ export function f(orig, args) { // format template strings
   }
   return str;
 }
+
+
+export function getTimezone() {
+  return localStorage.timeZone || (
+    (localStorage.useJST = "false") || (localStorage.timeZone = require('moment-timezone').tz.guess())
+  );
+}
+
+export function useJST() {
+  if (localStorage.useJST === "false") {
+    return false;
+  } else if (localStorage.useJST === "true") {
+    return true;
+  } else {
+    localStorage.useJST = "false";
+    localStorage.timeZone = "Asia/Tokyo";
+  }
+}
+
+export function toggleTimezone() {
+  if (localStorage.useJST === "false") {
+    localStorage.useJST = "true";
+    localStorage.timeZone = "Asia/Tokyo";
+    return true;
+  } else {
+    localStorage.useJST = "false";
+    localStorage.timeZone = require('moment-timezone').tz.guess();
+    return false;
+  }
+}

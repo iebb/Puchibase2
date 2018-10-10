@@ -155,13 +155,31 @@
     }
   },
   "wording": {
+    "settings": {
+      "showSettings": "Settings",
+      "timezone": "Timezone",
+      "currentTimezone": "Current Timezone:",
+      "title": "Settings",
+      "useJST": "Use JST"
+    },
     "menu": {
       "achievements": "Achievements",
       "nesos": "Nesos",
       "cards": "Cards",
       "stages": "Stages",
+      "events": "Events",
 
       "legacyWebsite": "Old Site"
+    },
+    "events": {
+      "types": {
+        "1": "TOKEN",
+        "2": "AREA"
+      },
+      "meta": {
+        "start": "Start:",
+        "end": "End:"
+      }
     },
     "nesos": {
       "list": {
@@ -201,6 +219,7 @@
           "mission": "Mission",
           "limitation": "Limitation",
           "target": "Target",
+          "release": "Release",
           "unlock": "Unlock Requirements",
           "reward": "Reward"
         },
@@ -208,7 +227,6 @@
       },
       "schedule": {
         "__title": "Rotation Schedule",
-        "useJST": "Show in JST",
         "num": "#",
         "start": "Start",
         "end": "End"

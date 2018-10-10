@@ -174,8 +174,19 @@
       "nesos": "趴趴",
       "cards": "卡牌",
       "stages": "关卡",
+      "events": "活动",
 
       "legacyWebsite": "旧网站"
+    },
+    "events": {
+      "types": {
+        "1": "道具",
+        "2": "登山"
+      },
+      "meta": {
+        "start": "开始:",
+        "end": "结束:"
+      }
     },
     "nesos": {
       "list": {
@@ -215,6 +226,7 @@
           "mission": "关卡",
           "limitation": "限制",
           "target": "目标",
+          "release": "解锁日期",
           "unlock": "解锁要求",
           "reward": "奖励"
         },

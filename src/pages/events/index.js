@@ -1,19 +1,35 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Card, Divider, Header, Image, Pagination, Progress} from "semantic-ui-react";
+import {Card, Divider, Header, Image, Label, Pagination, Progress} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
-import {getSPRImage} from "../../services/xet";
+import {getGeneral, getSpGeneral, getSPRImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Link from "umi/link";
+import Moment from "react-moment";
+import {Table} from "semantic-ui-react/dist/commonjs/collections/Table/Table";
+import TZ from "../../components/TZ";
 
-@connect(({ stages, loading }) => ({
-  stages,
-  loading: loading.models.stages,
+const eventTypes = [
+  {
 
+  }, {
+    name: t(["wording", "events", "types", "1"]),
+    color: "purple",
+  }, {
+    name: t(["wording", "events", "types", "2"]),
+    color: "blue",
+  }
+];
+
+@connect(({ events, loading }) => ({
+  events,
+  loading: loading.models.events,
 }))
 
-export default class Stages extends React.PureComponent {
+
+
+export default class Events extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +37,7 @@ export default class Stages extends React.PureComponent {
       rowPerPage: 8,
     };
     props.dispatch({
-      type: 'stages/fetch',
+      type: 'events/fetch',
     });
   }
 
@@ -33,15 +49,15 @@ export default class Stages extends React.PureComponent {
 
   render() {
     const { activePage, rowPerPage } = this.state;
-    const { data } = this.props.stages;
+    const { data } = this.props.events;
 
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
-
+    console.log(pageData);
     if (pageData.length === 0) return (<Loading />);
     return (
       <div>
-        <Header as="h2">{t(["wording", "menu", "stages"])}</Header>
+        <Header as="h2">{t(["wording", "menu", "events"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
@@ -54,34 +70,33 @@ export default class Stages extends React.PureComponent {
           {
             pageData.map(row => {
 
-              const missionsCnt = row.missions.length;
-              const secretsCnt = row.secrets.length;
-              const extrasCnt = row.extras.length;
               return (
-                <Card key={row.stageMstId} as={Link} to={`/stages/${row.stageMstId}`}>
+                <Card
+                  key={row.eventId} as={Link} to={`/events/${row.eventId}`}
+                >
+
+
                   <Card.Content>
-                    <Image floated='left' size='tiny' rounded src={row.stageIcon} />
+                    <Label
+                      color={eventTypes[row.eventType].color}
+                      content={eventTypes[row.eventType].name}
+                      ribbon
+                      style={{width: "8em"}}
+                    />
+                    <div style={{clear: "both"}} />
+                    <Image floated='left' size='tiny' rounded src={getSpGeneral("homeeventbanner", row.eventId)} />
                     <Card.Header>
-                      {row.stageName}
+                      {row.eventName}
                     </Card.Header>
-                    <Card.Meta>#{row.stageMstId}</Card.Meta>
+                    <Card.Meta>
+                      #{row.eventCycleMstId}
+                      <p>
+                        <TZ time={row.eventStartTime * 1000} />
+                        {" - "}
+                        <TZ time={row.eventEndTime * 1000} />
+                      </p>
+                    </Card.Meta>
                     <Card.Description>
-                      {
-                        row.members.map(x => (
-                          <Image key={x.memberMstId} src={getSPRImage(x.memberMstId)} size="mini"/>
-                        ))
-                      }
-                    </Card.Description>
-                    <Card.Description>
-                      <Progress value={missionsCnt} total={missionsCnt + secretsCnt + extrasCnt} color='blue' size="tiny">
-                        {missionsCnt} {
-                          t(["wording", "stages", "normalMission"])
-                        } + {secretsCnt} {
-                          t(["wording", "stages", "secretMission"])
-                        } + {extrasCnt} {
-                          t(["wording", "stages", "extraMission"])
-                        }
-                      </Progress>
                     </Card.Description>
                   </Card.Content>
                 </Card>

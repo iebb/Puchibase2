@@ -25,6 +25,10 @@ export default class Nesos extends React.PureComponent {
     });
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({...this.state, props})
+  }
+
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
 
   render() {

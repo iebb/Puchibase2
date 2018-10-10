@@ -25,6 +25,7 @@ import {sprintf} from "sprintf-js";
 import Reward from "../../components/Reward";
 import Mission from "../../components/Mission";
 import {getLimit, getTarget} from "../../utils/missions";
+import TZ from "../../components/TZ";
 
 @connect(({ stages, loading }) => ({
   stages,
@@ -37,8 +38,6 @@ export default class StageDetail extends React.PureComponent {
     const stageId = props.id || props.match.params.id;
     this.state = {
       currentStage: stageId,
-      useJST: false,
-      localZone: require('moment-timezone').tz.guess(),
       showModal: false,
       modalRow: null,
       showCombined: true,
@@ -46,6 +45,10 @@ export default class StageDetail extends React.PureComponent {
     props.dispatch({
       type: 'stages/fetch',
     });
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({...this.state, props})
   }
 
   handleClose = () => this.setState({ showModal: false });
@@ -77,14 +80,13 @@ export default class StageDetail extends React.PureComponent {
     const stage = data[stageId];
 
     if (!stage) return <Loading />;
-    const tz = this.state.useJST ? "Asia/Tokyo" : this.state.localZone;
     const missionColumns = [
       {
         Header: '#',
         accessor: 'missionId',
         width: 60,
         Cell: val => (
-            <Label onClick={
+            <Label as={Button} onClick={
               () => {this.setState({modalRow: val.original, showModal: true})}
             }>{val.original.mTypeId || val.value}</Label>
         ),
@@ -206,8 +208,6 @@ export default class StageDetail extends React.PureComponent {
             <Segment>
               <Header as="h2">{t(["wording", "stages", "schedule", "__title"])}</Header>
               <Divider/>
-              <Checkbox toggle label={t(["wording", "stages", "schedule", "useJST"])}
-                        onChange={() => this.setState({ useJST: !this.state.useJST })} checked={this.state.useJST} />
               <Table compact="very">
                 <Table.Header>
                   <Table.Row>
@@ -224,10 +224,10 @@ export default class StageDetail extends React.PureComponent {
                           {idx + 1}
                         </Table.Cell>
                         <Table.Cell>
-                          <Moment format="YYYY-MM-DD HH:mm:ss zz" tz={tz}>{x.seasonStartTime * 1000}</Moment>
+                          <TZ time={x.seasonStartTime * 1000} />
                         </Table.Cell>
                         <Table.Cell>
-                          <Moment format="YYYY-MM-DD HH:mm:ss zz" tz={tz}>{x.seasonEndTime * 1000}</Moment>
+                          <TZ time={x.seasonEndTime * 1000} />
                         </Table.Cell>
                       </Table.Row>
                     ))

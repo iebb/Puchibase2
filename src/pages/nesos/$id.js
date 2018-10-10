@@ -27,6 +27,10 @@ export default class NesoDetail extends React.PureComponent {
     });
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({...this.state, props})
+  }
+
   handleBinMap = () => this.setState({ binmapModal: false });
   handleParams = () => this.setState({ paramsModal: false });
 

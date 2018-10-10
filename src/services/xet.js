@@ -4,6 +4,9 @@ const endPoint = "https://puchi-xet.loveliv.es/";
 export function getGeneral(type, aId) {
   return sprintf(endPoint + "%s/%s%s.png", type, type, aId);
 }
+export function getSpGeneral(type, aId, digit=8) {
+  return sprintf(endPoint + `${type}/${type}%0${digit}d.png`, aId);
+}
 export function getTitleImage(aId) {
   return sprintf(endPoint + "achievement/achievement%08d.png", aId);
 }
