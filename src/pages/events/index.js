@@ -10,18 +10,6 @@ import Moment from "react-moment";
 import {Table} from "semantic-ui-react/dist/commonjs/collections/Table/Table";
 import TZ from "../../components/TZ";
 
-const eventTypes = [
-  {
-
-  }, {
-    name: t(["wording", "events", "types", "1"]),
-    color: "purple",
-  }, {
-    name: t(["wording", "events", "types", "2"]),
-    color: "blue",
-  }
-];
-
 @connect(({ events, loading }) => ({
   events,
   loading: loading.models.events,
@@ -41,7 +29,7 @@ export default class Events extends React.PureComponent {
     });
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props, ctx) {
     this.setState({...this.state, props})
   }
 
@@ -53,7 +41,17 @@ export default class Events extends React.PureComponent {
 
     const pageData = DataPagination(data, activePage, rowPerPage);
     const totalPages = TotalPages(data, rowPerPage);
-    console.log(pageData);
+
+    const eventTypes = [
+      {}, {
+        name: t(["wording", "events", "types", "1"]),
+        color: "purple",
+      }, {
+        name: t(["wording", "events", "types", "2"]),
+        color: "blue",
+      }
+    ];
+
     if (pageData.length === 0) return (<Loading />);
     return (
       <div>
