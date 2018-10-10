@@ -58,6 +58,9 @@ export function getTimezone() {
   );
 }
 
+
+const moment = require('moment-timezone');
+
 export function useJST() {
   if (localStorage.useJST === "false") {
     return false;
