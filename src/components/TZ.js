@@ -1,6 +1,8 @@
 import React from 'react';
 import {getTimezone} from "../utils/utils";
 import Moment from "react-moment";
+const moment = require('moment-timezone');
+
 
 export default class TZ extends React.PureComponent {
 

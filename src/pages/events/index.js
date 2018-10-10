@@ -6,7 +6,6 @@ import {getGeneral, getSpGeneral, getSPRImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Link from "umi/link";
-import Moment from "react-moment";
 import {Table} from "semantic-ui-react/dist/commonjs/collections/Table/Table";
 import TZ from "../../components/TZ";
 
