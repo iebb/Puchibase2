@@ -169,6 +169,13 @@
     }
   },
   "wording": {
+    "settings": {
+      "showSettings": "设置",
+      "timezone": "时区",
+      "currentTimezone": "当前时区:",
+      "title": "设置",
+      "useJST": "显示日本时间"
+    },
     "menu": {
       "achievements": "称号",
       "nesos": "趴趴",
@@ -234,7 +241,6 @@
       },
       "schedule": {
         "__title": "轮换表",
-        "useJST": "显示日本时间",
         "num": "次数",
         "start": "开始",
         "end": "结束"
