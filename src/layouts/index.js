@@ -21,7 +21,7 @@ import {lang, languages, t} from "../utils/languages";
 import {getGeneral} from "../services/xet";
 import {getMasterData} from "../services/api";
 import {toggleTimezone, useJST} from "../utils/utils";
-import {mainMenu} from "../utils/menu";
+import {getMainMenu} from "../utils/menu";
 
 ReactGA.initialize('UA-20909424-23');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -85,7 +85,7 @@ export default class Layout extends React.PureComponent {
                 </span>
             </Menu.Item>
             {
-              mainMenu.map(item => item.path ? (
+              getMainMenu().map(item => item.path ? (
                 <Menu.Item as={NavLink} key={item.name} to={item.path} activeClassName={styles.activeLink}>
                   {item.translated}
                 </Menu.Item>

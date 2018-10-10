@@ -1,13 +1,13 @@
 import {Card, Image} from "semantic-ui-react";
 import Link from "umi/link";
 import React from "react";
-import {mainMenu} from "../utils/menu";
+import {getMainMenu} from "../utils/menu";
 
 export default () => {
   return (
     <Card.Group itemsPerRow={3} doubling stackable>
       {
-        mainMenu.map(x => (
+        getMainMenu().map(x => (
           <Card to={x.path} href={x.href} as={x.type} key={x.name}>
             <Card.Content>
               <Image rounded floated='right' size="tiny" src={x.image} />
