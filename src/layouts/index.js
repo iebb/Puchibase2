@@ -11,7 +11,7 @@ import {
   Icon,
   Image,
   List,
-  Menu,
+  Menu, Message,
   Modal,
   Segment
 } from "semantic-ui-react";
@@ -85,7 +85,7 @@ export default class Layout extends React.PureComponent {
                 </span>
             </Menu.Item>
             {
-              getMainMenu().map(item => item.path ? (
+              getMainMenu().filter(x => !x.hideMenu).map(item => item.path ? (
                 <Menu.Item as={NavLink} key={item.name} to={item.path}>
                   {item.translated}
                 </Menu.Item>
@@ -98,7 +98,24 @@ export default class Layout extends React.PureComponent {
           </Container>
         </Menu>
 
+
         <Container style={{marginTop: '3em'}}>
+
+          {
+            (Math.random() < 0.2) && <Message icon>
+              <Icon name='circle notched' loading />
+              <Message.Content>
+                <Message.Header>{t(["wording", "message", "newWebsite"])}</Message.Header>
+                <p>
+                  {t(["wording", "message", "newWebsiteDescription1"])}
+                  <br/>
+                  {t(["wording", "message", "newWebsiteDescription2"])}
+                  <br/>
+                  <a href="https://github.com/iebb/Puchibase2/issues">https://github.com/iebb/Puchibase2/issues</a>
+                </p>
+              </Message.Content>
+            </Message>
+          }
 
           {this.renderModal()}
 
@@ -115,8 +132,8 @@ export default class Layout extends React.PureComponent {
               <List.Item as='a' href='https://github.com/iebb/Puchibase2'>
                 <Icon name='github'/> Github
               </List.Item>
-              <List.Item as='a' href='mailto:ieb@outlook.my'>
-                Contact Me
+              <List.Item as='a' href='https://github.com/iebb/Puchibase2/issues'>
+                <Icon name='github'/> Bug Report / Feature Request
               </List.Item>
               <List.Item as={"a"} href="https://puchi-legacy.loveliv.es/">
                 {t(["wording", "menu", "legacyWebsite"])}

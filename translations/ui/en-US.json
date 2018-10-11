@@ -164,12 +164,25 @@
     },
     "menu": {
       "achievements": "Achievements",
-      "nesos": "Nesos",
+      "nesos": "Neso List",
+      "nesoStats": "Neso Stats",
       "cards": "Cards",
       "stages": "Stages",
       "events": "Events",
 
+      "github": "Github",
       "legacyWebsite": "Old Site"
+    },
+    "menuDescription": {
+      "achievements": "Achievements",
+      "nesos": "Neso List",
+      "nesoStats": "Neso Stats",
+      "cards": "Cards",
+      "stages": "Mission Stages",
+      "events": "Events",
+
+      "github": "Source Code, Bug Reports and Feature Requests",
+      "legacyWebsite": "Old Puchiguru.db Site"
     },
     "events": {
       "types": {
@@ -239,7 +252,7 @@
         "activeSkill": "Center Skill",
         "levels": "Lv",
         "effects": "Effects",
-        "requirements": "Nesoes",
+        "requirements": "Nesos",
         "parameters": "Params",
         "view": "View",
         "binmap": "Range",
@@ -300,6 +313,12 @@
         "start": "Start",
         "end": "End"
       }
+    },
+    "message": {
+      "newWebsite": "New Puchibase Website",
+      "newWebsiteDescription1": "This beta Puchibase website is still active in development.",
+      "newWebsiteDescription2": "If you experienced bugs or have any suggestions, please open an issue here:"
+
     }
   }
 }

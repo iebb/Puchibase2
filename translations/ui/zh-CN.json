@@ -179,11 +179,24 @@
     "menu": {
       "achievements": "称号",
       "nesos": "趴趴",
+      "nesoStats": "数据",
+      "cards": "卡牌",
+      "stages": "关卡",
+      "events": "活动",
+      "github": "Github",
+
+      "legacyWebsite": "旧网站"
+    },
+    "menuDescription": {
+      "achievements": "称号 / 成就",
+      "nesos": "趴趴图标表",
+      "nesoStats": "趴趴数据表",
       "cards": "卡牌",
       "stages": "关卡",
       "events": "活动",
 
-      "legacyWebsite": "旧网站"
+      "github": "源码 / Bug反馈 / 新功能需求",
+      "legacyWebsite": "旧网站（已停止维护）"
     },
     "events": {
       "types": {
