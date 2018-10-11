@@ -24,7 +24,6 @@ import {toggleTimezone, useJST} from "../utils/utils";
 import {getMainMenu} from "../utils/menu";
 
 ReactGA.initialize('UA-20909424-23');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default class Layout extends React.PureComponent {
   constructor(props){
@@ -69,6 +68,8 @@ export default class Layout extends React.PureComponent {
 
   render() {
     getMasterData();
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
     const currentLang = languages[lang()];
     return (
       <div>
