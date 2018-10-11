@@ -241,6 +241,14 @@
         "activeSkill": "技能",
         "passiveSkill": "支援"
       },
+      "activeSkillParams": {
+        "skillRandomMin": "随机下限",
+        "skillRandomMax": "随机上限",
+        "skillTime": "持续时间",
+        "num": "种类",
+        "lotteryRate": "几率",
+        "forceBombNum": "炸弹"
+      },
       "activeSkill": {
         "activeSkill": "主技能",
         "levels": "Lv",
@@ -250,7 +258,27 @@
         "binmap": "范围",
         "view": "查看",
         "key": "属性",
-        "value": "值"
+        "value": "值",
+        "range" : {
+          "SS": "SS",
+          "SSminus": "SS-",
+          "SSplus": "SS+",
+          "S": "S",
+          "Sminus": "S-",
+          "Splus": "S+",
+          "M": "M",
+          "Mminus": "M-",
+          "Mplus": "M+",
+          "L": "L",
+          "Lminus": "L-",
+          "Lplus": "L+",
+          "LL": "LL",
+          "LLminus": "LL-",
+          "LLplus": "LL+",
+          "3L": "3L",
+          "3Lminus": "3L-",
+          "3Lplus": "3L+"
+        }
       },
       "passiveSkill": {
         "passiveSkill": "支援技能",

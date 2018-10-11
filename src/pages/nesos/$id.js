@@ -6,6 +6,7 @@ import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage} from "../../servi
 import {parsePassiveSkill} from "../../utils/skills";
 import {t} from "../../utils/languages";
 import SUITable from "../../components/SUITable";
+import Link from "umi/link";
 
 @connect(({ nesos, loading }) => ({
   nesos,
@@ -15,9 +16,8 @@ import SUITable from "../../components/SUITable";
 export default class NesoDetail extends React.PureComponent {
   constructor(props) {
     super(props);
-    const nesoId = props.id || props.match.params.id;
     this.state = {
-      currentNeso: nesoId,
+      currentNeso: props.id || props.match.params.id,
       binmapModal: false,
       binaryMap: "",
       paramsModal: false,
@@ -29,12 +29,28 @@ export default class NesoDetail extends React.PureComponent {
   }
 
   UNSAFE_componentWillReceiveProps(props) {
-    this.setState({...this.state, props})
+    this.setState({
+      ...this.state,
+      currentNeso: props.id || props.match.params.id,
+      props
+    });
   }
 
   handleBinMap = () => this.setState({ binmapModal: false });
   handleParams = () => this.setState({ paramsModal: false });
 
+  nextItem = (data, offset) => {
+    const prop = "currentNeso";
+    const key = "memberMstId";
+
+    let index = data.map(x => x[key].toString()).indexOf(this.state[prop]);
+
+    index += offset;
+    if (index >= data.length) index -= data.length;
+    if (index < 0) index += data.length;
+
+    return `/nesos/${data[index][key]}`;
+  };
 
   renderModal() {
     const { binaryMap } = this.state;
@@ -132,26 +148,39 @@ export default class NesoDetail extends React.PureComponent {
       {
         Header: t(["wording", "nesos", "activeSkill", "requirements"]),
         accessor: "num",
-      },
-      {
-        Header: t(["wording", "nesos", "activeSkill", "effects"]),
-        accessor: "explanation",
-      },
-      {
-        Header: t(["wording", "nesos", "activeSkill", "parameters"]),
-        accessor: "effect",
-        Cell: row => (
-          <Button
-            size="tiny"
-            style={{
-              paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
-            }}
-            onClick={() => {this.setState({params: row.value, paramsModal: true});}}>
-            {t(["wording", "nesos", "activeSkill", "view"])}
-          </Button>
-        )
       }
     ];
+
+    const skillLevels = neso.skillActive.length;
+    for(const key of Object.keys(neso.skillActive[0].effect)) {
+      let skillTransform = x => x;
+      switch(key) {
+        case "text":
+          continue;
+        case "num":
+        case "forceBombNum":
+          skillTransform = x => x+1;
+          break;
+        case "skillTime":
+          skillTransform = x => `${x}s`;
+          break;
+        case "lotteryRate":
+          skillTransform = x => `${x}%`;
+          break;
+        default:
+          break;
+      }
+      if (neso.skillActive[0].effect[key] !== neso.skillActive[skillLevels - 1].effect[key]) {
+        activeSkillColumns.push({
+          Header: t(["wording", "nesos", "activeSkillParams", key]),
+          accessor: "effect",
+          key: `effect${key}`,
+          Cell: val => skillTransform(val.value[key]),
+        })
+      }
+    }
+
+
     if (neso.skillActive[0].binaryMap) {
       activeSkillColumns.push({
         Header: t(["wording", "nesos", "activeSkill", "binmap"]),
@@ -165,13 +194,28 @@ export default class NesoDetail extends React.PureComponent {
             onClick={() => {this.setState({binaryMap: row.value, binmapModal: true});}}
           >
             <span>
-              {popBinaryMap(row.value)} / {row.original.effect.text}
+              {popBinaryMap(row.value)} / {t(["wording", "nesos", "activeSkill", "range", row.original.effect.text])}
             </span>
           </Button>
         )
       })
     }
 
+
+    activeSkillColumns.push({
+      Header: t(["wording", "nesos", "activeSkill", "parameters"]),
+      accessor: "effect",
+      Cell: row => (
+        <Button
+          size="tiny"
+          style={{
+            paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
+          }}
+          onClick={() => {this.setState({params: row.value, paramsModal: true});}}>
+          {t(["wording", "nesos", "activeSkill", "view"])}
+        </Button>
+      )
+    });
 
     return (
       <div>
@@ -192,18 +236,69 @@ export default class NesoDetail extends React.PureComponent {
                 <Card.Description>{neso.costume.costumeName}</Card.Description>
               </Card.Content>
             </Card>
+            <Card fluid>
+              <Card.Content>
+                <Button
+                  circular
+                  floated="left"
+                  basic
+                  color="pink"
+                  as={Link}
+                  size="large"
+                  icon="arrow left"
+                  to={this.nextItem(this.props.nesos.data,-1)}
+                />
+                <Button
+                  circular
+                  floated="left"
+                  basic
+                  color="pink"
+                  as={Link}
+                  size="large"
+                  icon="angle left"
+                  to={this.nextItem(this.props.nesos.data.filter(x => x.personalMstId === neso.personalMstId),-1)}
+                />
+                <Button
+                  circular
+                  floated="right"
+                  basic
+                  color="purple"
+                  as={Link}
+                  size="large"
+                  icon="arrow right"
+                  to={this.nextItem(this.props.nesos.data,1)}
+                />
+                <Button
+                  circular
+                  floated="right"
+                  basic
+                  color="purple"
+                  as={Link}
+                  size="large"
+                  icon="angle right"
+                  to={this.nextItem(this.props.nesos.data.filter(x => x.personalMstId === neso.personalMstId),1)}
+                />
+              </Card.Content>
+            </Card>
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
               <Header as="h2">{t(["wording", "nesos", "activeSkill", "activeSkill"])}</Header>
               <Divider/>
-              <div>
-                <SUITable
-                  data={neso.skillActive}
-                  columns={activeSkillColumns}
-                  rowKey="skillActiveMstId"
-                />
-              </div>
+              <p>
+                {t(["wording", "nesos", "activeSkill", "effects"])}: {neso.skillActive[0].explanation}
+              </p>
+              <SUITable
+                data={neso.skillActive}
+                columns={activeSkillColumns}
+                rowKey="skillActiveMstId"
+                props={{
+                  celled: true,
+                  compact: "very",
+                  unstackable: true,
+                }}
+                scroll
+              />
             </Segment>
             <Segment>
               <Header as="h2">{t(["wording", "nesos", "passiveSkill", "passiveSkill"])}</Header>

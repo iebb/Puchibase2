@@ -1,10 +1,10 @@
 import React from 'react';
-import {Responsive, Table} from "semantic-ui-react";
+import {Grid, Responsive, Table} from "semantic-ui-react";
 import {PredefinedResponsive} from "../utils/responsive";
 
 export default class SUITable extends React.PureComponent {
   render() {
-    const {columns, data, rowKey, rowKeyFn} = this.props;
+    const {columns, data, rowKey, rowKeyFn, scroll, props} = this.props;
     const getKey = (col, rid) => (
       col.key ? col.key :
         col.name ? col.name :
@@ -17,37 +17,79 @@ export default class SUITable extends React.PureComponent {
           row.key ? row.key : rid
     );
     const col = columns.filter(x => !x.mobileOnly);
-    return (
-      <div>
-        <Responsive as={"div"} {...PredefinedResponsive.mobileMinus}>
-          <Table celled compact='very'>
-            <Table.Body>
-              {
-                data.map((row, id) => (
-                  <Table.Row key={getRowKey(row, id)}>
-                    {
-                      columns.map((c, rid) => {
-                        let data = "";
-                        if (c.Cell) {
-                          const obj = {
-                            original: row,
-                            value: row[c.accessor],
-                          };
-                          data = c.Cell(obj);
-                        } else if (c.accessor) {
-                          data = row[c.accessor];
-                        }
-                        return <Table.Cell key={getKey(c, rid)}><b>{c.Header}:</b> {data}</Table.Cell>;
-                      })
-                    }
-                  </Table.Row>
-                ))
-              }
-            </Table.Body>
-          </Table>
-        </Responsive>
-        <Responsive as={"div"} {...PredefinedResponsive.tabletPlus}>
-          <Table celled compact='very'>
+    if (!scroll) {
+
+      return (
+        <div>
+          <Responsive as={"div"} {...PredefinedResponsive.mobileMinus} >
+            <Table {...props}>
+              <Table.Body>
+                {
+                  data.map((row, id) => (
+                    <Table.Row key={getRowKey(row, id)}>
+                      {
+                        columns.map((c, rid) => {
+                          let data = "";
+                          if (c.Cell) {
+                            const obj = {
+                              original: row,
+                              value: row[c.accessor],
+                            };
+                            data = c.Cell(obj);
+                          } else if (c.accessor) {
+                            data = row[c.accessor];
+                          }
+                          return <Table.Cell key={getKey(c, rid)}><b>{c.Header}:</b> {data}</Table.Cell>;
+                        })
+                      }
+                    </Table.Row>
+                  ))
+                }
+              </Table.Body>
+            </Table>
+          </Responsive>
+          <Responsive as={"div"} {...PredefinedResponsive.tabletPlus}>
+            <Table {...props}>
+              <Table.Header>
+                <Table.Row>
+                  {
+                    col.map((c, rid) => (
+                      <Table.HeaderCell key={getKey(c, rid)}>{c.Header}</Table.HeaderCell>
+                    ))
+                  }
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {
+                  data.map((row, id) => (
+                    <Table.Row key={getRowKey(row, id)}>
+                      {
+                        columns.filter(x => !x.mobileOnly).map((c, rid) => {
+                          let data = "";
+                          if (c.Cell) {
+                            const obj = {
+                              original: row,
+                              value: row[c.accessor],
+                            };
+                            data = c.Cell(obj);
+                          } else if (c.accessor) {
+                            data = row[c.accessor];
+                          }
+                          return <Table.Cell key={getKey(c, rid)}>{data}</Table.Cell>;
+                        })
+                      }
+                    </Table.Row>
+                  ))
+                }
+              </Table.Body>
+            </Table>
+          </Responsive>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{overflowX: "auto", overflowY: "auto"}}>
+          <Table {...props}>
             <Table.Header>
               <Table.Row>
                 {
@@ -81,9 +123,9 @@ export default class SUITable extends React.PureComponent {
               }
             </Table.Body>
           </Table>
-        </Responsive>
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 

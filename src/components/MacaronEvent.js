@@ -111,6 +111,10 @@ export default class MacaronEvent extends React.PureComponent {
             data={event.effect}
             columns={effectColumns}
             rowKey="eventEffectMstId"
+            props={{
+              celled: true,
+              compact: "very",
+            }}
           />
         </Segment>
       </div>

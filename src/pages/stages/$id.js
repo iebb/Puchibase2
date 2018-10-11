@@ -34,9 +34,8 @@ import TZ from "../../components/TZ";
 export default class StageDetail extends React.PureComponent {
   constructor(props) {
     super(props);
-    const stageId = props.id || props.match.params.id;
     this.state = {
-      currentStage: stageId,
+      currentStage: props.id || props.match.params.id,
       showModal: false,
       modalRow: null,
       showCombined: true,
@@ -47,7 +46,11 @@ export default class StageDetail extends React.PureComponent {
   }
 
   UNSAFE_componentWillReceiveProps(props) {
-    this.setState({...this.state, props})
+    this.setState({
+      ...this.state,
+      currentStage: props.id || props.match.params.id,
+      props
+    });
   }
 
   handleClose = () => this.setState({ showModal: false });

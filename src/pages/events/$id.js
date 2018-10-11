@@ -17,9 +17,8 @@ import TowerEvent from "../../components/TowerEvent";
 export default class EventDetail extends React.PureComponent {
   constructor(props) {
     super(props);
-    const eventId = props.id || props.match.params.id;
     this.state = {
-      currentEvent: eventId,
+      currentEvent: props.id || props.match.params.id,
       showModal: false,
       showCombined: true,
     };
@@ -28,8 +27,12 @@ export default class EventDetail extends React.PureComponent {
     });
   }
 
-  UNSAFE_componentWillReceiveProps(p) {
-    this.setState({...this.state, props: p})
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      ...this.state,
+      currentEvent: props.id || props.match.params.id,
+      props
+    });
   }
 
   handleClose = () => this.setState({ showModal: false });

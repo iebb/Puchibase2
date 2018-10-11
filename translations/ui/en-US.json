@@ -227,16 +227,44 @@
         "activeSkill": "C",
         "passiveSkill": "S"
       },
+      "activeSkillParams": {
+        "skillRandomMin": "Random Min",
+        "skillRandomMax": "Random Max",
+        "skillTime": "Duration",
+        "num": "Types",
+        "lotteryRate": "Probability",
+        "forceBombNum": "Bombs"
+      },
       "activeSkill": {
         "activeSkill": "Center Skill",
         "levels": "Lv",
         "effects": "Effects",
-        "requirements": "Req't",
+        "requirements": "Nesoes",
         "parameters": "Params",
         "view": "View",
         "binmap": "Range",
         "key": "Key",
-        "value": "Value"
+        "value": "Value",
+        "range" : {
+          "SS": "SS",
+          "SSminus": "SS-",
+          "SSplus": "SS+",
+          "S": "S",
+          "Sminus": "S-",
+          "Splus": "S+",
+          "M": "M",
+          "Mminus": "M-",
+          "Mplus": "M+",
+          "L": "L",
+          "Lminus": "L-",
+          "Lplus": "L+",
+          "LL": "LL",
+          "LLminus": "LL-",
+          "LLplus": "LL+",
+          "3L": "3L",
+          "3Lminus": "3L-",
+          "3Lplus": "3L+"
+        }
       },
       "passiveSkill": {
         "passiveSkill": "Support Skill",

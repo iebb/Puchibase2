@@ -151,6 +151,10 @@ export default class TowerEvent extends React.PureComponent {
             data={event.effect.filter(x => 0 < x.areaId && x.areaId < 4)}
             columns={effectColumns}
             rowKey="eventEffectMstId"
+            props={{
+              celled: true,
+              compact: "very",
+            }}
           />
         </Segment>
       </div>
