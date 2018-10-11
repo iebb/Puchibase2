@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Button, Card, Checkbox, Grid, Header, Icon, Image, Modal, Segment} from "semantic-ui-react";
+import {Card, Grid, Header, Image, Modal} from "semantic-ui-react";
 import {arrayToMap} from "../../utils/utils";
-import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import 'moment-timezone';
 import 'react-table/react-table.css'
-import Mission from "../../components/Mission";
 import MacaronEvent from "../../components/MacaronEvent";
 import {getSpGeneral} from "../../services/xet";
 import TowerEvent from "../../components/TowerEvent";
@@ -22,10 +20,7 @@ export default class EventDetail extends React.PureComponent {
     const eventId = props.id || props.match.params.id;
     this.state = {
       currentEvent: eventId,
-      useJST: false,
-      localZone: require('moment-timezone').tz.guess(),
       showModal: false,
-      modalRow: null,
       showCombined: true,
     };
     props.dispatch({
@@ -33,7 +28,7 @@ export default class EventDetail extends React.PureComponent {
     });
   }
 
-  componentWillReceiveProps(p) {
+  UNSAFE_componentWillReceiveProps(p) {
     this.setState({...this.state, props: p})
   }
 
@@ -46,15 +41,6 @@ export default class EventDetail extends React.PureComponent {
         onClose={this.handleClose}
         size='small'
       >
-        <Header>{t(["wording", "events", "missionModal", "title"])}</Header>
-        <Modal.Content>
-          <Mission data={this.state.modalRow} />
-        </Modal.Content>
-        <Modal.Actions>
-          <Button color='green' onClick={this.handleClose} inverted>
-            <Icon name='checkmark' /> OK
-          </Button>
-        </Modal.Actions>
       </Modal>
     );
   }
@@ -62,7 +48,6 @@ export default class EventDetail extends React.PureComponent {
 
   render() {
     const data = arrayToMap(this.props.events.data, "eventId");
-    console.log(data);
     const eventId = this.state.currentEvent;
     const event = data[eventId];
 

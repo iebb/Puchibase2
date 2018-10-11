@@ -51,6 +51,13 @@ export function f(orig, args) { // format template strings
   return str;
 }
 
+export function chunkArray(myArray, chunk_size){
+  const results = [];
+  while (myArray.length) {
+    results.push(myArray.splice(0, chunk_size));
+  }
+  return results;
+}
 
 export function getTimezone() {
   return localStorage.timeZone || (

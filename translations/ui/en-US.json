@@ -179,6 +179,47 @@
       "meta": {
         "start": "Start:",
         "end": "End:"
+      },
+      "effect": {
+        "bonus": "Bonus Effect",
+        "40": "40%",
+        "20": "20%",
+        "10": "10%",
+        "start": "Start",
+        "end": "End",
+        "area": "Area"
+      },
+      "stages": {
+        "areaShort": "Area"
+      },
+      "areas": {
+        "0": "-",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "101": "1H",
+        "102": "2H",
+        "103": "3H"
+      },
+      "areasFull": {
+        "0": "-",
+        "1": "1-NORMAL",
+        "2": "2-NORMAL",
+        "3": "3-NORMAL",
+        "101": "1-HARD",
+        "102": "2-HARD",
+        "103": "3-HARD"
+      },
+      "tower": {
+        "target1": "Target 1",
+        "target2": "Target 2",
+        "target3": "Target 3",
+        "reward1_short": "R1",
+        "reward2_short": "R2",
+        "reward3_short": "R3",
+        "reward1": "Reward 1",
+        "reward2": "Reward 2",
+        "reward3": "Reward 3"
       }
     },
     "nesos": {
@@ -187,7 +228,7 @@
         "passiveSkill": "S"
       },
       "activeSkill": {
-        "__title": "Center Skill",
+        "activeSkill": "Center Skill",
         "levels": "Lv",
         "effects": "Effects",
         "requirements": "Req't",
@@ -198,7 +239,7 @@
         "value": "Value"
       },
       "passiveSkill": {
-        "__title": "Support Skill",
+        "passiveSkill": "Support Skill",
         "levels": "Lv",
         "effects": "Effects",
         "trigger": "Trigger",

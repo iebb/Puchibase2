@@ -1,5 +1,6 @@
 import {API} from '../services/api';
 import {getStageImage} from "../services/xet";
+import {parseEffect} from "../utils/events";
 
 export default {
 
@@ -61,6 +62,11 @@ export default {
 
         row.missionTower = EventMissionTower.getEventMissionTowerMaster.filter(x => x.eventId === row.eventId);
         row.missionMacaron = EventMissionMacaron.getEventMissionMacaronMaster.filter(x => x.eventId === row.eventId);
+        row.effect = EventEffect.getEventEffectMaster.filter(
+          x => x.eventId === row.eventId
+        ).map(
+            x => parseEffect(x)
+        );
         /*
         row.missionTower = EventMissionTower.getEventMissionTowerMaster.filter(x => x.eventId === row.eventId);
 

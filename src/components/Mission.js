@@ -17,7 +17,6 @@ export default class Reward extends React.PureComponent {
     let secretRelease = "";
     if (data.releaseSecretAction) {
       const unlockActions = getUnlockTarget(data.releaseSecretAction);
-      console.log("act", unlockActions);
       const unlockLimit = getLimit(unlockActions.limit);
       const unlockTarget = getTarget(unlockActions.target);
       const unlockPeriod = t(["mission", "period", unlockActions.period]);

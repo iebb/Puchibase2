@@ -27,7 +27,7 @@ export default class NesoDetail extends React.PureComponent {
     });
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({...this.state, props})
   }
 
@@ -145,7 +145,7 @@ export default class NesoDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
-              <Header as="h2">{t(["wording", "nesos", "activeSkill", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "activeSkill", "activeSkill"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
@@ -196,7 +196,7 @@ export default class NesoDetail extends React.PureComponent {
               </div>
             </Segment>
             <Segment>
-              <Header as="h2">{t(["wording", "nesos", "passiveSkill", "__title"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "passiveSkill", "passiveSkill"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>

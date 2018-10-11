@@ -193,6 +193,47 @@
       "meta": {
         "start": "开始:",
         "end": "结束:"
+      },
+      "effect": {
+        "bonus": "加成效果",
+        "40": "40%",
+        "20": "20%",
+        "10": "10%",
+        "start": "开始",
+        "end": "结束",
+        "area": "区域"
+      },
+      "stages": {
+        "areaShort": "区"
+      },
+      "areas": {
+        "0": "-",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "101": "1H",
+        "102": "2H",
+        "103": "3H"
+      },
+      "areasFull": {
+        "0": "-",
+        "1": "1-NORMAL",
+        "2": "2-NORMAL",
+        "3": "3-NORMAL",
+        "101": "1-HARD",
+        "102": "2-HARD",
+        "103": "3-HARD"
+      },
+      "tower": {
+        "target1": "目标 1",
+        "target2": "目标 2",
+        "target3": "目标 3",
+        "reward1_short": "R1",
+        "reward2_short": "R2",
+        "reward3_short": "R3",
+        "reward1": "奖励 1",
+        "reward2": "奖励 2",
+        "reward3": "奖励 3"
       }
     },
     "nesos": {
@@ -201,7 +242,7 @@
         "passiveSkill": "支援"
       },
       "activeSkill": {
-        "__title": "主技能",
+        "activeSkill": "主技能",
         "levels": "Lv",
         "effects": "效果",
         "requirements": "需求数",
@@ -212,7 +253,7 @@
         "value": "值"
       },
       "passiveSkill": {
-        "__title": "支援技能",
+        "passiveSkill": "支援技能",
         "levels": "Lv",
         "effects": "效果",
         "trigger": "触发",

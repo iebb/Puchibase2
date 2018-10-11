@@ -1,17 +1,17 @@
 import React from 'react';
-import {Button, Divider, Header, Image, Label, Segment} from "semantic-ui-react";
-import {getGeneral} from "../services/xet";
-import {sprintf} from "sprintf-js";
+import {Button, Divider, Header, Label, Segment} from "semantic-ui-react";
 import {t} from "../utils/languages";
 import ReactTable from "react-table";
-import {getLimit, getMacaronTarget, getTarget} from "../utils/missions";
+import {getMacaronTarget} from "../utils/missions";
 import Reward from "./Reward";
 import {arrayToMap} from "../utils/utils";
 import TZ from "./TZ";
+import SUITable from "./SUITable";
+import {parseEffectNesos} from "../utils/events";
 
 export default class MacaronEvent extends React.PureComponent {
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({...this.state, props})
   }
 
@@ -60,6 +60,39 @@ export default class MacaronEvent extends React.PureComponent {
       },
     ];
 
+    const effectColumns = [
+      {
+        Header: "#",
+        accessor: "eventEffectMstId",
+        mobileOnly: true,
+      },
+      {
+        Header: t(["wording", "events", "effect", "start"]),
+        accessor: "eventEffectStartTime",
+        Cell: val => <TZ time={val.value * 1000} />,
+      },
+      {
+        Header: t(["wording", "events", "effect", "end"]),
+        accessor: "eventEffectEndTime",
+        Cell: val => <TZ time={val.value * 1000} />,
+      },
+      {
+        Header: t(["wording", "events", "effect", "40"]),
+        accessor: 'effect40',
+        Cell: val => parseEffectNesos(val.value),
+      },
+      {
+        Header: t(["wording", "events", "effect", "20"]),
+        accessor: 'effect20',
+        Cell: val => parseEffectNesos(val.value),
+      },
+      {
+        Header: t(["wording", "events", "effect", "10"]),
+        accessor: 'effect10',
+        Cell: val => parseEffectNesos(val.value),
+      },
+    ];
+
     return (
       <div>
         <Segment>
@@ -69,6 +102,15 @@ export default class MacaronEvent extends React.PureComponent {
             data={event.missionMacaron}
             columns={missionColumns}
             defaultPageSize={10}
+          />
+        </Segment>
+        <Segment>
+          <Header as="h2">{t(["wording", "events", "effect", "bonus"])}</Header>
+          <Divider/>
+          <SUITable
+            data={event.effect}
+            columns={effectColumns}
+            rowKey="eventEffectMstId"
           />
         </Segment>
       </div>

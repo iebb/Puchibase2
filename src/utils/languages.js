@@ -33,7 +33,7 @@ export function t(key, empty=false) {
       return "";
     } else {
       console.error("Missing en-US Language: " + key.join("."));
-      return key[key.length - 1].toUpperCase();
+      return key[key.length - 1].toString().toUpperCase();
     }
   }
 }

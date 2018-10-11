@@ -47,7 +47,7 @@ export default class StageDetail extends React.PureComponent {
     });
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({...this.state, props})
   }
 

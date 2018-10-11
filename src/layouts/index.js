@@ -86,11 +86,11 @@ export default class Layout extends React.PureComponent {
             </Menu.Item>
             {
               getMainMenu().map(item => item.path ? (
-                <Menu.Item as={NavLink} key={item.name} to={item.path} activeClassName={styles.activeLink}>
+                <Menu.Item as={NavLink} key={item.name} to={item.path}>
                   {item.translated}
                 </Menu.Item>
               ) : (
-                <Menu.Item as={"a"} key={item.name} href={item.href} activeClassName={styles.activeLink}>
+                <Menu.Item as={"a"} key={item.name} href={item.href}>
                   {item.translated}
                 </Menu.Item>
               ))
