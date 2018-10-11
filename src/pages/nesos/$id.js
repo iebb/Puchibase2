@@ -5,6 +5,7 @@ import {arrayToMap, popBinaryMap} from "../../utils/utils";
 import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage} from "../../services/xet";
 import {parsePassiveSkill} from "../../utils/skills";
 import {t} from "../../utils/languages";
+import SUITable from "../../components/SUITable";
 
 @connect(({ nesos, loading }) => ({
   nesos,
@@ -122,7 +123,56 @@ export default class NesoDetail extends React.PureComponent {
     if (!(neso && neso.personal && neso.costume )) {
       return null;
     }
-    const binMap = neso.skillActive[0].binaryMap;
+
+    const activeSkillColumns = [
+      {
+        Header: t(["wording", "nesos", "activeSkill", "levels"]),
+        accessor: "skillLevel",
+      },
+      {
+        Header: t(["wording", "nesos", "activeSkill", "requirements"]),
+        accessor: "num",
+      },
+      {
+        Header: t(["wording", "nesos", "activeSkill", "effects"]),
+        accessor: "explanation",
+      },
+      {
+        Header: t(["wording", "nesos", "activeSkill", "parameters"]),
+        accessor: "effect",
+        Cell: row => (
+          <Button
+            size="tiny"
+            style={{
+              paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
+            }}
+            onClick={() => {this.setState({params: row.value, paramsModal: true});}}>
+            {t(["wording", "nesos", "activeSkill", "view"])}
+          </Button>
+        )
+      }
+    ];
+    if (neso.skillActive[0].binaryMap) {
+      activeSkillColumns.push({
+        Header: t(["wording", "nesos", "activeSkill", "binmap"]),
+        accessor: "binaryMap",
+        Cell: row => (
+          <Button
+            size="tiny"
+            style={{
+              paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
+            }}
+            onClick={() => {this.setState({binaryMap: row.value, binmapModal: true});}}
+          >
+            <span>
+              {popBinaryMap(row.value)} / {row.original.effect.text}
+            </span>
+          </Button>
+        )
+      })
+    }
+
+
     return (
       <div>
         <Header as="h2">#{nesoId} - {neso.personal.personalName} - {neso.costume.costumeName}</Header>
@@ -148,51 +198,11 @@ export default class NesoDetail extends React.PureComponent {
               <Header as="h2">{t(["wording", "nesos", "activeSkill", "activeSkill"])}</Header>
               <Divider/>
               <div>
-                <Table celled compact='very'>
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "levels"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "requirements"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "effects"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "parameters"])}</Table.HeaderCell>
-                      {
-                        binMap ?
-                        <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "binmap"])}</Table.HeaderCell>
-                          : null
-                      }
-                    </Table.Row>
-                  </Table.Header>
-                  <Table.Body>
-                    {
-                      neso.skillActive.map(row => (
-                        <Table.Row key={row.skillActiveMstId}>
-                          <Table.Cell>{row.skillLevel}</Table.Cell>
-                          <Table.Cell>{row.num}</Table.Cell>
-                          <Table.Cell>{row.explanation}</Table.Cell>
-                          <Table.Cell>
-                            <a onClick={() => {this.setState({params: row.effect, paramsModal: true});}}>
-                              {t(["wording", "nesos", "activeSkill", "view"])}
-                            </a>
-                          </Table.Cell>
-                          {
-                            binMap ?
-                            <Table.Cell>
-                              <Button size="tiny" style={{
-                                paddingTop: 4, paddingBottom: 4
-                              }} onClick={() => {this.setState({binaryMap: row.binaryMap, binmapModal: true});}}>
-
-                                <span>
-                                  {popBinaryMap(row.binaryMap)} / {row.effect.text}
-                                </span>
-                              </Button>
-                            </Table.Cell>
-                              : null
-                          }
-                        </Table.Row>
-                      ))
-                    }
-                  </Table.Body>
-                </Table>
+                <SUITable
+                  data={neso.skillActive}
+                  columns={activeSkillColumns}
+                  rowKey="skillActiveMstId"
+                />
               </div>
             </Segment>
             <Segment>

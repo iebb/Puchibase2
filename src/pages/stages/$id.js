@@ -17,7 +17,6 @@ import {
 import {arrayToMap} from "../../utils/utils";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
-import Moment from "react-moment";
 import 'moment-timezone';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'

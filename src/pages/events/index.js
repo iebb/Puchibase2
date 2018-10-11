@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Card, Divider, Header, Image, Label, Pagination, Progress} from "semantic-ui-react";
+import {Card, Divider, Header, Image, Label, Pagination} from "semantic-ui-react";
 import {DataPagination, TotalPages} from "../../utils/utils";
-import {getGeneral, getSpGeneral, getSPRImage} from "../../services/xet";
+import {getSpGeneral} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import Link from "umi/link";
