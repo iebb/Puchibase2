@@ -265,6 +265,11 @@
         "activeSkill": "技能",
         "passiveSkill": "支援"
       },
+      "activeSkill": "主技能",
+      "passiveSkill": "支援技能"
+    },
+    "skills": {
+      "level": "Lv",
       "activeSkillParams": {
         "skillRandomMin": "随机下限",
         "skillRandomMax": "随机上限",
@@ -274,7 +279,6 @@
         "forceBombNum": "炸弹"
       },
       "activeSkill": {
-        "activeSkill": "主技能",
         "levels": "Lv",
         "effects": "效果",
         "requirements": "需求数",
@@ -305,7 +309,6 @@
         }
       },
       "passiveSkill": {
-        "passiveSkill": "支援技能",
         "levels": "Lv",
         "effects": "效果",
         "trigger": "触发",

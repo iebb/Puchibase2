@@ -21,19 +21,24 @@ export function lang() {
 
 export function t(key, empty=false) {
   let language = lang();
-  let ret = resolveObj(languages[language].dict, key);
-  if (typeof ret !== "undefined") {
-    return ret;
-  } else {
-    console.error("Missing " + language + " Translations: " + key.join("."));
-    ret = resolveObj(languages["en-US"].dict, key);
+  try {
+    let ret = resolveObj(languages[language].dict, key);
     if (typeof ret !== "undefined") {
       return ret;
-    } else if (empty) {
-      return "";
     } else {
-      console.error("Missing en-US Language: " + key.join("."));
-      return key[key.length - 1];
+      console.error("Missing " + language + " Translations: " + key.join("."));
+      ret = resolveObj(languages["en-US"].dict, key);
+      if (typeof ret !== "undefined") {
+        return ret;
+      } else if (empty) {
+        return "";
+      } else {
+        console.error("Missing en-US Language: " + key.join("."));
+        return key[key.length - 1];
+      }
     }
+  } catch (e) {
+    console.error(e);
+    return "ERROR";
   }
 }
