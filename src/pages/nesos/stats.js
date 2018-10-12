@@ -42,7 +42,7 @@ export default class Nesos extends React.PureComponent {
     if (pageData.length === 0) return (<Loading />);
     return (
       <div>
-        <Header as="h2">{t(["wording", "menu", "nesos"])}</Header>
+        <Header as="h2">{t(["wording", "menu", "nesoStats"])}</Header>
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}

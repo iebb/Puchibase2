@@ -5,14 +5,14 @@ import {getMainMenu} from "../utils/menu";
 
 export default () => {
   return (
-    <Card.Group itemsPerRow={3} doubling stackable>
+    <Card.Group itemsPerRow={4} doubling stackable>
       {
         getMainMenu().map(x => (
           <Card to={x.path} href={x.href} as={x.type} key={x.name}>
             <Card.Content>
               <Image rounded floated='right' size="tiny" src={x.image} />
               <Card.Header>{x.translated}</Card.Header>
-              <Card.Description>{x.description}</Card.Description>
+              <Card.Meta>{x.description}</Card.Meta>
             </Card.Content>
           </Card>
         ))

@@ -11,6 +11,20 @@ export function getMainMenu() {
       description: t(["wording", "menuDescription", "nesos"]),
       image: getGeneral("sprawlpict", "10003101"),
       type: Link,
+      childMenu: [
+        {
+          name: "nesos",
+          path: "/nesos",
+          translated: t(["wording", "subMenu", "nesoList"]),
+          type: Link,
+        },
+        {
+          name: "nesoStats",
+          path: "/nesos/stats",
+          translated: t(["wording", "subMenu", "nesoStats"]),
+          type: Link,
+        }
+      ]
     },
     {
       name: "nesoStats",

@@ -5,7 +5,7 @@ import {
   Button,
   Checkbox,
   Container,
-  Divider,
+  Divider, Dropdown,
   Flag,
   Header,
   Icon,
@@ -71,6 +71,30 @@ export default class Layout extends React.PureComponent {
     ReactGA.pageview(window.location.pathname + window.location.search);
 
     const currentLang = languages[lang()];
+
+
+    const renderMenu = (menu) => (
+      menu.filter(x => !x.hideMenu).map(item => item.childMenu ? (
+        <Dropdown item text={item.translated}>
+          <Dropdown.Menu>
+            {
+              item.childMenu.map(x => (
+                <Dropdown.Item as={x.type} key={x.name} to={x.path} href={x.href}>{x.translated}</Dropdown.Item>
+              ))
+            }
+          </Dropdown.Menu>
+        </Dropdown>
+      ) : item.path ? (
+        <Menu.Item as={NavLink} key={item.name} to={item.path}>
+          {item.translated}
+        </Menu.Item>
+      ) : (
+        <Menu.Item as={"a"} key={item.name} href={item.href}>
+          {item.translated}
+        </Menu.Item>
+      ))
+    );
+
     return (
       <div>
         <Menu fixed='top' inverted>
@@ -86,15 +110,7 @@ export default class Layout extends React.PureComponent {
                 </span>
             </Menu.Item>
             {
-              getMainMenu().filter(x => !x.hideMenu).map(item => item.path ? (
-                <Menu.Item as={NavLink} key={item.name} to={item.path}>
-                  {item.translated}
-                </Menu.Item>
-              ) : (
-                <Menu.Item as={"a"} key={item.name} href={item.href}>
-                  {item.translated}
-                </Menu.Item>
-              ))
+              renderMenu(getMainMenu())
             }
           </Container>
         </Menu>

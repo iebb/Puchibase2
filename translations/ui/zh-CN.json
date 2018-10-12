@@ -179,7 +179,8 @@
     "menu": {
       "achievements": "称号",
       "nesos": "趴趴",
-      "nesoStats": "数据",
+      "nesoList": "趴趴图标",
+      "nesoStats": "趴趴数据",
       "cards": "卡牌",
       "stages": "关卡",
       "events": "活动",
@@ -187,9 +188,14 @@
 
       "legacyWebsite": "旧网站"
     },
+    "subMenu": {
+      "nesoList": "图标",
+      "nesoStats": "数据"
+    },
     "menuDescription": {
       "achievements": "称号 / 成就",
-      "nesos": "趴趴图标表",
+      "nesos": "趴趴图标列表",
+      "nesoList": "趴趴图标列表",
       "nesoStats": "趴趴数据表",
       "cards": "卡牌",
       "stages": "关卡",

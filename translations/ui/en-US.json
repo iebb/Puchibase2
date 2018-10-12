@@ -164,7 +164,8 @@
     },
     "menu": {
       "achievements": "Achievements",
-      "nesos": "Neso List",
+      "nesos": "Neso",
+      "nesoList": "Neso List",
       "nesoStats": "Neso Stats",
       "cards": "Cards",
       "stages": "Stages",
