@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Card, Divider, Header, Image, Label, Pagination, Progress, Tab} from "semantic-ui-react";
+import {Button, Card, Divider, Header, Icon, Image, Label, Modal, Pagination, Progress, Tab} from "semantic-ui-react";
 import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
 import {getCardCroppedSmallImage, getCardSmallImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
+import ParamsTable from "../../components/ParamsTable";
+import Skill from "../../components/Skill";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -18,6 +20,8 @@ export default class Cards extends React.PureComponent {
     this.state = {
       activePage: 1,
       rowPerPage: 16,
+      skillSpecial: {},
+      skillSpecialModal: false,
     };
     props.dispatch({
       type: 'cards/fetch',
@@ -25,6 +29,19 @@ export default class Cards extends React.PureComponent {
   }
 
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
+
+  renderSkillSpecialModal = () => (
+    <Modal
+      open={this.state.skillSpecialModal}
+      onClose={() => this.setState({skillSpecialModal: false})}
+      size='small'
+    >
+      <Header>{t(["wording", "skills", "activeSkill", "parameters"])}</Header>
+      <Modal.Content>
+        <Skill data={this.state.skillSpecial} />
+      </Modal.Content>
+    </Modal>
+  );
 
   render() {
     const { activePage, rowPerPage } = this.state;
@@ -40,6 +57,9 @@ export default class Cards extends React.PureComponent {
     return (
       <div>
         <Header as="h2">{t(["wording", "menu", "cards"])}</Header>
+
+        {this.renderSkillSpecialModal()}
+
         <Pagination
           activePage={activePage}
           onPageChange={this.handlePaginationChange}
@@ -64,9 +84,6 @@ export default class Cards extends React.PureComponent {
                 <Card.Content>
                   <Card.Header>{cards.data[0].cardName}</Card.Header>
                 </Card.Content>
-                <Card.Content extra>
-
-                </Card.Content>
                 <Tab menu={{ secondary: true, pointing: true }} panes={
                   cards.data.map(row => (
                     {
@@ -87,9 +104,16 @@ export default class Cards extends React.PureComponent {
                               (row.skillSpecial.length > 0) && (
                                 <Card.Description>
                                   <span className="line">
-                                    <Label color="pink" size="mini">
+                                    <Button
+                                      color="pink" size="mini"
+                                      style={{paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4}}
+                                      onClick={() => {
+                                      this.setState({
+                                        skillSpecial: row.skillSpecial[0], skillSpecialModal: true
+                                      })
+                                    }}>
                                       {t(["wording", "cards", "specialSkillLabel"])}
-                                    </Label>
+                                    </Button>
                                   </span> <span className="line">{row.skillSpecial[0].name}</span>
                                   {(row.skillPassive.length > 0) && <Divider />}
                                 </Card.Description>
@@ -99,9 +123,12 @@ export default class Cards extends React.PureComponent {
                               (row.skillPassive.length > 0) && (
                                 <Card.Description>
                                   <span className="line">
-                                    <Label color="orange" size="mini">
+                                    <Button
+                                      color="orange" size="mini"
+                                      style={{paddingLeft: 8, paddingRight: 8, paddingTop: 4, paddingBottom: 4}}
+                                    >
                                       {t(["wording", "cards", "passiveSkillLabel"])}
-                                    </Label>
+                                    </Button>
                                   </span> <span className="line">{row.skillPassive[0].name}</span>
                                 </Card.Description>
                               )

@@ -250,6 +250,11 @@
         "activeSkill": "C",
         "passiveSkill": "S"
       },
+      "activeSkill": "Center Skill",
+      "passiveSkill": "Support Skill"
+    },
+    "skills": {
+      "level": "Lv",
       "activeSkillParams": {
         "skillRandomMin": "Random Min",
         "skillRandomMax": "Random Max",
@@ -258,8 +263,13 @@
         "lotteryRate": "Probability",
         "forceBombNum": "Bombs"
       },
+      "passiveSkill": {
+        "levels": "Lv",
+        "effects": "Effects",
+        "trigger": "Trigger",
+        "rate": "Rate"
+      },
       "activeSkill": {
-        "activeSkill": "Center Skill",
         "levels": "Lv",
         "effects": "Effects",
         "requirements": "Nesos",
@@ -288,13 +298,6 @@
           "3Lminus": "3L-",
           "3Lplus": "3L+"
         }
-      },
-      "passiveSkill": {
-        "passiveSkill": "Support Skill",
-        "levels": "Lv",
-        "effects": "Effects",
-        "trigger": "Trigger",
-        "rate": "Rate"
       }
     },
     "stages": {

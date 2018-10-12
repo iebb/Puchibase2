@@ -3,9 +3,10 @@ import {connect} from 'dva';
 import {Button, Card, Divider, Grid, Header, Icon, Image, Label, Modal, Segment, Table} from "semantic-ui-react";
 import {arrayToMap, popBinaryMap} from "../../utils/utils";
 import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage} from "../../services/xet";
-import {parsePassiveSkill} from "../../utils/skills";
+import {parsePassiveSkill, parseSkillRow} from "../../utils/skills";
 import {t} from "../../utils/languages";
 import SUITable from "../../components/SUITable";
+import ParamsTable from "../../components/ParamsTable";
 import Link from "umi/link";
 
 @connect(({ nesos, loading }) => ({
@@ -73,7 +74,7 @@ export default class NesoDetail extends React.PureComponent {
         onClose={this.handleBinMap}
         size='small'
       >
-        <Header>{t(["wording", "nesos", "activeSkill", "binmap"])}</Header>
+        <Header>{t(["wording", "skills", "activeSkill", "binmap"])}</Header>
         <Modal.Content>
           <div style={{padding: "1em", overflowX: "auto", overflowY: "auto"}}>
             <Grid style={{width: "22.857143em", margin: 5}}>
@@ -100,27 +101,9 @@ export default class NesoDetail extends React.PureComponent {
         onClose={this.handleParams}
         size='small'
       >
-        <Header>{t(["wording", "nesos", "activeSkill", "parameters"])}</Header>
+        <Header>{t(["wording", "skills", "activeSkill", "parameters"])}</Header>
         <Modal.Content>
-          <Table celled compact='very'>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "key"])}</Table.HeaderCell>
-                <Table.HeaderCell>{t(["wording", "nesos", "activeSkill", "value"])}</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-                {
-                  Object.keys(params).map(
-                    x =>
-                      <Table.Row key={x}>
-                        <Table.Cell><b>{x}</b></Table.Cell>
-                        <Table.Cell>{params[x] + ""}</Table.Cell>
-                      </Table.Row>
-                  )
-                }
-            </Table.Body>
-          </Table>
+          <ParamsTable params={params} />
         </Modal.Content>
         <Modal.Actions>
           <Button color='green' onClick={this.handleParams} inverted>
@@ -142,40 +125,25 @@ export default class NesoDetail extends React.PureComponent {
 
     const activeSkillColumns = [
       {
-        Header: t(["wording", "nesos", "activeSkill", "levels"]),
+        Header: t(["wording", "skills", "activeSkill", "levels"]),
         accessor: "skillLevel",
       },
       {
-        Header: t(["wording", "nesos", "activeSkill", "requirements"]),
+        Header: t(["wording", "skills", "activeSkill", "requirements"]),
         accessor: "num",
       }
     ];
 
     const skillLevels = neso.skillActive.length;
     for(const key of Object.keys(neso.skillActive[0].effect)) {
-      let skillTransform = x => x;
-      switch(key) {
-        case "text":
-          continue;
-        case "num":
-        case "forceBombNum":
-          skillTransform = x => x+1;
-          break;
-        case "skillTime":
-          skillTransform = x => `${x}s`;
-          break;
-        case "lotteryRate":
-          skillTransform = x => `${x}%`;
-          break;
-        default:
-          break;
-      }
+      if (key === "text") continue;
+      const { transform } = parseSkillRow(key);
       if (neso.skillActive[0].effect[key] !== neso.skillActive[skillLevels - 1].effect[key]) {
         activeSkillColumns.push({
-          Header: t(["wording", "nesos", "activeSkillParams", key]),
+          Header: t(["wording", "skills", "activeSkillParams", key]),
           accessor: "effect",
           key: `effect${key}`,
-          Cell: val => skillTransform(val.value[key]),
+          Cell: val => transform(val.value[key]),
         })
       }
     }
@@ -183,7 +151,7 @@ export default class NesoDetail extends React.PureComponent {
 
     if (neso.skillActive[0].binaryMap) {
       activeSkillColumns.push({
-        Header: t(["wording", "nesos", "activeSkill", "binmap"]),
+        Header: t(["wording", "skills", "activeSkill", "binmap"]),
         accessor: "binaryMap",
         Cell: row => (
           <Button
@@ -194,7 +162,7 @@ export default class NesoDetail extends React.PureComponent {
             onClick={() => {this.setState({binaryMap: row.value, binmapModal: true});}}
           >
             <span>
-              {popBinaryMap(row.value)} / {t(["wording", "nesos", "activeSkill", "range", row.original.effect.text])}
+              {popBinaryMap(row.value)} / {t(["wording", "skills", "activeSkill", "range", row.original.effect.text])}
             </span>
           </Button>
         )
@@ -203,7 +171,7 @@ export default class NesoDetail extends React.PureComponent {
 
 
     activeSkillColumns.push({
-      Header: t(["wording", "nesos", "activeSkill", "parameters"]),
+      Header: t(["wording", "skills", "activeSkill", "parameters"]),
       accessor: "effect",
       Cell: row => (
         <Button
@@ -212,7 +180,7 @@ export default class NesoDetail extends React.PureComponent {
             paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
           }}
           onClick={() => {this.setState({params: row.value, paramsModal: true});}}>
-          {t(["wording", "nesos", "activeSkill", "view"])}
+          {t(["wording", "skills", "activeSkill", "view"])}
         </Button>
       )
     });
@@ -259,23 +227,13 @@ export default class NesoDetail extends React.PureComponent {
                   to={this.nextItem(this.props.nesos.data.filter(x => x.personalMstId === neso.personalMstId),-1)}
                 />
                 <Button
-                  circular
-                  floated="right"
-                  basic
-                  color="purple"
-                  as={Link}
-                  size="large"
-                  icon="arrow right"
+                  circular floated="right" basic color="purple" as={Link}
+                  size="large" icon="arrow right"
                   to={this.nextItem(this.props.nesos.data,1)}
                 />
                 <Button
-                  circular
-                  floated="right"
-                  basic
-                  color="purple"
-                  as={Link}
-                  size="large"
-                  icon="angle right"
+                  circular floated="right" basic color="purple" as={Link}
+                  size="large" icon="angle right"
                   to={this.nextItem(this.props.nesos.data.filter(x => x.personalMstId === neso.personalMstId),1)}
                 />
               </Card.Content>
@@ -283,10 +241,10 @@ export default class NesoDetail extends React.PureComponent {
           </Grid.Column>
           <Grid.Column width={12}>
             <Segment>
-              <Header as="h2">{t(["wording", "nesos", "activeSkill", "activeSkill"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "activeSkill"])}</Header>
               <Divider/>
               <p>
-                {t(["wording", "nesos", "activeSkill", "effects"])}: {neso.skillActive[0].explanation}
+                {t(["wording", "skills", "activeSkill", "effects"])}: {neso.skillActive[0].explanation}
               </p>
               <SUITable
                 data={neso.skillActive}
@@ -301,16 +259,16 @@ export default class NesoDetail extends React.PureComponent {
               />
             </Segment>
             <Segment>
-              <Header as="h2">{t(["wording", "nesos", "passiveSkill", "passiveSkill"])}</Header>
+              <Header as="h2">{t(["wording", "nesos", "passiveSkill"])}</Header>
               <Divider/>
               <div>
                 <Table celled compact='very'>
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "levels"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "trigger"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "effects"])}</Table.HeaderCell>
-                      <Table.HeaderCell>{t(["wording", "nesos", "passiveSkill", "rate"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "skills", "passiveSkill", "levels"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "skills", "passiveSkill", "trigger"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "skills", "passiveSkill", "effects"])}</Table.HeaderCell>
+                      <Table.HeaderCell>{t(["wording", "skills", "passiveSkill", "rate"])}</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 

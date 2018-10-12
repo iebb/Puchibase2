@@ -24,3 +24,47 @@ export function parsePassiveSkill(row) {
     rate: motion.rate,
   };
 }
+
+export function parseSkillRow(key) {
+  let skillTransform = x => x;
+  switch(key) {
+    case "text":
+      break;
+    case "num":
+    case "forceBombNum":
+      skillTransform = x => x+1;
+      break;
+    case "skillTime":
+      skillTransform = x => `${x}s`;
+      break;
+    case "lotteryRate":
+      skillTransform = x => `${x}%`;
+      break;
+    default:
+      break;
+  }
+  return {
+    description: "",
+    transform: skillTransform,
+  };
+
+}
+
+export function parseActiveSkill(row) {
+  let effect = row.effect || JSON.parse(row.effectData);
+
+  for(const key of Object.keys(effect)) {
+    const {description, transformedVal, value} = parseSkillRow(key, effect[key]);
+    /*
+    if (neso.skillActive[0].effect[key] !== neso.skillActive[skillLevels - 1].effect[key]) {
+      activeSkillColumns.push({
+        Header: t(["wording", "skills", "activeSkillParams", key]),
+        accessor: "effect",
+        key: `effect${key}`,
+        Cell: val => ,
+      })
+    }
+    */
+  }
+
+}
