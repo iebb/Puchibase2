@@ -75,7 +75,7 @@ export default class Layout extends React.PureComponent {
 
     const renderMenu = (menu) => (
       menu.filter(x => !x.hideMenu).map(item => item.childMenu ? (
-        <Dropdown item text={item.translated}>
+        <Dropdown item key={item.name} text={item.translated}>
           <Dropdown.Menu>
             {
               item.childMenu.map(x => (

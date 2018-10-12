@@ -1,3 +1,5 @@
+export const moment = require('moment-timezone');
+
 export function DataPagination(data, page, rowPerPage) {
   return data.slice(page * rowPerPage - rowPerPage, page * rowPerPage);
 }
@@ -75,6 +77,7 @@ export function useJST() {
   } else {
     localStorage.useJST = "false";
     localStorage.timeZone = "Asia/Tokyo";
+    return false;
   }
 }
 
@@ -85,7 +88,7 @@ export function toggleTimezone() {
     return true;
   } else {
     localStorage.useJST = "false";
-    localStorage.timeZone = require('moment-timezone').tz.guess();
+    localStorage.timeZone = moment.tz.guess();
     return false;
   }
 }

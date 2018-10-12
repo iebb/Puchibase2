@@ -64,16 +64,18 @@ export default class Cards extends React.PureComponent {
                 <Card.Content>
                   <Card.Header>{cards.data[0].cardName}</Card.Header>
                 </Card.Content>
-                <Card.Content>
+                <Card.Content extra>
+
+                </Card.Content>
                 <Tab menu={{ secondary: true, pointing: true }} panes={
                   cards.data.map(row => (
                     {
                       menuItem: `${row.rarity}★`,
                       render: () => {
                         const score = Math.floor(row.score * levels[10 * row.rarity].scoreGrowthRate / 1000);
-                        console.log(row);
+                        // console.log(row);
                         return (
-                          <Tab.Pane attached={false}>
+                          <Tab.Pane attached={false} style={{border: "none"}}>
                             <Card.Meta>#{row.cardMstId}</Card.Meta>
                             <Card.Description>
                               <Progress percent={(100.0 * score / 1000)} color='green' size="tiny">
@@ -110,7 +112,6 @@ export default class Cards extends React.PureComponent {
                     }
                   ))
                 } />
-                </Card.Content>
               </Card>
 
             ))
