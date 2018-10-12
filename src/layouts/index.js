@@ -103,8 +103,7 @@ export default class Layout extends React.PureComponent {
         <Container style={{marginTop: '3em'}}>
 
           {
-            (Math.random() < 0.2) && <Message icon>
-              <Icon name='circle notched' loading />
+            (Math.random() < 0.05) && <Message>
               <Message.Content>
                 <Message.Header>{t(["wording", "message", "newWebsite"])}</Message.Header>
                 <p>
