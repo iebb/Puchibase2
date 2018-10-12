@@ -51,7 +51,7 @@ export default class Nesos extends React.PureComponent {
           lastItem={null}
         />
         <Divider />
-        <Card.Group itemsPerRow={4} doubling stackable>
+        <Card.Group itemsPerRow={3} doubling stackable>
           {
             pageData.map(row => (
               <Card key={row.memberMstId} to={`/nesos/${row.memberMstId}`} as={Link}>
