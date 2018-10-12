@@ -176,6 +176,11 @@
       "title": "设置",
       "useJST": "显示日本时间"
     },
+    "cards": {
+      "maxScore": "MAX SCORE",
+      "specialSkillLabel": "SS",
+      "passiveSkillLabel": "技能"
+    },
     "menu": {
       "achievements": "称号",
       "nesos": "趴趴",

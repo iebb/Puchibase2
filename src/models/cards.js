@@ -11,6 +11,8 @@ export default {
     getCardPassiveSkillMaster: [],
     getCardSpecialSkillMaster: [],
     getCardCategoryMaster: [],
+    getCardExperienceMaster: [],
+    getCardRarityMaster: [],
 
     data: [],
   },
@@ -24,24 +26,30 @@ export default {
         CardPersonal,
         CardPassiveSkill,
         CardSpecialSkill,
-        CardCategory
+        CardCategory,
+        CardExperience,
+        CardRarity
       ] = (yield [
         "Card",
         "Personal",
         "CardPersonal",
         "CardPassiveSkill",
         "CardSpecialSkill",
-        "CardCategory"
+        "CardCategory",
+        "CardExperience",
+        "CardRarity"
       ].map(x => call(API(x)))).map(x => x.data);
 
       yield put({ type: 'save', payload: {
-        ...Card,
-        ...Personal,
-        ...CardPersonal,
-        ...CardPassiveSkill,
-        ...CardSpecialSkill,
-        ...CardCategory
-      }});
+          ...Card,
+          ...Personal,
+          ...CardPersonal,
+          ...CardPassiveSkill,
+          ...CardSpecialSkill,
+          ...CardCategory,
+          ...CardExperience,
+          ...CardRarity
+        }});
 
       const personalMap = arrayToMap(Personal.getPersonalMaster, "personalMstId");
 
@@ -71,7 +79,18 @@ export default {
         })
       }
 
-      yield put({ type: 'save', payload: {data: baselist} });
+      const sortedList = baselist.sort((x, y) => {
+          const X = x.data[0];
+          const Y = y.data[0];
+          if (X.rarity !== Y.rarity)
+            return Y.rarity - X.rarity;
+          if (X.skillSpecial.length !== Y.skillSpecial.length)
+            return Y.skillSpecial.length - X.skillSpecial.length;
+          return x.cardBaseId - y.cardBaseId;
+        }
+      );
+
+      yield put({ type: 'save', payload: {data: sortedList} });
     },
   },
 

@@ -162,6 +162,11 @@
       "title": "Settings",
       "useJST": "Use JST"
     },
+    "cards": {
+      "maxScore": "MAX SCORE",
+      "specialSkillLabel": "SPECIAL",
+      "passiveSkillLabel": "SKILL"
+    },
     "menu": {
       "achievements": "Achievements",
       "nesos": "Neso",

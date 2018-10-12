@@ -1,5 +1,6 @@
 import {sprintf} from "sprintf-js";
 const endPoint = "https://puchi-xet.loveliv.es/";
+const endPointProxy = "https://images.weserv.nl/?url=puchi-xet.loveliv.es/";
 
 export function getGeneral(type, aId) {
   return sprintf(endPoint + "%s/%s%s.png", type, type, aId);
@@ -21,6 +22,9 @@ export function getSkillCutinBImage(aId) {
 }
 export function getCardSmallImage(aId) {
   return sprintf(endPoint + "cardsmall/cardsmall%09d.png", aId);
+}
+export function getCardCroppedSmallImage(aId) {
+  return sprintf(endPointProxy + "cardsmall/cardsmall%09d.png&crop=256,144,0,56", aId);
 }
 export function getStageImage(aId) {
   return sprintf(endPoint + "stageselect/stageselect%08d.png", aId);
