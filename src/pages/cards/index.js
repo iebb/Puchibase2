@@ -1,13 +1,26 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Button, Card, Divider, Header, Icon, Image, Label, Modal, Pagination, Progress, Tab} from "semantic-ui-react";
+import {
+  Button,
+  Card,
+  Divider,
+  Header,
+  Icon,
+  Image,
+  Label,
+  Modal,
+  Pagination,
+  Progress,
+  Segment,
+  Tab
+} from "semantic-ui-react";
 import {arrayToMap, DataPagination, TotalPages} from "../../utils/utils";
 import {getCardCroppedSmallImage, getCardSmallImage} from "../../services/xet";
 import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import ParamsTable from "../../components/ParamsTable";
 import Skill from "../../components/Skill";
-import {parseCardPassiveSkillMeta} from "../../utils/skills";
+import {parseActiveTranslations, parseCardPassiveSkillMeta} from "../../utils/skills";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -115,7 +128,7 @@ export default class Cards extends React.PureComponent {
                                     }}>
                                       {t(["wording", "cards", "specialSkillLabel"])}
                                     </Button>
-                                  </span> <span className="line">{row.skillSpecial[0].name}</span>
+                                  </span> <span className="line">{parseActiveTranslations(row.skillSpecial[0])}</span>
                                   {(row.skillPassive.length > 0) && <Divider />}
                                 </Card.Description>
                               )

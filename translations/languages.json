@@ -16,5 +16,11 @@
     "flag": "cn",
     "translator": "ieb",
     "code": "zh-CN"
+  },
+  "ja-JP": {
+    "language": "日本語",
+    "flag": "jp",
+    "translator": "ieb",
+    "code": "zh-CN"
   }
 }

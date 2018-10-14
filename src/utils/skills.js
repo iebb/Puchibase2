@@ -11,6 +11,10 @@ export function parseCardPassiveSkillMeta(row) {
   }`;
 }
 
+export function parseActiveTranslations(x) {
+  return x.name.split("＋").map(s => t(["activeSkill", "translations", s])).join("+");
+}
+
 export function parsePassiveSkill(row) {
   let motion = JSON.parse(row.motionData);
   motion.rate = sprintf("%.1f%%", motion.rate * 0.1);

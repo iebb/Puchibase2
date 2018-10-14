@@ -3,7 +3,7 @@ import {connect} from 'dva';
 import {Button, Card, Divider, Grid, Header, Icon, Image, Label, Modal, Segment, Table} from "semantic-ui-react";
 import {arrayToMap, popBinaryMap} from "../../utils/utils";
 import {getSkillCutinAImage, getSkillCutinBImage, getSPRImage} from "../../services/xet";
-import {parsePassiveSkill, parseSkillRow} from "../../utils/skills";
+import {parseActiveTranslations, parsePassiveSkill, parseSkillRow} from "../../utils/skills";
 import {t} from "../../utils/languages";
 import SUITable from "../../components/SUITable";
 import ParamsTable from "../../components/ParamsTable";
@@ -244,7 +244,10 @@ export default class NesoDetail extends React.PureComponent {
               <Header as="h2">{t(["wording", "nesos", "activeSkill"])}</Header>
               <Divider/>
               <p>
-                {t(["wording", "skills", "activeSkill", "effects"])}: {neso.skillActive[0].explanation}
+                {t(["wording", "skills", "activeSkill", "effects"])}: {parseActiveTranslations(neso.skillActive[0])}
+              </p>
+              <p>
+                {neso.skillActive[0].explanation}
               </p>
               <SUITable
                 data={neso.skillActive}
