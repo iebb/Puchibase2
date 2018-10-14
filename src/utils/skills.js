@@ -2,6 +2,15 @@ import {t} from "./languages";
 import {f} from "./utils";
 const sprintf = require("sprintf-js").sprintf;
 
+export function parseCardPassiveSkillMeta(row) {
+  const cond = row.conditionTypeOption === 0 ? row.conditionType : `${row.conditionType}_${row.conditionTypeOption}`;
+  return `${
+    t(["cardPassiveSkill", "effect", row.effectType])
+  } / ${
+    t(["cardPassiveSkill", "trigger", cond])
+  }`;
+}
+
 export function parsePassiveSkill(row) {
   let motion = JSON.parse(row.motionData);
   motion.rate = sprintf("%.1f%%", motion.rate * 0.1);

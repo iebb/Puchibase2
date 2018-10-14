@@ -7,6 +7,7 @@ import {t} from "../../utils/languages";
 import Loading from "../../components/Loading";
 import ParamsTable from "../../components/ParamsTable";
 import Skill from "../../components/Skill";
+import {parseCardPassiveSkillMeta} from "../../utils/skills";
 
 @connect(({ cards, loading }) => ({
   cards,
@@ -129,7 +130,7 @@ export default class Cards extends React.PureComponent {
                                     >
                                       {t(["wording", "cards", "passiveSkillLabel"])}
                                     </Button>
-                                  </span> <span className="line">{row.skillPassive[0].name}</span>
+                                  </span> <span className="line">{parseCardPassiveSkillMeta(row.skillPassive[0])}</span>
                                 </Card.Description>
                               )
                             }
