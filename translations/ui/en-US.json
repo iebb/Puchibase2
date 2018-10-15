@@ -82,12 +82,13 @@
       "7": "Skill Activated",
       "8": "During Showtime",
       "9": "Bomb Cleared",
-      "10": "Neso Cleared",
-      "11": "Chain Cleared",
-      "11_1": "Blue Chain Cleared",
-      "11_2": "Yellow Chain Cleared",
-      "11_3": "Red Chain Cleared",
-      "11_4": "Rainbow Chain Cleared"
+      "11": "Neso Cleared",
+      "11_1": "Center Neso Cleared",
+      "10": "Chain Cleared",
+      "10_1": "Blue Chain Cleared",
+      "10_2": "Yellow Chain Cleared",
+      "10_3": "Red Chain Cleared",
+      "10_4": "Rainbow Chain Cleared"
     }
   },
   "mission": {

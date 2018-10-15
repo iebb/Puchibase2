@@ -66,28 +66,29 @@
     "effectDetail": {
     },
     "effect": {
-      "1": "Score+",
-      "2": "Gold+",
-      "3": "Time+",
-      "4": "Skill+",
-      "5": "Showtime+"
+      "1": "スコアUP",
+      "2": "ゴールドUP",
+      "3": "プレイ時間UP",
+      "4": "スキルゲージUP",
+      "5": "ショータイムUP"
     },
     "trigger": {
-      "1": "Puzzle Start",
-      "2": "Time Remaining",
-      "3": "Puzzle End",
-      "4": "Score Achieved",
-      "5": "Gold Obtained",
-      "6": "Combo Reached",
-      "7": "Skill Activated",
-      "8": "During Showtime",
-      "9": "Bomb Cleared",
-      "10": "Neso Cleared",
-      "11": "Chain Cleared",
-      "11_1": "Blue Chain Cleared",
-      "11_2": "Yellow Chain Cleared",
-      "11_3": "Red Chain Cleared",
-      "11_4": "Rainbow Chain Cleared"
+      "1": "パズル開始時",
+      "2": "残りプレイ時間",
+      "3": "パズル終了時",
+      "4": "スコア達成時",
+      "5": "ゴールド達成時",
+      "6": "コンボ達成時",
+      "7": "スキル発動時",
+      "8": "ショータイム時",
+      "9": "ボム消去時",
+      "11": "ぷちぐる消去時",
+      "11_1": "センターぷちぐる消去時",
+      "10": "つながり消去時",
+      "10_1": "青つながり消去時",
+      "10_2": "黄つながり消去時",
+      "10_3": "赤つながり消去時",
+      "10_4": "虹つながり消去時"
     }
   },
   "mission": {

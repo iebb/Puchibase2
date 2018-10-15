@@ -162,7 +162,11 @@ export default class NesoDetail extends React.PureComponent {
             onClick={() => {this.setState({binaryMap: row.value, binmapModal: true});}}
           >
             <span>
-              {popBinaryMap(row.value)} / {t(["wording", "skills", "activeSkill", "range", row.original.effect.text])}
+              {`${
+                popBinaryMap(row.value)
+              } / ${
+                t(["wording", "skills", "activeSkill", "range", row.original.effect.text])
+              }`}
             </span>
           </Button>
         )
@@ -180,7 +184,7 @@ export default class NesoDetail extends React.PureComponent {
             paddingTop: 4, paddingBottom: 4, paddingLeft: 8, paddingRight: 8
           }}
           onClick={() => {this.setState({params: row.value, paramsModal: true});}}>
-          {t(["wording", "skills", "activeSkill", "view"])}
+          <span>{t(["wording", "skills", "activeSkill", "view"])}</span>
         </Button>
       )
     });

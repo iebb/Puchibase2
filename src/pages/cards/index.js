@@ -128,7 +128,7 @@ export default class Cards extends React.PureComponent {
                                     }}>
                                       {t(["wording", "cards", "specialSkillLabel"])}
                                     </Button>
-                                  </span> <span className="line">{parseActiveTranslations(row.skillSpecial[0])}</span>
+                                  </span> <span>{parseActiveTranslations(row.skillSpecial[0])}</span>
                                   {(row.skillPassive.length > 0) && <Divider />}
                                 </Card.Description>
                               )
