@@ -17,10 +17,16 @@
     "translator": "ieb",
     "code": "zh-CN"
   },
+  "vi-VN": {
+    "language": "Tiếng Việt",
+    "flag": "vn",
+    "translator": "vikopromotion",
+    "code": "vi-VN"
+  },
   "ja-JP": {
     "language": "日本語",
     "flag": "jp",
     "translator": "ieb",
-    "code": "zh-CN"
+    "code": "ja-JP"
   }
 }

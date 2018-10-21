@@ -1,0 +1,405 @@
+{
+  "activeSkill": {
+    "translations": {
+
+      "高得点ぷちぐるが出現": "Tạo Puchi tăng điểm số",
+
+      "ぷちぐるを消去": "Xoá Puchi",
+      "コンボ増加": "Tăng Combo",
+      "追加ボム出現": "Tạo thêm bom",
+
+      "まとめてぷちぐるを消去": "Xoá chung các Puchi",
+
+      "ショータイム開始": "Tạo Showtime",
+
+      "少しの間なぞってぷちぐるを消去": "Xoá Puchi trong phạm vi nhất định trong một lúc",
+      "少しの間確率でボムが降ってくる": "Khả năng làm rơi bom trong một lúc",
+      "少しの間ぷちぐるを巻き込んで消去": "Xoá Puchi gần kề trong một lúc",
+      "少しの間時間停止＋つながり範囲アップ": "Dừng thời gian trong một lúc + Tăng phạm vi liên kết chuỗi",
+      "少しの間センターぷちぐるがいなくなる": "Puchi chính sẽ biến mất trong một lúc",
+      "少しの間サポート1ぷちぐるがいなくなる": "Một Puchi hỗ trợ sẽ biến mất trong một lúc",
+
+      "つながり範囲アップ": "Nâng phạm vi liên kết chuỗi",
+
+      "ボム出現に必要なぷち数が減少": "Bomb Requirement Down",
+
+      "ぷちぐるを整理": "Sắp xếp lại Puchi",
+
+      "画面上にボムが出現": "Tạo bom",
+      "画面上に大きなボムが出現": "Tạo bom lớn",
+      "画面中央に大きなボムが出現": "Tạo bom lớn ở trung tâm màn hình",
+
+      "巻き込みぷちぐるが出現": "Tạo Puchi gây nổ",
+
+      "センターぷちぐるが変化": "Chuyển thành Puchi chính",
+      "センターぷちぐるが出現": "Làm rơi Puchi chính",
+      "センターぷちぐるを自動消去": "Tự động xoá Puchi chính",
+
+      "特定範囲のぷちぐるがすべてつながる": "Liên kết Puchi trong phạm vi cụ thể"
+    }
+  },
+  "passiveSkill": {
+    "type": {
+      "1": "Nhận thêm {value1} số Combo thực hiện được",
+      "2": "Xoá từ {value1} ~ {value2} Puchi",
+      "3": "Chuyển từ {value1} ~ {value2} Puchi thành Puchi chính (tăng điểm số)",
+      "4": "Thanh Showtime được nạp nhanh thêm {value1}",
+      "5": "Skill của Puchi chính được nạp nhanh thêm {value1}",
+      "6": "Nâng số Combo nhận được lên thêm {value1}",
+      "7": "Nâng số điểm nhận được lên thêm {value1}",
+      "8": "Tăng tỉ lệ rơi Puchi chính lên thêm {value1}",
+      "9": "Nâng số Vàng nhận được lên thêm {value1}",
+      "10": "Nâng bán kính nổ của bom lên thêm {value1}",
+      "11": "Nâng phạm vi liên kết chuỗi lên thêm {value1}",
+      "12": "Tạo ra từ {value1} ~ {value2} bom"
+    },
+    "trigger": {
+      "4": "Skill của Puchi chính được kích hoạt",
+      "7": "10 giây đầu tiên",
+      "8": "10 giây cuối cùng",
+      "9": "Khi Showtime",
+      "10": "Ở Bonus cuối",
+      "11": "Khi đang đếm Combo"
+    }
+  },
+  "cardPassiveSkill": {
+    "effectDetail": {
+    },
+    "effect": {
+      "1": "Score+",
+      "2": "Gold+",
+      "3": "Time+",
+      "4": "Skill+",
+      "5": "Showtime+"
+    },
+    "trigger": {
+      "1": "Màn chơi bắt đầu",
+      "2": "Thời gian còn lại",
+      "3": "Màn chơi kết thúc",
+      "4": "Điểm đạt được",
+      "5": "Vàng nhận được",
+      "6": "Combo đạt được",
+      "7": "Skill được kích hoạt",
+      "8": "Khi Showtime",
+      "9": "Bom xoá được",
+      "11": "Puchi xoá được",
+      "11_1": "Puchi chính xoá được",
+      "10": "Chuỗi xoá được",
+      "10_1": "Chuỗi Xanh xoá được",
+      "10_2": "Chuỗi Vàng xoá được",
+      "10_3": "Chuỗi Đỏ xoá được",
+      "10_4": "Chuỗi Cầu vồng xoá được"
+    }
+  },
+  "mission": {
+    "targetFormat": "{target} {limit} {period}",
+
+    "limitationStandalone": {
+      "None": "Không",
+      "Leader": {
+        "Other": "Thành viên chính phải là {value}",
+        "Personal": "Thành viên chính phải là {value}"
+      },
+      "All": {
+        "Other": "Tất cả thành viên phải là {value}",
+        "Personal": "Tất cả thành viên phải là {value}"
+      }
+    },
+
+    "limitationShort": {
+      "None": "-",
+      "Leader": {
+        "Other": "{value} chính",
+        "Personal": "{value} chính"
+      },
+      "All": {
+        "Other": "Team {value}",
+        "Personal": "Team {value}"
+      }
+    },
+
+    "limitation": {
+      "None": "",
+      "Leader": {
+        "Other": "mà sử dụng một Puchi {value} làm Puchi chính",
+        "Personal": "mà sử dụng Puchi {value} làm Puchi chính"
+      },
+      "All": {
+        "Other": "mà sử dụng một Team chỉ bao gồm thành viên của {value}",
+        "Personal": "mà sử dụng một Team chỉ bao gồm thành viên của {value}"
+      }
+    },
+
+    "period": {
+      "1": "trong một lần chơi",
+      "2": "trong tổng số"
+    },
+
+    "target": {
+      "eraseLeader": "Xoá {data} Puchi chính",
+      "eraseAll": "Xoá {data} Puchi",
+      "gold": "Đạt được {data} Vàng",
+      "combo": "Đạt được {data} Combo",
+      "macaron": "Đạt được {data} Token",
+      "skill": "Kích hoạt Skill {data} lần",
+      "score": "Đạt được {data} điểm",
+
+      "scoreBreak": [9, 6, 3],
+      "score_3": "Đạt được {data} nghìn điểm",
+      "score_6": "Đạt được {data} triệu điểm",
+      "score_9": "Đạt được {data} tỉ điểm",
+
+      "showTime": "Tạo được {data} lần Showtime",
+      "bombAll": "Xoá {data} bom",
+      "bombScore": "Xoá {data} bom Điểm",
+      "bombTime": "Xoá {data} bom Thời gian",
+      "bombGold": "Xoá {data} bom Vàng",
+      "chainCount": "Xoá chuỗi {chain} Puchi {count} lần",
+      "chainCount_26": "Xoá {data} chuỗi Cầu vồng (26+)",
+      "chainCount_21": "Xoá {data} chuỗi Đỏ (21+)",
+      "chainCount_16": "Xoá {data} chuỗi Vàng (16+)",
+      "chainCount_11": "Xoá {data} chuỗi Xanh (11+)"
+    },
+
+    "targetShort": {
+      "eraseLeader": "{data} Puchi chính",
+      "eraseAll": "{data} Puchi",
+      "gold": "{data} Vàng",
+      "combo": "{data} Combo",
+      "macaron": "{data} Token",
+      "skill": "{data} lần kích hoạt",
+      "score": "{data} điểm",
+
+
+      "showTime": "{data} Showtime",
+      "bombAll": "{data} Bom",
+      "bombScore": "{data} bom Điểm",
+      "bombTime": "{data} bom Thời gian",
+      "bombGold": "{data} bom Vàng",
+      "chainCount": "{count} chuỗi {chain} Puchi",
+
+      "scoreBreak": [9, 6, 3],
+      "score_3": "Đạt được {data} nghìn điểm",
+      "score_6": "Đạt được {data} triệu điểm",
+      "score_9": "Đạt được {data} tỉ điểm",
+
+      "chainCount_26": "{data} chuỗi Cầu vồng",
+      "chainCount_21": "{data} chuỗi Đỏ",
+      "chainCount_16": "{data} chuỗi Vàng",
+      "chainCount_11": "{data} chuỗi Xanh"
+    }
+  },
+  "names": {
+    "Personal": {
+      "name": {
+        "101": "Honoka",
+        "102": "Kotori",
+        "103": "Umi",
+        "104": "Maki",
+        "105": "Rin",
+        "106": "Hanayo",
+        "107": "Nico",
+        "108": "Nozomi",
+        "109": "Eli",
+        "201": "Chika",
+        "202": "You",
+        "203": "Riko",
+        "204": "Hanamaru",
+        "205": "Ruby",
+        "206": "Yoshiko",
+        "207": "Dia",
+        "208": "Kanan",
+        "209": "Mari"
+      }
+    },
+    "Unit": {
+      "name": ["", "Printemps", "BiBi", "lily white", "CYaRon!", "AZALEA", "Guilty Kiss"]
+    },
+    "Group": {
+      "name": ["", "μ’s", "Aqours", "A-RISE", "Saint Snow"]
+    },
+    "Class": {
+      "name": ["", "năm Nhất", "năm Hai", "năm Ba"]
+    }
+  },
+  "wording": {
+    "settings": {
+      "showSettings": "Cài đặt",
+      "timezone": "Múi giờ",
+      "currentTimezone": "Múi giờ hiện tại:",
+      "title": "Cài đặt",
+      "useJST": "Sử dụng JST"
+    },
+    "cards": {
+      "maxScore": "ĐIỂM CAO NHẤT",
+      "specialSkillLabel": "SKILL ĐẶC BIỆT",
+      "passiveSkillLabel": "SKILL"
+    },
+    "menu": {
+      "achievements": "Huy hiệu",
+      "nesos": "Puchi",
+      "nesoList": "Danh sách Puchi",
+      "nesoStats": "Thông số Puchi",
+      "cards": "Thẻ",
+      "stages": "Màn chơi",
+      "events": "Sự kiện",
+
+      "github": "Github",
+      "legacyWebsite": "Trang web cũ"
+    },
+    "subMenu": {
+      "nesoList": "Danh sách",
+      "nesoStats": "Thông số"
+    },
+    "menuDescription": {
+      "achievements": "Huy hiệu",
+      "nesos": "Danh sách Puchi",
+      "nesoStats": "Thông số Puchi",
+      "cards": "Thẻ",
+      "stages": "Màn chơi",
+      "events": "Sự kiện",
+
+      "github": "Mã nguồn, báo cáo lỗi và yêu cầu tính năng",
+      "legacyWebsite": "Trang web Puchiguru.db cũ"
+    },
+    "events": {
+      "types": {
+        "1": "TOKEN",
+        "2": "BẢN ĐỒ"
+      },
+      "meta": {
+        "start": "Bắt đầu:",
+        "end": "Kết thúc:"
+      },
+      "effect": {
+        "bonus": "Hiệu ứng cộng thêm",
+        "40": "40%",
+        "20": "20%",
+        "10": "10%",
+        "start": "Bắt đầu",
+        "end": "Kết thúc",
+        "area": "Khu vực"
+      },
+      "stages": {
+        "areaShort": "Khu vực"
+      },
+      "areas": {
+        "0": "-",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "101": "1+",
+        "102": "2+",
+        "103": "3+"
+      },
+      "areasFull": {
+        "0": "-",
+        "1": "1-THƯỜNG",
+        "2": "2-THƯỜNG",
+        "3": "3-THƯỜNG",
+        "101": "1-KHÓ",
+        "102": "2-KHÓ",
+        "103": "3-KHÓ"
+      },
+      "tower": {
+        "target1": "Mục tiêu 1",
+        "target2": "Mục tiêu 2",
+        "target3": "Mục tiêu 3",
+        "reward1_short": "Thưởng 1",
+        "reward2_short": "Thưởng 2",
+        "reward3_short": "Thưởng 3",
+        "reward1": "Phần thưởng 1",
+        "reward2": "Phần thưởng 2",
+        "reward3": "Phần thưởng 3"
+      }
+    },
+    "nesos": {
+      "list": {
+        "activeSkill": "Chính",
+        "passiveSkill": "Hỗ trợ"
+      },
+      "activeSkill": "Skill chính",
+      "passiveSkill": "Skill hỗ trợ"
+    },
+    "skills": {
+      "level": "Lv",
+      "activeSkillParams": {
+        "skillRandomMin": "Ngẫu nhiên thấp nhất",
+        "skillRandomMax": "Ngẫu nhiên cao nhất",
+        "skillTime": "Thời gian",
+        "num": "Loại",
+        "lotteryRate": "Xác suất",
+        "forceBombNum": "Bom"
+      },
+      "passiveSkill": {
+        "levels": "Lv",
+        "effects": "Hiệu ứng",
+        "trigger": "Lúc kích hoạt",
+        "rate": "Tỉ lệ"
+      },
+      "activeSkill": {
+        "levels": "Lv",
+        "effects": "Hiệu ứng",
+        "requirements": "Số Puchi",
+        "parameters": "Thông số",
+        "view": "Xem",
+        "binmap": "Vùng",
+        "key": "Kiểu",
+        "value": "Giá trị",
+        "range" : {
+          "SS": "SS",
+          "SSminus": "SS-",
+          "SSplus": "SS+",
+          "S": "S",
+          "Sminus": "S-",
+          "Splus": "S+",
+          "M": "M",
+          "Mminus": "M-",
+          "Mplus": "M+",
+          "L": "L",
+          "Lminus": "L-",
+          "Lplus": "L+",
+          "LL": "LL",
+          "LLminus": "LL-",
+          "LLplus": "LL+",
+          "3L": "3L",
+          "3Lminus": "3L-",
+          "3Lplus": "3L+"
+        }
+      }
+    },
+    "stages": {
+      "showCombined": "Xem vắn tắt",
+      "normalMission": "Nhiện vụ",
+      "secretMission": "Nhiệm vụ bí mật",
+      "extraMission": "Nhiệm vụ mở rộng",
+      "allMissions": "Tất cả nhiệm vụ",
+      "missions": "Nhiệm vụ",
+      "secrets": "Nhiệm vụ bí mật",
+      "extras": "Nhiệm vụ mở rộng",
+      "missionModal": {
+        "titles": {
+          "mission": "Nhiệm vụ",
+          "limitation": "Giới hạn",
+          "target": "Mục tiêu",
+          "release": "Ngày mở",
+          "unlock": "Yêu cầu mở khoá",
+          "reward": "Phần thưởng"
+        },
+        "title": "Chi tiết nhiệm vụ"
+      },
+      "schedule": {
+        "__title": "Lịch xoay tua",
+        "num": "#",
+        "start": "Bắt đầu",
+        "end": "Kết thúc"
+      }
+    },
+    "message": {
+      "newWebsite": "Trang web Puchibase mới",
+      "newWebsiteDescription1": "Trang web Puchibase này vẫn đang trong quá trình phát triển.",
+      "newWebsiteDescription2": "Nếu bạn gặp lỗi hoặc có bất kỳ đề xuất nào, vui lòng mở một vấn đề tại đây:"
+
+    }
+  }
+}
