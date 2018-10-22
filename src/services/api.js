@@ -56,7 +56,11 @@ export function API(key) {
         }
       }
     } else {
-      return () => normalRequest(key);
+      if (localStorage.getItem(`${key}!!Hash`)) { // for offline use
+        return () => JSON.parse(localStorage.getItem(`${key}`))
+      } else {
+        return () => normalRequest(key);
+      }
     }
   } catch (e) {
     return () => normalRequest(key);
