@@ -12,7 +12,7 @@ export function parseCardPassiveSkillMeta(row) {
 }
 
 export function parseActiveTranslations(x) {
-  return x.name.split("＋").map(s => t(["activeSkill", "translations", s])).join(" + ");
+  return x.name.replace("＋", "+").split("+").map(s => t(["activeSkill", "translations", s])).join(" + ");
 }
 
 export function parsePassiveSkill(row) {

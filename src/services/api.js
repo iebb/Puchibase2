@@ -1,6 +1,6 @@
 import request, {checkStatus, parseJSON} from "../utils/request";
 import fetch from "dva/fetch";
-const endPoint = "https://puchi-api.loveliv.es/";
+const endPoint = "https://puchiguru.loveliv.es/api/";
 const suffix = "Mst.min.json";
 
 export function cachedRequest(key, hash, options) {

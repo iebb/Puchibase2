@@ -1,6 +1,6 @@
 import {sprintf} from "sprintf-js";
-const endPoint = "https://puchi-xet.loveliv.es/";
-const endPointProxy = "https://images.weserv.nl/?url=puchi-xet.loveliv.es/";
+const endPoint = "https://puchiguru.loveliv.es/assets/";
+const endPointProxy = "https://images.weserv.nl/?url=puchiguru.loveliv.es/assets/";
 
 export function getGeneral(type, aId) {
   return sprintf(endPoint + "%s/%s%s.png", type, type, aId);
