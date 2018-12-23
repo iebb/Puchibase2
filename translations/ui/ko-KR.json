@@ -1,0 +1,400 @@
+{
+  "activeSkill": {
+    "translations": {
+      "高得点ぷちぐるが出現": "고득점 푸치 출현",
+      "ぷちぐるを消去": "푸치 지우기",
+      "コンボ増加": "콤보 증가",
+      "追加ボム出現": "추가 폭탄 출현",
+      "まとめてぷちぐるを消去": "모인 푸치 제거",
+      "ショータイム開始": "쇼 타임 개시",
+      "ショータイム開始+画面上部に大きなボムが": "쇼 타임 개시 + 화면 상단에 큰 폭탄 출현",
+      "少しの間なぞってぷちぐるを消去": "잠시 동안 어느 푸치가 사라짐",
+      "少しの間確率でボムが降ってくる": "잠시 동안 일정 확률로 폭탄이 떨어짐",
+      "少しの間ぷちぐるを巻き込んで消去": "잠시 동안 모인 푸치를 제거",
+      "少しの間時間停止＋つながり範囲アップ": "잠시 동안 시간을 멈춤 + 연결 범위 증대",
+      "少しの間センターぷちぐるがいなくなる": "잠시 동안 센터 푸치가 사라짐",
+      "少しの間サポート1ぷちぐるがいなくなる": "잠시 동안 한개의 지원 푸치가 사라짐",
+      "つながり範囲アップ": "연결되는 범위가 증가함",
+      "ボム出現に必要なぷち数が減少": "폭탄 출현에 필요한 푸치 수 감소",
+      "ぷちぐるを整理": "푸치를 정리함",
+      "画面上にボムが出現": "화면 상단에 폭탄 출현",
+      "画面上に大きなボムが出現": "화면 상단에 큰 폭탄 출현",
+      "画面中央に大きなボムが出現": "화면 중앙에 큰 폭탄 출현",
+      "巻き込みぷちぐるが出現": "침몰된 푸치가 출현",
+      "センターぷちぐるが変化": "센터 푸치가 변화함",
+      "センターぷちぐるが出現": "센터 푸치가 출현함",
+      "センターぷちぐるを自動消去": "센터 푸치를 자동 삭제함",
+      "特定範囲のぷちぐるがすべてつながる": "특정 범위의 푸치가 전부 연결됨"
+    }
+  },
+  "passiveSkill": {
+    "type": {
+      "1": "콤보가 {value1} 더 지속 됨",
+      "2": "{value1} ~ {value2}개의 푸치를 제거함",
+      "3": "{value1} ~ {value2}개의 푸치를 고득점 센터 푸치로 치환",
+      "4": "쇼 타임 게이지 {value1} 증폭",
+      "5": "센터 스킬 게이지 {value1} 증폭",
+      "6": "콤보량을 {value1} 더 증가 시킴",
+      "7": "점수를 {value1} 더 증가 시킴",
+      "8": "센터 푸치가 {value1} 더 자주 떨어짐",
+      "9": "골드 획득량을 {value1} 더 증가 시킴",
+      "10": "폭탄 범위를 {value1} 증가 시킴",
+      "11": "연결 범위를 {value1} 증가 시킴",
+      "12": "{value1} ~ {value2}개의 폭탄 생성"
+    },
+    "trigger": {
+      "4": "센터 스킬이 발동될 동안",
+      "7": "처음 10초 동안",
+      "8": "마지막 10초 동안",
+      "9": "쇼 타임 동안",
+      "10": "라스트 보너스 동안",
+      "11": "콤보 지속 동안"
+    }
+  },
+  "cardPassiveSkill": {
+    "effectDetail": {},
+    "effect": {
+      "1": "스코어 UP",
+      "2": "골드 UP",
+      "3": "플레이 시간 UP",
+      "4": "스킬 게이지 UP",
+      "5": "쇼 타임 UP"
+    },
+    "trigger": {
+      "1": "퍼즐 개시",
+      "2": "남은 플레이 시간",
+      "3": "퍼즐 종료 시",
+      "4": "점 달성 시",
+      "5": "골드 달성 시",
+      "6": "콤보 달성 시",
+      "7": "스킬 발동 시",
+      "8": "쇼 타임 발동 시",
+      "9": "폭탄 제거 시",
+      "11": "푸치를 제거할 때",
+      "11_1": "센터 푸치를 제거할 때",
+      "10_1": "파란색 연결 제거 시",
+      "10_2": "노란색 연결 제거 시",
+      "10_3": "빨간색 연결 제거 시",
+      "10_4": "무지개 연결 제거 시"
+    }
+  },
+  "mission": {
+    "targetFormat": "{limit} {period} {target}",
+    "limitationStandalone": {
+      "None": "없음",
+      "Leader": {
+        "Other": "센터 멤버의 값은 {value}부터여야 합니다.",
+        "Personal": "센터 멤버의 값은 {value}이어야 합니다."
+      },
+      "All": {
+        "Other": "모든 멤버의 값은 {value}부터여야 합니다.",
+        "Personal": "모든 멤버의 값은 {value}이어야 합니다."
+      }
+    },
+    "limitationShort": {
+      "None": "-",
+      "Leader": {
+        "Other": "{value} 센터",
+        "Personal": "{value} 센터"
+      },
+      "All": {
+        "Other": "{value} 팀",
+        "Personal": "{value} 팀"
+      }
+    },
+    "limitation": {
+      "None": "",
+      "Leader": {
+        "Other": "{value}을(를) 리더로 하여",
+        "Personal": "{value}을(를) 리더로 하여"
+      },
+      "All": {
+        "Other": "{value} 팀을 구성 하여",
+        "Personal": "{value} 팀을 구성 하여"
+      }
+    },
+    "period": {
+      "1": "한번 플레이에",
+      "2": "누적"
+    },
+    "target": {
+      "eraseLeader": "{data}개의 센터 푸치 제거",
+      "eraseAll": "{data}개의 푸치 제거",
+      "gold": "{data} 골드 획득",
+      "combo": "{data} 콤보 달성",
+      "macaron": "{data} 토큰 획득",
+      "skill": "스킬 {data}번 사용",
+      "score": "{data}점 달성",
+      "scoreBreak": [
+        8,
+        4
+      ],
+      "score_4": "{data}만 점 달성",
+      "score_8": "{data}억 점 달성",
+      "showTime": "쇼 타임 {data}번 발동",
+      "bombAll": "{data}개의 폭탄 제거",
+      "bombScore": "{data}개의 점수 폭탄 제거",
+      "bombTime": "{data}개의 시간 폭탄 제거",
+      "bombGold": "{data}개의 골드 폭탄 제거",
+      "chainCount": "{chain}+연결 푸치 {count}번 제거",
+      "chainCount_26": "{data}개의 무지개 (26+) 연결 제거",
+      "chainCount_21": "{data}개의 빨간색 (21+) 연결 제거",
+      "chainCount_16": "{data}개의 노란색 (16+) 연결 제거",
+      "chainCount_11": "{data}개의 파란색 (11+) 연결 제거"
+    },
+    "targetShort": {
+      "eraseLeader": "{data} 센터 푸치 제거",
+      "eraseAll": "{data} 푸치 제거",
+      "gold": "{data} 골드",
+      "combo": "{data} 콤보",
+      "macaron": "{data} 토큰",
+      "skill": "{data} 스킬 발동",
+      "score": "{data} 점",
+      "showTime": "{data} 쇼 타임",
+      "bombAll": "{data} 폭탄",
+      "bombScore": "{data} 점수 폭탄",
+      "bombTime": "{data} 시간 폭탄",
+      "bombGold": "{data} 골드 폭탄",
+      "chainCount": "{count}개의 {chain}+연결 푸치",
+      "scoreBreak": [
+        8,
+        4
+      ],
+      "score_4": "{data}만 점",
+      "score_8": "{data}억 점",
+      "chainCount_26": "{data} 무지개 연결",
+      "chainCount_21": "{data} 빨간 연결",
+      "chainCount_16": "{data} 노란 연결",
+      "chainCount_11": "{data} 파란 연결"
+    }
+  },
+  "names": {
+    "Personal": {
+      "name": {
+        "101": "코우사카 호노카",
+        "102": "미나미 코토리",
+        "103": "소노다 우미",
+        "104": "니시키노 마키",
+        "105": "호시조라 린",
+        "106": "코이즈미 하나요",
+        "107": "야자와 니코",
+        "108": "토죠 노조미",
+        "109": "아야세 에리",
+        "201": "타카미 치카",
+        "202": "와타나베 요우",
+        "203": "사쿠라우치 리코",
+        "204": "쿠니키다 하나마루",
+        "205": "쿠로사와 루비",
+        "206": "츠시마 요시코",
+        "207": "쿠로사와 다이아",
+        "208": "마츠우라 카난",
+        "209": "오하라 마리"
+      }
+    },
+    "Unit": {
+      "name": [
+        "",
+        "Printemps",
+        "BiBi",
+        "lily white",
+        "CYaRon!",
+        "AZALEA",
+        "Guilty Kiss"
+      ]
+    },
+    "Group": {
+      "name": [
+        "",
+        "μ’s",
+        "Aqours",
+        "A-RISE",
+        "Saint Snow"
+      ]
+    },
+    "Class": {
+      "name": [
+        "",
+        "1학년",
+        "2학년",
+        "3학년"
+      ]
+    }
+  },
+  "wording": {
+    "settings": {
+      "showSettings": "설정",
+      "timezone": "시간대",
+      "currentTimezone": "현재 시간대:",
+      "title": "설정",
+      "useJST": "일본 표준 시간대 (JST = KST) 사용"
+    },
+    "cards": {
+      "maxScore": "최대 점수",
+      "specialSkillLabel": "특별 능력",
+      "passiveSkillLabel": "스킬"
+    },
+    "menu": {
+      "achievements": "도전 과제",
+      "nesos": "푸치",
+      "nesoList": "푸치 목록",
+      "nesoStats": "푸치 스탯",
+      "cards": "카드",
+      "stages": "스테이지",
+      "events": "이벤트",
+      "github": "Github",
+      "legacyWebsite": "이전 사이트"
+    },
+    "subMenu": {
+      "nesoList": "목록",
+      "nesoStats": "스탯"
+    },
+    "menuDescription": {
+      "achievements": "도전 과제",
+      "nesos": "푸치 목록",
+      "nesoStats": "푸치 스탯",
+      "cards": "카드",
+      "stages": "미션 스테이지",
+      "events": "이벤트",
+      "github": "소스 코드, 버그 제보 및 기능 요청",
+      "legacyWebsite": "예전 Puchiguru.db 사이트"
+    },
+    "events": {
+      "types": {
+        "1": "토큰 수집",
+        "2": "구간별"
+      },
+      "meta": {
+        "start": "시작:",
+        "end": "종료:"
+      },
+      "effect": {
+        "bonus": "보너스 효과",
+        "40": "40%",
+        "20": "20%",
+        "10": "10%",
+        "start": "시작",
+        "end": "종료",
+        "area": "구간"
+      },
+      "stages": {
+        "areaShort": "구간"
+      },
+      "areas": {
+        "0": "-",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "101": "1H",
+        "102": "2H",
+        "103": "3H"
+      },
+      "areasFull": {
+        "0": "-",
+        "1": "1-노멀",
+        "2": "2-노멀",
+        "3": "3-노멀",
+        "101": "1-하드",
+        "102": "2-하드",
+        "103": "3-하드"
+      },
+      "tower": {
+        "target1": "목표 1",
+        "target2": "목표 2",
+        "target3": "목표 3",
+        "reward1_short": "보상 1",
+        "reward2_short": "보상 2",
+        "reward3_short": "보상 3",
+        "reward1": "보상 1",
+        "reward2": "보상 2",
+        "reward3": "보상 3"
+      }
+    },
+    "nesos": {
+      "list": {
+        "activeSkill": "센터",
+        "passiveSkill": "지원"
+      },
+      "activeSkill": "센터 스킬",
+      "passiveSkill": "지원 스킬"
+    },
+    "skills": {
+      "level": "레벨",
+      "activeSkillParams": {
+        "skillRandomMin": "랜덤 최소",
+        "skillRandomMax": "랜덤 최대",
+        "skillTime": "기간",
+        "num": "종류",
+        "lotteryRate": "확률",
+        "forceBombNum": "폭탄"
+      },
+      "passiveSkill": {
+        "levels": "레벨",
+        "effects": "효과",
+        "trigger": "발동 조건",
+        "rate": "확률"
+      },
+      "activeSkill": {
+        "levels": "레벨",
+        "effects": "효과",
+        "requirements": "푸치",
+        "parameters": "매개변수",
+        "view": "보기",
+        "binmap": "범위",
+        "key": "키",
+        "value": "값",
+        "range": {
+          "SS": "SS",
+          "SSminus": "SS-",
+          "SSplus": "SS+",
+          "S": "S",
+          "Sminus": "S-",
+          "Splus": "S+",
+          "M": "M",
+          "Mminus": "M-",
+          "Mplus": "M+",
+          "L": "L",
+          "Lminus": "L-",
+          "Lplus": "L+",
+          "LL": "LL",
+          "LLminus": "LL-",
+          "LLplus": "LL+",
+          "3L": "3L",
+          "3Lminus": "3L-",
+          "3Lplus": "3L+"
+        }
+      }
+    },
+    "stages": {
+      "showCombined": "합쳐 보기",
+      "normalMission": "미션",
+      "secretMission": "시크릿",
+      "extraMission": "추가",
+      "allMissions": "미션",
+      "missions": "미션",
+      "secrets": "시크릿 미션",
+      "extras": "추가 미션",
+      "missionModal": {
+        "titles": {
+          "mission": "미션",
+          "limitation": "제한",
+          "target": "목표",
+          "release": "출시",
+          "unlock": "해금 조건",
+          "reward": "보상"
+        },
+        "title": "미션 자세히 보기"
+      },
+      "schedule": {
+        "__title": "스테이지 회람 일정",
+        "num": "#",
+        "start": "시작",
+        "end": "종료"
+      }
+    },
+    "message": {
+      "newWebsite": "새 Puchibase 사이트",
+      "newWebsiteDescription1": "이 Puchibase 사이트는 아직 활발히 개발 중입니다.",
+      "newWebsiteDescription2": "버그를 발견하셨거나 아이디어가 있으시면 다음 링크에서 이슈를 남겨 주세요:"
+    }
+  }
+}

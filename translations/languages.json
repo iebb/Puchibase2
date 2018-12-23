@@ -28,5 +28,11 @@
     "flag": "jp",
     "translator": "ieb",
     "code": "ja-JP"
+  },
+  "ko-KR": {
+    "language": "한국어",
+    "flag": "kr",
+    "translator": "So-chiru",
+    "code": "ja-JP"
   }
 }
