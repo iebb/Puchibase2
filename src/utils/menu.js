@@ -40,7 +40,7 @@ export function getMainMenu() {
       path: "/cards",
       translated: t(["wording", "menu", "cards"]),
       description: t(["wording", "menuDescription", "cards"]),
-      image: getGeneral("cardsmall", "100100036"),
+      image: getGeneral("cardsmall", "100100035"),
       type: Link,
     },
     {
