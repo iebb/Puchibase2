@@ -4,7 +4,7 @@ const endPoint = "https://puchiguru.loveliv.es/api/";
 const suffix = "Mst.min.json";
 
 export function cachedRequest(key, hash, options) {
-  return fetch(`${endPoint}${key}${suffix}?hash=${hash}`, options)
+  return fetch(`${endPoint}${key}${suffix}?hash=${hash}`, {...options, mode: 'no-cors'})
     .then(checkStatus)
     .then(parseJSON)
     .then(data => {
@@ -16,7 +16,7 @@ export function cachedRequest(key, hash, options) {
 }
 
 export function normalRequest(key, options) {
-  return fetch(`${endPoint}${key}${suffix}`, options)
+  return fetch(`${endPoint}${key}${suffix}`, {...options, mode: 'no-cors'})
     .then(checkStatus)
     .then(parseJSON)
     .then(data => ({ data }))

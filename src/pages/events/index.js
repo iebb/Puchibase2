@@ -48,7 +48,13 @@ export default class Events extends React.PureComponent {
       }, {
         name: t(["wording", "events", "types", "2"]),
         color: "blue",
-      }
+      }, {
+        name: t(["wording", "events", "types", "3"]),
+        color: "red",
+      }, {
+        name: t(["wording", "events", "types", "4"]),
+        color: "red",
+      },
     ];
 
     if (pageData.length === 0) return (<Loading />);
